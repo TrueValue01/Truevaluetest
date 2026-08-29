@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test EODHD CORS</title>
+<style>
+  body{background:#0a0a0a;color:#e8e4d8;font-family:system-ui,sans-serif;padding:20px;line-height:1.6}
+  h1{color:#d4af37;font-size:20px}
+  button{background:#d4af37;color:#0a0a0a;border:none;padding:14px 24px;border-radius:8px;font-size:16px;font-weight:600;width:100%;margin:14px 0;cursor:pointer}
+  .box{background:#12100a;border:1px solid #2a2618;border-radius:8px;padding:16px;margin:12px 0;font-size:14px}
+  .ok{color:#4ade80;font-weight:600}
+  .err{color:#f87171;font-weight:600}
+  .wait{color:#fbbf24}
+  pre{white-space:pre-wrap;word-break:break-all;font-size:11px;color:#8a8574;background:#000;padding:10px;border-radius:6px;max-height:300px;overflow:auto}
+  input{width:100%;box-sizing:border-box;background:#0d0b06;border:1px solid #2a2618;color:#e8e4d8;padding:10px;border-radius:6px;font-size:14px;margin:8px 0}
+</style>
+</head>
+<body>
+<h1>Test EODHD — funziona dal browser?</h1>
+<p>Questo test dice se l'app potrà chiamare EODHD <b>direttamente</b> dal tuo telefono, o se servirà un proxy.</p>
+
+<div class="box">
+  <b>Passo 1 — con token demo</b> (gratuito, solo AMZN.US)<br>
+  Premi il bottone. Non serve nessuna chiave.
+</div>
+<button onclick="testDemo()">TEST con token demo</button>
+
+<div class="box">
+  <b>Passo 2 — con la TUA chiave</b> (opzionale, se ne hai già una)<br>
+  <input type="text" id="key" placeholder="Incolla qui la tua API key EODHD (o lascia vuoto)">
+</div>
+<button onclick="testKey()">TEST con la mia chiave</button>
+
+<div id="out"></div>
+
+<script>
+const out=document.getElementById('out');
+function log(html){ out.innerHTML = html + out.innerHTML; }
+
+async function doTest(token,label){
+  const url=`https://eodhd.com/api/eod/AMZN.US?api_token=${token}&fmt=json&from=2025-08-01`;
+  log(`<div class="box"><div class="wait">⏳ ${label}: chiamata in corso...</div></div>`);
+  try{
+    const t0=Date.now();
+    const resp=await fetch(url);
+    const ms=Date.now()-t0;
+    if(!resp.ok){
+      const txt=await resp.text();
+      log(`<div class="box"><div class="err">✗ ${label}: HTTP ${resp.status}</div><pre>${txt.slice(0,300)}</pre><div style="font-size:12px">La chiamata è ARRIVATA (niente blocco CORS) ma il server ha risposto con errore. Se è 401/403 è solo questione di token/piano, NON di CORS: il meccanismo funziona.</div></div>`);
+      return;
+    }
+    const data=await resp.json();
+    const n=Array.isArray(data)?data.length:0;
+    log(`<div class="box"><div class="ok">✓ ${label}: FUNZIONA! (${ms}ms, ${n} giorni di dati)</div><pre>${JSON.stringify(data.slice(0,2),null,2)}</pre><div style="font-size:12px">Il browser ha letto la risposta senza blocchi. La Via C è percorribile: niente proxy necessario.</div></div>`);
+  }catch(e){
+    log(`<div class="box"><div class="err">✗ ${label}: BLOCCATO</div><pre>${e.message}</pre><div style="font-size:12px">Se il messaggio parla di "CORS", "Failed to fetch" o "Network", il browser ha bloccato la chiamata diretta. In questo caso servirà un piccolo proxy — cambia il piano, ma si risolve.</div></div>`);
+  }
+}
+
+function testDemo(){ doTest('demo','DEMO'); }
+function testKey(){
+  const k=document.getElementById('key').value.trim();
+  if(!k){ log('<div class="box"><div class="err">Inserisci prima una chiave, o usa il test demo.</div></div>'); return; }
+  doTest(k,'CHIAVE TUA');
+}
+</script>
+</body>
+</html>
