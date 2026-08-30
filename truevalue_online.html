@@ -392,7 +392,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;box-
 <div class="d-logo" onclick="goHome()"><span class="gi">True</span><span class="gw">Value</span></div>
 <div class="d-div"></div>
 <div class="badge" id="badge">STOCK</div>
-<span style="font-size:8px;color:var(--gd);opacity:.6;font-family:'JetBrains Mono',monospace">v35-online-api1b</span>
+<span style="font-size:8px;color:var(--gd);opacity:.6;font-family:'JetBrains Mono',monospace">v35-online-api1c</span>
 <div class="mtog">
 <button class="mb on" onclick="setMode('quick')" id="mb-q">Quick</button>
 <button class="mb" onclick="setMode('precise')" id="mb-p">Precise</button>
@@ -2753,6 +2753,18 @@ async function fmpFetch(){
     if(p){
       fmpSetField('p-price',p.price);
       fmpSetField('p-beta',p.beta);
+      // AREA: il campo p-area ha due opzioni EU/US. FMP dà country ("US","IT"...).
+      // Senza questo, il campo restava sul default (EU) → Apple mostrava "Eurozona".
+      if(p.country){
+        const eu=['AT','BE','CY','EE','FI','FR','DE','GR','IE','IT','LV','LT','LU','MT','NL','PT','SK','SI','ES'];
+        const area=eu.includes(p.country.trim().toUpperCase())?'EU':'US';
+        const selA=document.getElementById('p-area');
+        if(selA){ for(const o of selA.options){ if((o.value||o.text)===area){ selA.value=area; break; } } }
+      }
+      // P/E ed EPS dal profile (il quote base non li ha). Se assenti qui,
+      // verranno da endpoint fondamentali nella fase successiva.
+      if(p.pe!==undefined && p.pe!==null) fmpSetField('p-pe',p.pe);
+      if(p.eps!==undefined && p.eps!==null) fmpSetField('p-eps',p.eps);
       // settore: mappa esplicita dai settori FMP (GICS-like) alle opzioni del select.
       // Il match "per testo" falliva su Technology/Finance/ecc. → cadevano su Other,
       // e per Finance è critico (attiva il modello Damodaran). Mappa diretta e sicura.
@@ -2777,21 +2789,27 @@ async function fmpFetch(){
         if(p.industry && /semiconduct/i.test(p.industry)){ if(sel){ for(const o of sel.options){ if((o.value||o.text)==='Semis'){ sel.value='Semis'; break; } } } }
       }
     }
-    // 2) QUOTE — P/E, EPS, prezzo (conferma)
+    // 2) QUOTE — conferma il prezzo in tempo reale (questo endpoint NON ha pe/eps:
+    //    dà price, change, volume, dayLow/High, ecc. P/E ed EPS vengono dal profile.)
     const qr=await fetch(`https://financialmodelingprep.com/stable/quote?symbol=${tk}&apikey=${key}`);
     if(qr.ok){
       const qa=await qr.json();
       const q=Array.isArray(qa)?qa[0]:qa;
-      if(q){
-        fmpSetField('p-price',q.price);
-        fmpSetField('p-pe',q.pe);
-        fmpSetField('p-eps',q.eps);
-      }
+      if(q && q.price!==undefined){ fmpSetField('p-price',q.price); }
     }
     // ricalcolo il motore coi nuovi dati
     if(typeof calcPrecise==='function'){ lastTicker=tk; try{calcPrecise();}catch(e){} }
-    setBtn('Dati scaricati');
-    setTimeout(()=>setBtn('Scarica dati da FMP (USA)'),2200);
+    // riepilogo onesto: elenco cosa è stato riempito davvero
+    const riempiti=[];
+    ['p-price','p-beta','p-area','p-sec','p-pe','p-eps'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el && el.value!=='' && el.value!=null){
+        const nome={'p-price':'prezzo','p-beta':'beta','p-area':'area','p-sec':'settore','p-pe':'P/E','p-eps':'EPS'}[id];
+        riempiti.push(nome);
+      }
+    });
+    setBtn('Riempiti: '+(riempiti.join(', ')||'nessuno'));
+    setTimeout(()=>setBtn('Scarica dati da FMP (USA)'),3500);
   }catch(e){
     setBtn('Errore: '+(e.message||'rete'));
     setTimeout(()=>setBtn('Scarica dati da FMP (USA)'),3000);
