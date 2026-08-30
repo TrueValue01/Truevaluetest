@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test FMP CORS</title>
+<style>
+  body{background:#0a0a0a;color:#e8e4d8;font-family:system-ui,sans-serif;padding:20px;line-height:1.6}
+  h1{color:#d4af37;font-size:20px}
+  button{background:#d4af37;color:#0a0a0a;border:none;padding:14px 24px;border-radius:8px;font-size:16px;font-weight:600;width:100%;margin:14px 0;cursor:pointer}
+  .box{background:#12100a;border:1px solid #2a2618;border-radius:8px;padding:16px;margin:12px 0;font-size:14px}
+  .ok{color:#4ade80;font-weight:600}
+  .err{color:#f87171;font-weight:600}
+  .wait{color:#fbbf24}
+  pre{white-space:pre-wrap;word-break:break-all;font-size:11px;color:#8a8574;background:#000;padding:10px;border-radius:6px;max-height:300px;overflow:auto}
+  input{width:100%;box-sizing:border-box;background:#0d0b06;border:1px solid #2a2618;color:#e8e4d8;padding:12px;border-radius:6px;font-size:14px;margin:8px 0}
+  a{color:#d4af37}
+</style>
+</head>
+<body>
+<h1>Test FMP — funziona dal browser?</h1>
+<p>Questo test dice se l'app potr&agrave; chiamare Financial Modeling Prep <b>direttamente</b> dal telefono, senza proxy.</p>
+
+<div class="box">
+  <b>Passo 1 — Serve la tua chiave FMP gratuita</b><br>
+  Se non ce l'hai: vai su <a href="https://site.financialmodelingprep.com/developer/docs" target="_blank">financialmodelingprep.com</a>, registrati gratis, copia la tua API key.<br><br>
+  Incollala qui:
+  <input type="text" id="key" placeholder="La tua API key FMP">
+</div>
+<button onclick="testStock()">TEST 1 — dati STOCK (AAPL)</button>
+<button onclick="testProfile()">TEST 2 — profilo azienda (AAPL)</button>
+
+<div id="out"></div>
+
+<script>
+const out=document.getElementById('out');
+function log(html){ out.innerHTML = html + out.innerHTML; }
+
+async function doTest(url,label){
+  log(`<div class="box"><div class="wait">In corso: ${label}...</div></div>`);
+  try{
+    const t0=Date.now();
+    const resp=await fetch(url);
+    const ms=Date.now()-t0;
+    if(!resp.ok){
+      const txt=await resp.text();
+      log(`<div class="box"><div class="err">HTTP ${resp.status}: ${label}</div><pre>${txt.slice(0,300)}</pre><div style="font-size:12px">La chiamata e' ARRIVATA (niente blocco CORS). Se e' 401/403 e' solo la chiave/piano, NON il CORS: il meccanismo dal browser funziona.</div></div>`);
+      return;
+    }
+    const data=await resp.json();
+    log(`<div class="box"><div class="ok">FUNZIONA: ${label} (${ms}ms)</div><pre>${JSON.stringify(data,null,2).slice(0,600)}</pre><div style="font-size:12px">Il browser ha letto la risposta senza blocchi. Niente proxy necessario per la fase di prova.</div></div>`);
+  }catch(e){
+    log(`<div class="box"><div class="err">BLOCCATO: ${label}</div><pre>${e.message}</pre><div style="font-size:12px">Se parla di "CORS", "Failed to fetch" o "Network", il browser ha bloccato la chiamata diretta. In tal caso servira' un piccolo proxy.</div></div>`);
+  }
+}
+
+function key(){ return document.getElementById('key').value.trim(); }
+function testStock(){
+  const k=key(); if(!k){log('<div class="box"><div class="err">Inserisci prima la chiave FMP.</div></div>');return;}
+  // quote: prezzo e dati rapidi
+  doTest(`https://financialmodelingprep.com/api/v3/quote/AAPL?apikey=${k}`,'Quote AAPL');
+}
+function testProfile(){
+  const k=key(); if(!k){log('<div class="box"><div class="err">Inserisci prima la chiave FMP.</div></div>');return;}
+  // profile: dati anagrafici + alcuni fondamentali
+  doTest(`https://financialmodelingprep.com/api/v3/profile/AAPL?apikey=${k}`,'Profile AAPL');
+}
+</script>
+</body>
+</html>
