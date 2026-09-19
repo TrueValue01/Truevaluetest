@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>TrueValue · test CET1</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}
+*{box-sizing:border-box;font-family:-apple-system,system-ui,sans-serif}
+body{margin:0;background:#0e1420;color:#e6edf3;padding:14px;line-height:1.45}
+h1{font-size:17px;margin:4px 0 2px}
+p.sub{font-size:12px;color:#8b98a8;margin:0 0 12px}
+.box{background:#161d2b;border:1px solid #232d40;border-radius:10px;padding:12px;margin:10px 0}
+.nm{font-weight:600;font-size:14px;margin-bottom:6px}
+.res{font-size:12px;white-space:pre-wrap;word-break:break-word}
+button{background:#1d4ed8;color:#fff;border:0;border-radius:8px;padding:12px;font-size:14px;font-weight:600;width:100%;margin:6px 0}
+.hit{color:#4ade80;font-weight:700}
+.mono{font-family:ui-monospace,monospace}
+</style></head>
+<body>
+<h1>Test CET1 · BAC — holding vs subsidiary</h1>
+<p class="sub">Aprilo sul TUO GitHub Pages. Cerchiamo il CET1 di Bank of America. Atteso: holding ≈ <b>11.6</b> (giusto) · subsidiary ≈ <b>14.8</b> (sbagliato).</p>
+<button onclick="run()">Esegui test</button>
+
+<div class="box"><div class="nm">1 · SEC EDGAR (holding — CIK 0000070858)</div><div class="res" id="sec">—</div></div>
+<div class="box"><div class="nm">2 · FDIC (subsidiary — Bank of America NA)</div><div class="res" id="fdic">—</div></div>
+
+<script>
+const set=(id,t)=>document.getElementById(id).innerHTML=t;
+
+async function sec(){
+  set('sec','fetch companyfacts (file grande, attendi)...');
+  try{
+    const r=await fetch('https://data.sec.gov/api/xbrl/companyfacts/CIK0000070858.json',{headers:{'Accept':'application/json'}});
+    if(!r.ok){ set('sec','HTTP '+r.status+' — SEC non raggiungibile qui'); return; }
+    const j=await r.json();
+    const rx=/tier.?1|common.?equity.?tier|cet1|risk.?based.?capital.?to|capital.?ratio/i;
+    const found=[];
+    for(const tax in (j.facts||{})){
+      for(const con in j.facts[tax]){
+        const label=(j.facts[tax][con].label||'')+' '+con;
+        if(rx.test(label)){
+          // ultimo valore
+          const units=j.facts[tax][con].units||{};
+          let last=null;
+          for(const u in units){ const arr=units[u]; if(arr&&arr.length){ const v=arr[arr.length-1]; last={val:v.val,end:v.end,unit:u}; } }
+          found.push({tax,con,label:j.facts[tax][con].label||con,last});
+        }
+      }
+    }
+    if(!found.length){ set('sec','<b>Nessun concetto CET1/Tier1 in XBRL.</b>\nSEC non espone il CET1 come dato strutturato → il CET1 holding va pre-costruito (FR Y-9C).'); return; }
+    let out='Concetti capitale trovati ('+found.length+'):\n\n';
+    found.slice(0,20).forEach(f=>{
+      const v=f.last?`${f.last.val} (${f.last.unit}, ${f.last.end})`:'—';
+      const hit=(f.last&&f.last.val>=10&&f.last.val<=13)?' <span class="hit">← ~holding?</span>':'';
+      out+=`• ${f.label}\n   [${f.tax}:${f.con}] = ${v}${hit}\n`;
+    });
+    set('sec',out);
+  }catch(e){ set('sec','ROSSO: '+e.message); }
+}
+
+async function fdic(){
+  set('fdic','cerco CERT di Bank of America NA...');
+  try{
+    const li=await fetch('https://banks.data.fdic.gov/api/institutions?filters=NAME:%22Bank%20of%20America%22%20AND%20ACTIVE:1&fields=NAME,CERT,ASSET&sort_by=ASSET&sort_order=DESC&limit=5&format=json',{headers:{'Accept':'application/json'}});
+    const lj=await li.json();
+    const rows=(lj.data||[]).map(d=>d.data);
+    if(!rows.length){ set('fdic','nessuna istituzione trovata'); return; }
+    const cert=rows[0].CERT;
+    let out='Banca: '+rows[0].NAME+' · CERT '+cert+'\n\n';
+    // fetch financials ultimo trimestre, campi capitale
+    const f=await fetch(`https://banks.data.fdic.gov/api/financials?filters=CERT:${cert}&fields=REPDTE,RBCT1J,RBCRWAJ,RBC1RWAJ,RBCT2,EQ,ASSET,NCLNLSR,LNATRES&sort_by=REPDTE&sort_order=DESC&limit=1&format=json`,{headers:{'Accept':'application/json'}});
+    const fj=await f.json();
+    const rec=(fj.data&&fj.data[0]&&fj.data[0].data)||{};
+    out+='Ultimo trimestre '+ (rec.REPDTE||'?') +':\n';
+    for(const k in rec){ if(k!=='REPDTE') out+=`  ${k} = ${rec[k]}\n`; }
+    out+='\nRBCT1J/RBC1RWAJ = tier1/CET1 ratio subsidiary (atteso ~14-15).\nNCLNLSR = noncurrent loans · LNATRES = riserve → NPL/coverage.';
+    set('fdic',out);
+  }catch(e){ set('fdic','ROSSO: '+e.message); }
+}
+
+async function run(){ await sec(); await fdic(); }
+</script>
+</body></html>
