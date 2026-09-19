@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>TrueValue · CORS recon</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}
+*{box-sizing:border-box;font-family:-apple-system,system-ui,sans-serif}
+body{margin:0;background:#0e1420;color:#e6edf3;padding:14px;line-height:1.4}
+h1{font-size:17px;margin:4px 0 2px}
+p.sub{font-size:12px;color:#8b98a8;margin:0 0 14px}
+.src{background:#161d2b;border:1px solid #232d40;border-radius:10px;padding:12px;margin:10px 0}
+.hd{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.dot{width:12px;height:12px;border-radius:50%;background:#3a4457;flex:none}
+.nm{font-weight:600;font-size:14px}
+.url{font-size:11px;color:#7b8798;word-break:break-all;margin:4px 0}
+.res{font-size:12px;margin-top:6px;white-space:pre-wrap;word-break:break-word}
+.role{font-size:11px;color:#c9a84c;margin-top:2px}
+input{width:100%;background:#0e1420;border:1px solid #2a3446;color:#e6edf3;border-radius:7px;padding:9px;font-size:13px;margin:4px 0}
+button{background:#1d4ed8;color:#fff;border:0;border-radius:8px;padding:12px;font-size:14px;font-weight:600;width:100%;margin:6px 0}
+button.sm{background:#243247;font-size:12px;padding:8px}
+.leg{font-size:11px;color:#8b98a8;margin-top:10px}
+.g{background:#1e8449}.r{background:#c0392b}.o{background:#d4a017}.gr{background:#3a4457}
+</style></head>
+<body>
+<h1>TrueValue · CORS recon</h1>
+<p class="sub">Aprilo sul TUO GitHub Pages (https), non in chat. Verde=CORS ok (live) · Arancione=raggiungibile ma serve chiave/UA · Rosso=bloccato (→ JSON pre-costruito).</p>
+
+<input id="fmp" placeholder="Chiave FMP (per il controllo — deve dare verde)"/>
+<input id="eodhd" placeholder="Chiave EODHD (opz. — lascia vuoto per usare demo)"/>
+<button onclick="runAll()">Testa tutto</button>
+
+<div id="list"></div>
+
+<p class="leg">Ruolo di ogni fonte:<br>
+• <b>FMP</b> = valutazione USA (già in uso, controllo).<br>
+• <b>EODHD</b> = valutazione UE (per far girare le banche europee).<br>
+• <b>FDIC</b> = NPL/riserve USA (attenzione: CET1 qui è subsidiary!).<br>
+• <b>SEC EDGAR</b> = fallback dati USA (spesso richiede User-Agent).<br>
+• <b>ECB</b> = dati UE aggregati (non per-banca).<br>
+Le fonti rosse non si usano live: si pre-costruiscono in JSON con uno script.</p>
+
+<script>
+const SRC=[
+ {id:'fmp', nm:'FMP (controllo valutazione USA)', role:'Se rosso, la chiave è sbagliata',
+  url:()=>`https://financialmodelingprep.com/stable/profile?symbol=AAPL&apikey=${val('fmp')||'DEMO'}`},
+ {id:'fdic_i', nm:'FDIC · institutions (no key)', role:'NPL/riserve USA (subsidiary)',
+  url:()=>`https://banks.data.fdic.gov/api/institutions?filters=STALP:NY&fields=NAME,CERT&limit=3&format=json`},
+ {id:'fdic_f', nm:'FDIC · financials (no key)', role:'Ratios call report (subsidiary)',
+  url:()=>`https://banks.data.fdic.gov/api/financials?fields=CERT,REPDTE,ASSET&limit=1&format=json`},
+ {id:'eodhd', nm:'EODHD · fundamentals', role:'Valutazione UE (demo=solo AAPL)',
+  url:()=>`https://eodhd.com/api/fundamentals/AAPL.US?api_token=${val('eodhd')||'demo'}&fmt=json`},
+ {id:'eodhd_eu', nm:'EODHD · ticker UE (ISP.MI)', role:'Verifica copertura UE (serve chiave vera)',
+  url:()=>`https://eodhd.com/api/fundamentals/ISP.MI?api_token=${val('eodhd')||'demo'}&fmt=json`},
+ {id:'sec', nm:'SEC EDGAR · submissions', role:'Fallback USA (User-Agent?)',
+  url:()=>`https://data.sec.gov/submissions/CIK0000019617.json`},
+ {id:'ecb', nm:'ECB · data API', role:'UE aggregato (non per-banca)',
+  url:()=>`https://data-api.ecb.europa.eu/service/data/BSI/M.U2.N.A.A20.A.1.U2.2240.Z01.E?lastNObservations=1&format=jsondata`},
+];
+function val(id){return (document.getElementById(id)||{}).value?.trim()||''}
+function render(){document.getElementById('list').innerHTML=SRC.map(s=>`
+ <div class="src"><div class="hd"><span class="dot gr" id="d_${s.id}"></span><span class="nm">${s.nm}</span></div>
+ <div class="role">${s.role}</div>
+ <div class="url" id="u_${s.id}"></div>
+ <div class="res" id="r_${s.id}">—</div>
+ <button class="sm" onclick="one('${s.id}')">Testa questa</button></div>`).join('')}
+function set(id,cls,txt){const d=document.getElementById('d_'+id);d.className='dot '+cls;document.getElementById('r_'+id).textContent=txt}
+async function one(id){
+ const s=SRC.find(x=>x.id===id);const url=s.url();document.getElementById('u_'+id).textContent=url;
+ set(id,'o','test in corso...');
+ const t0=Date.now();
+ try{
+   const r=await fetch(url,{headers:{'Accept':'application/json'}});
+   const body=(await r.text()).slice(0,160);
+   const ms=Date.now()-t0;
+   if(r.ok) set(id,'g',`VERDE · CORS ok · HTTP ${r.status} · ${ms}ms\n${body}`);
+   else set(id,'o',`ARANCIONE · CORS ok ma HTTP ${r.status} (chiave/limite?)\n${body}`);
+ }catch(e){ set(id,'r',`ROSSO · bloccato: ${e.message}\n(CORS assente o rete) → va pre-costruito in JSON`); }
+}
+async function runAll(){ for(const s of SRC){ await one(s.id); } }
+render();
+</script>
+</body></html>
