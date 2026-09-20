@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T13:22:04.778774+00:00",
+  "generated_at": "2026-09-20T13:26:32.955387+00:00",
   "scope": "probe fase 3 — endpoint holding trovato dal catalogo, non indovinato",
   "holding_rssd_found": 1039502,
   "results": {
@@ -189,16 +189,18 @@
         "error": {
           "code": "bank_not_found",
           "message": "No bank with RSSD ID 1039502 in current quarter.",
-          "request_id": "e62bc7a0407748a3bf6807a339a241e5"
+          "request_id": "a4d5eb1d314a4a4e9b79f2bc37868f11"
         }
       },
       "raw_snippet": null
     },
     "sec_probe": {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000019617.json",
-      "status": 403,
-      "ok": false,
-      "note": "SEC ha risposto ma non OK (403 = User-Agent rifiutato)."
+      "status": 200,
+      "ok": true,
+      "entity_name": "JPMORGAN CHASE & CO",
+      "cet1_concepts_found": [],
+      "note": "NESSUN tag CET1 in XBRL — confermato: SEC non espone il CET1 come dato strutturato, solo come testo nel 10-Q."
     }
   },
   "cet1_field_hints": [
