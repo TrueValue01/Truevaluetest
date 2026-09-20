@@ -1,0 +1,3720 @@
+{
+  "generated_at": "2026-09-20T01:49:41.973976+00:00",
+  "scope": "probe fase 1 — solo JPM RSSD 852218, ground truth holding=14.8",
+  "results": {
+    "bank_snapshot": {
+      "url": "https://api.bankregreports.com/api/v1/banks/852218/",
+      "status": 200,
+      "ok": true,
+      "json": {
+        "data": {
+          "rssd_id": 852218,
+          "fdic_cert": 628,
+          "legal_name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+          "hq_city": "COLUMBUS",
+          "hq_state": "OH",
+          "regulator": "OCC",
+          "established": "1824-01-01",
+          "asset_tier": "1: >= $250B",
+          "report_date": "2026-06-30",
+          "total_assets": 4091315000.0,
+          "total_deposits": 2820284000.0,
+          "total_loans": 1561577000.0,
+          "total_equity": 341580000.0,
+          "cet1_ratio": 16.084,
+          "tier1_ratio": 16.0842,
+          "total_capital_ratio": 16.4972,
+          "leverage_ratio": 7.4947,
+          "npl_ratio": 0.87277156,
+          "nco_ratio": 0.61433333,
+          "texas_ratio": 5.0834985,
+          "npa_ratio": 0.33974406,
+          "acl_to_loans": 1.6612693,
+          "roa": 1.7009361,
+          "roe": 20.49974,
+          "net_interest_margin": 2.71,
+          "yield_on_earning_assets": 4.55,
+          "cost_of_funds": 1.8019552,
+          "efficiency_ratio": 53.89455,
+          "loan_to_deposit": 55.369495,
+          "core_deposit_ratio": 70.444534,
+          "uninsured_deposit_ratio": 49.374958,
+          "domestic_branches": 5394,
+          "employees_fte": 226846
+        },
+        "meta": {
+          "report_date": "2026-06-30",
+          "source": "FFIEC Call Report (Schedule RC/RI/RCR)"
+        }
+      },
+      "raw_snippet": null
+    },
+    "bank_structure": {
+      "url": "https://api.bankregreports.com/api/v1/banks/852218/structure/",
+      "status": 200,
+      "ok": true,
+      "json": {
+        "data": {
+          "rssd_id": 852218,
+          "legal_name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+          "charter_type": "N",
+          "primary_regulator": "OCC",
+          "holding_company_rssd": null,
+          "holding_company_name": null,
+          "parent_rssd": null,
+          "parent_name": null,
+          "domestic_branches": 5394,
+          "foreign_branches": 0,
+          "employees_fte": 226846,
+          "established": "1824-01-01",
+          "fdic_cert": 628
+        },
+        "meta": {
+          "rssd_id": 852218,
+          "report_date": null,
+          "source": "FDIC Institution Directory + NIC"
+        }
+      },
+      "raw_snippet": null
+    },
+    "bank_structure_full": {
+      "url": "https://api.bankregreports.com/api/v1/banks/852218/structure/full/",
+      "status": 200,
+      "ok": true,
+      "json": {
+        "data": {
+          "rssd_id": 852218,
+          "parents": [
+            {
+              "rssd_id": 1039502,
+              "name": "JPMORGAN CHASE & CO.",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "1969-02-17"
+            }
+          ],
+          "subsidiaries": [
+            {
+              "rssd_id": 3389649,
+              "name": "NEOVEST, INC.",
+              "state": "UT",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2026-01-12"
+            },
+            {
+              "rssd_id": 6099396,
+              "name": "WDAE TAX CREDIT FUND 123, LP",
+              "state": "CA",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2025-10-01"
+            },
+            {
+              "rssd_id": 6124784,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5093 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2025-08-15"
+            },
+            {
+              "rssd_id": 6009313,
+              "name": "JPM 2024-SSL1",
+              "state": "OH",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-12-23"
+            },
+            {
+              "rssd_id": 6010122,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5078 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-12-19"
+            },
+            {
+              "rssd_id": 6026589,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5077 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-11-13"
+            },
+            {
+              "rssd_id": 5885257,
+              "name": "SOFI FUNDING PL VI LLC",
+              "state": "UT",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-07-31"
+            },
+            {
+              "rssd_id": 5978524,
+              "name": "MERCHANTS CAPITAL TAX CREDIT EQUITY FUND 19, L.P.",
+              "state": "IN",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-09-30"
+            },
+            {
+              "rssd_id": 5977974,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5076 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-09-26"
+            },
+            {
+              "rssd_id": 5980321,
+              "name": "FALCON ASSET FUNDING LLC",
+              "state": "IL",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-09-20"
+            },
+            {
+              "rssd_id": 5974254,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5072 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-08-16"
+            },
+            {
+              "rssd_id": 5966820,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5066 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-07-02"
+            },
+            {
+              "rssd_id": 5954359,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5065 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-07-01"
+            },
+            {
+              "rssd_id": 5953857,
+              "name": "NHT 38 TAX CREDIT FUND, LIMITED PARTNERSHIP",
+              "state": "OH",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-06-21"
+            },
+            {
+              "rssd_id": 5957314,
+              "name": "RED STONE EQUITY - FUND 104 JPMORGAN LIMITED PARTNERSHIP",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-05-10"
+            },
+            {
+              "rssd_id": 5957323,
+              "name": "RAYMOND JAMES HOUSING OPPORTUNITIES FUND 83 L.P.",
+              "state": "FL",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-02-29"
+            },
+            {
+              "rssd_id": 5925313,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5057 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2024-01-25"
+            },
+            {
+              "rssd_id": 3825950,
+              "name": "PACIFIC CENTRE ASSOCIATES LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2023-12-31"
+            },
+            {
+              "rssd_id": 5906826,
+              "name": "BOSTON FINANCIAL HOUSING INVESTMENTS XXVI, LIMITED PARTNERSHIP",
+              "state": "MA",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2023-12-07"
+            },
+            {
+              "rssd_id": 5904729,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5055 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2023-11-21"
+            },
+            {
+              "rssd_id": 5902949,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5054 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2023-11-02"
+            },
+            {
+              "rssd_id": 2883113,
+              "name": "J.P. MORGAN RESIDENTIAL MORTGAGE ACCEPTANCE CORP.",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2023-06-30"
+            },
+            {
+              "rssd_id": 5866313,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5053 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2023-06-08"
+            },
+            {
+              "rssd_id": 5858765,
+              "name": "FIRST REPUBLIC LENDING CORPORATION",
+              "state": "CA",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2023-05-01"
+            },
+            {
+              "rssd_id": 5840845,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5048 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2023-03-16"
+            },
+            {
+              "rssd_id": 5840836,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5049 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2023-03-16"
+            },
+            {
+              "rssd_id": 5810017,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5046 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2022-11-17"
+            },
+            {
+              "rssd_id": 5813081,
+              "name": "CHASE AUTO RECEIVABLES LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2022-08-23"
+            },
+            {
+              "rssd_id": 5760541,
+              "name": "FIGG, INC.",
+              "state": "MN",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2022-07-01"
+            },
+            {
+              "rssd_id": 5656701,
+              "name": "TAPD, LLC",
+              "state": "OH",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2021-09-14"
+            },
+            {
+              "rssd_id": 5682607,
+              "name": "AMERICAN TAX CREDIT FUND 2021-B, LLC",
+              "state": "OH",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2021-11-15"
+            },
+            {
+              "rssd_id": 5651210,
+              "name": "RBC COMMUNITY INVESTMENTS FUND-X STRUCTURED HOUSING 2 LIMITED PARTNERSHIP",
+              "state": "OH",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2021-08-12"
+            },
+            {
+              "rssd_id": 5653719,
+              "name": "SYNDICATED LOAN CONSORTIUM HOLDINGS LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2021-07-13"
+            },
+            {
+              "rssd_id": 5559624,
+              "name": "LONDON PRECIOUS METALS CLEARING LIMITED",
+              "state": null,
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2020-12-14"
+            },
+            {
+              "rssd_id": 5530753,
+              "name": "HUDSON HOUSING TAX CREDIT FUND XCII LP",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2020-08-11"
+            },
+            {
+              "rssd_id": 5514061,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5038 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2020-06-25"
+            },
+            {
+              "rssd_id": 5419830,
+              "name": "INSTAMED COMMUNICATIONS, LLC",
+              "state": "PA",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2020-01-01"
+            },
+            {
+              "rssd_id": 5452846,
+              "name": "AMERICAN TAX CREDIT FUND 2019-B, LLC",
+              "state": "OH",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2019-12-20"
+            },
+            {
+              "rssd_id": 5452837,
+              "name": "PNC LIHTC FUND 77, LLC",
+              "state": "OR",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2019-12-20"
+            },
+            {
+              "rssd_id": 5443714,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5029 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2019-11-07"
+            },
+            {
+              "rssd_id": 5438989,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5028 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2019-10-17"
+            },
+            {
+              "rssd_id": 5438729,
+              "name": "BOSTON FINANCIAL HOUSING INVESTMENTS XXII, LIMITED PARTNERSHIP",
+              "state": "MA",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2019-10-16"
+            },
+            {
+              "rssd_id": 5422979,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5027 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2019-08-15"
+            },
+            {
+              "rssd_id": 4974444,
+              "name": "CHASE CARD FUNDING LLC",
+              "state": "DE",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2019-05-18"
+            },
+            {
+              "rssd_id": 5391691,
+              "name": "NEF INVESTMENT PARTNERS FUND IX LP",
+              "state": "IL",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2019-05-09"
+            },
+            {
+              "rssd_id": 3537664,
+              "name": "SE ASIA (TYPE B) NOMINEES LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2017-06-28"
+            },
+            {
+              "rssd_id": 906915,
+              "name": "J.P. MORGAN INTERNATIONAL FINANCE LIMITED",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2017-06-02"
+            },
+            {
+              "rssd_id": 5147665,
+              "name": "LIVA & CO., LLC",
+              "state": "OH",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2017-01-11"
+            },
+            {
+              "rssd_id": 5041183,
+              "name": "CHASE MORTGAGE TRUST 2016-2",
+              "state": "DE",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2016-07-28"
+            },
+            {
+              "rssd_id": 5117202,
+              "name": "J.P. MORGAN PUTTERS/DRIVERS, SERIES 5008 TRUST",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2016-05-24"
+            },
+            {
+              "rssd_id": 4986942,
+              "name": "CHASE MORTGAGE TRUST 2016-1",
+              "state": "DE",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2016-04-01"
+            },
+            {
+              "rssd_id": 4948678,
+              "name": "CARL MILLER ASSOCIATES I LLC",
+              "state": "PA",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2015-08-28"
+            },
+            {
+              "rssd_id": 3537682,
+              "name": "M. GARDINER & CO. LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2004-10-12"
+            },
+            {
+              "rssd_id": 3105689,
+              "name": "J.P. MORGAN ACCEPTANCE CORPORATION II",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2014-10-24"
+            },
+            {
+              "rssd_id": 3537758,
+              "name": "GIBCO & CO. JPM LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2014-09-02"
+            },
+            {
+              "rssd_id": 3531297,
+              "name": "L.D. PICKERING & CO. LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2014-09-02"
+            },
+            {
+              "rssd_id": 3537794,
+              "name": "FANO & CO. JPM LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2014-09-02"
+            },
+            {
+              "rssd_id": 4752277,
+              "name": "NEWPORT NORTH GARAGE LIMITED PARTNERSHIP",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2014-06-06"
+            },
+            {
+              "rssd_id": 4739700,
+              "name": "NOC V URBAN RENEWAL COMPANY, LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2014-06-06"
+            },
+            {
+              "rssd_id": 4158187,
+              "name": "BERHAN NOMINEES, LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2010-07-01"
+            },
+            {
+              "rssd_id": 4123925,
+              "name": "CHASE COMMUNITY EQUITY, LLC",
+              "state": "IL",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2010-04-15"
+            },
+            {
+              "rssd_id": 4125844,
+              "name": "BRICS & CO.",
+              "state": "OH",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2010-03-08"
+            },
+            {
+              "rssd_id": 4013437,
+              "name": "TFINN & CO. JPM LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2009-11-01"
+            },
+            {
+              "rssd_id": 3537767,
+              "name": "KINGSLEY NOMINEES, LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "1999-12-09"
+            },
+            {
+              "rssd_id": 3183539,
+              "name": "AULIS & CO., LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2001-06-01"
+            },
+            {
+              "rssd_id": 3825398,
+              "name": "STOCKTON PLAZA, INCORPORATED",
+              "state": "WA",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2008-09-25"
+            },
+            {
+              "rssd_id": 3825400,
+              "name": "WASHINGTON MUTUAL MORTGAGE SECURITIES CORP.",
+              "state": "OH",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2008-09-25"
+            },
+            {
+              "rssd_id": 3647639,
+              "name": "JPMORGAN CHASE BANK (CHINA) COMPANY LIMITED",
+              "state": null,
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2007-07-26"
+            },
+            {
+              "rssd_id": 3605862,
+              "name": "J.P. MORGAN CHASE CUSTODY SERVICES, INC.",
+              "state": "LA",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2001-10-15"
+            },
+            {
+              "rssd_id": 2728755,
+              "name": "DNT ASSET TRUST",
+              "state": "IL",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2006-03-20"
+            },
+            {
+              "rssd_id": 1090503,
+              "name": "BANC ONE BUILDING CORPORATION",
+              "state": "IL",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2004-11-13"
+            },
+            {
+              "rssd_id": 3537806,
+              "name": "SETTLE & CO. LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2002-02-28"
+            },
+            {
+              "rssd_id": 3537703,
+              "name": "HEISSEN & CO. LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2003-09-12"
+            },
+            {
+              "rssd_id": 3537691,
+              "name": "KANE & CO. JPM LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2001-08-01"
+            },
+            {
+              "rssd_id": 3537655,
+              "name": "BOBER & CO. JPM LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "1993-04-23"
+            },
+            {
+              "rssd_id": 3536872,
+              "name": "CUDD & CO. LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2002-01-16"
+            },
+            {
+              "rssd_id": 3536845,
+              "name": "EGGER & CO. JPM LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2001-09-04"
+            },
+            {
+              "rssd_id": 3531354,
+              "name": "JPMPRU & CO. LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2004-08-13"
+            },
+            {
+              "rssd_id": 3531336,
+              "name": "DELL & CO. JPM LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2001-08-01"
+            },
+            {
+              "rssd_id": 3531288,
+              "name": "CIG & CO. JPM LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2002-02-19"
+            },
+            {
+              "rssd_id": 3531224,
+              "name": "JROMEO & CO. LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2002-06-05"
+            },
+            {
+              "rssd_id": 3224964,
+              "name": "CHASE NEW MARKETS CORPORATION",
+              "state": "IL",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2004-11-13"
+            },
+            {
+              "rssd_id": 2897240,
+              "name": "SIGLER & CO. LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2001-08-10"
+            },
+            {
+              "rssd_id": 2294072,
+              "name": "J.P. MORGAN CHASE COMMERCIAL MORTGAGE SECURITIES CORP.",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2001-06-12"
+            },
+            {
+              "rssd_id": 1942675,
+              "name": "NATIONAL AUDIT SERVICES, INC.",
+              "state": "IL",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2004-11-13"
+            },
+            {
+              "rssd_id": 1423071,
+              "name": "FNBC LEASING CORPORATION",
+              "state": "IL",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2004-11-13"
+            },
+            {
+              "rssd_id": 3531327,
+              "name": "TIMM & CO. JPM LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2004-11-10"
+            },
+            {
+              "rssd_id": 3627293,
+              "name": "PAYMENTECH, LLC",
+              "state": "TX",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2007-06-29"
+            },
+            {
+              "rssd_id": 4735823,
+              "name": "JPMORGAN PRINCIPAL FUNDING OF DELAWARE, LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2006-12-18"
+            },
+            {
+              "rssd_id": 3537730,
+              "name": "J.C. ORR & CO. LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2004-11-29"
+            },
+            {
+              "rssd_id": 2992930,
+              "name": "JPMCB MERGER ENTITY LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2004-11-13"
+            },
+            {
+              "rssd_id": 3615487,
+              "name": "MOXLEY & CO. LLC",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2004-05-10"
+            },
+            {
+              "rssd_id": 5953053,
+              "name": "MANUFACTURERS HANOVER FUND",
+              "state": "NJ",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2000-12-31"
+            },
+            {
+              "rssd_id": 5953044,
+              "name": "RICHARD D. BROWN FUND B TRUST, THE",
+              "state": "NY",
+              "assets": null,
+              "charter_type": null,
+              "charter_label": null,
+              "relationship_start": "2000-12-31"
+            }
+          ],
+          "mergers": [
+            {
+              "predecessor_rssd": 3981276,
+              "successor_rssd": 852218,
+              "transformation_date": "2025-02-02"
+            },
+            {
+              "predecessor_rssd": 2592312,
+              "successor_rssd": 852218,
+              "transformation_date": "2024-11-02"
+            },
+            {
+              "predecessor_rssd": 4114567,
+              "successor_rssd": 852218,
+              "transformation_date": "2023-05-01"
+            },
+            {
+              "predecessor_rssd": 3179318,
+              "successor_rssd": 852218,
+              "transformation_date": "2021-12-31"
+            },
+            {
+              "predecessor_rssd": 3118474,
+              "successor_rssd": 852218,
+              "transformation_date": "2019-10-20"
+            },
+            {
+              "predecessor_rssd": 1451364,
+              "successor_rssd": 852218,
+              "transformation_date": "2019-05-19"
+            },
+            {
+              "predecessor_rssd": 4515472,
+              "successor_rssd": 852218,
+              "transformation_date": "2019-05-19"
+            },
+            {
+              "predecessor_rssd": 489913,
+              "successor_rssd": 852218,
+              "transformation_date": "2019-05-19"
+            },
+            {
+              "predecessor_rssd": 3812165,
+              "successor_rssd": 852218,
+              "transformation_date": "2015-09-01"
+            },
+            {
+              "predecessor_rssd": 931319,
+              "successor_rssd": 852218,
+              "transformation_date": "2011-10-14"
+            },
+            {
+              "predecessor_rssd": 1042137,
+              "successor_rssd": 852218,
+              "transformation_date": "2011-10-01"
+            },
+            {
+              "predecessor_rssd": 1390137,
+              "successor_rssd": 852218,
+              "transformation_date": "2011-10-01"
+            },
+            {
+              "predecessor_rssd": 1068342,
+              "successor_rssd": 852218,
+              "transformation_date": "2011-06-01"
+            },
+            {
+              "predecessor_rssd": 3330025,
+              "successor_rssd": 852218,
+              "transformation_date": "2011-05-01"
+            },
+            {
+              "predecessor_rssd": 3329999,
+              "successor_rssd": 852218,
+              "transformation_date": "2011-05-01"
+            },
+            {
+              "predecessor_rssd": 1091041,
+              "successor_rssd": 852218,
+              "transformation_date": "2010-01-01"
+            },
+            {
+              "predecessor_rssd": 3755150,
+              "successor_rssd": 852218,
+              "transformation_date": "2009-11-19"
+            },
+            {
+              "predecessor_rssd": 3755105,
+              "successor_rssd": 852218,
+              "transformation_date": "2009-05-26"
+            },
+            {
+              "predecessor_rssd": 1222108,
+              "successor_rssd": 852218,
+              "transformation_date": "2008-09-26"
+            },
+            {
+              "predecessor_rssd": 2187071,
+              "successor_rssd": 852218,
+              "transformation_date": "2008-09-26"
+            },
+            {
+              "predecessor_rssd": 2607382,
+              "successor_rssd": 852218,
+              "transformation_date": "2008-08-16"
+            },
+            {
+              "predecessor_rssd": 2266305,
+              "successor_rssd": 852218,
+              "transformation_date": "2007-09-21"
+            },
+            {
+              "predecessor_rssd": 8417,
+              "successor_rssd": 852218,
+              "transformation_date": "2006-10-21"
+            },
+            {
+              "predecessor_rssd": 765578,
+              "successor_rssd": 852218,
+              "transformation_date": "2006-03-01"
+            },
+            {
+              "predecessor_rssd": 2476083,
+              "successor_rssd": 852218,
+              "transformation_date": "2005-03-18"
+            },
+            {
+              "predecessor_rssd": 651411,
+              "successor_rssd": 852218,
+              "transformation_date": "2004-11-13"
+            },
+            {
+              "predecessor_rssd": 173333,
+              "successor_rssd": 852218,
+              "transformation_date": "2004-11-13"
+            },
+            {
+              "predecessor_rssd": 1038176,
+              "successor_rssd": 852218,
+              "transformation_date": "2001-12-21"
+            },
+            {
+              "predecessor_rssd": 161415,
+              "successor_rssd": 852218,
+              "transformation_date": "2001-11-10"
+            },
+            {
+              "predecessor_rssd": 871460,
+              "successor_rssd": 852218,
+              "transformation_date": "2001-08-01"
+            },
+            {
+              "predecessor_rssd": 43557,
+              "successor_rssd": 852218,
+              "transformation_date": "2000-08-01"
+            },
+            {
+              "predecessor_rssd": 35619,
+              "successor_rssd": 852218,
+              "transformation_date": "1999-03-05"
+            },
+            {
+              "predecessor_rssd": 1983324,
+              "successor_rssd": 852218,
+              "transformation_date": "1998-10-01"
+            },
+            {
+              "predecessor_rssd": 736804,
+              "successor_rssd": 852218,
+              "transformation_date": "1996-12-01"
+            },
+            {
+              "predecessor_rssd": 748601,
+              "successor_rssd": 852218,
+              "transformation_date": "1996-07-14"
+            },
+            {
+              "predecessor_rssd": 68710,
+              "successor_rssd": 852218,
+              "transformation_date": "1993-07-01"
+            },
+            {
+              "predecessor_rssd": 295310,
+              "successor_rssd": 852218,
+              "transformation_date": "1992-06-20"
+            },
+            {
+              "predecessor_rssd": 140474,
+              "successor_rssd": 852218,
+              "transformation_date": "1992-03-14"
+            },
+            {
+              "predecessor_rssd": 246910,
+              "successor_rssd": 852218,
+              "transformation_date": "1992-03-07"
+            },
+            {
+              "predecessor_rssd": 225410,
+              "successor_rssd": 852218,
+              "transformation_date": "1991-11-09"
+            },
+            {
+              "predecessor_rssd": 433279,
+              "successor_rssd": 852218,
+              "transformation_date": "1991-07-20"
+            },
+            {
+              "predecessor_rssd": 14904,
+              "successor_rssd": 852218,
+              "transformation_date": "1978-10-01"
+            },
+            {
+              "predecessor_rssd": 792604,
+              "successor_rssd": 852218,
+              "transformation_date": "1978-10-01"
+            },
+            {
+              "predecessor_rssd": 739814,
+              "successor_rssd": 852218,
+              "transformation_date": "1978-10-01"
+            },
+            {
+              "predecessor_rssd": 601603,
+              "successor_rssd": 852218,
+              "transformation_date": "1978-10-01"
+            },
+            {
+              "predecessor_rssd": 163008,
+              "successor_rssd": 852218,
+              "transformation_date": "1978-10-01"
+            },
+            {
+              "predecessor_rssd": 711418,
+              "successor_rssd": 852218,
+              "transformation_date": "1977-04-01"
+            },
+            {
+              "predecessor_rssd": 536910,
+              "successor_rssd": 852218,
+              "transformation_date": "1975-11-11"
+            },
+            {
+              "predecessor_rssd": 931609,
+              "successor_rssd": 852218,
+              "transformation_date": "1975-01-19"
+            },
+            {
+              "predecessor_rssd": 75802,
+              "successor_rssd": 852218,
+              "transformation_date": "1964-02-25"
+            },
+            {
+              "predecessor_rssd": 575601,
+              "successor_rssd": 852218,
+              "transformation_date": "1964-02-25"
+            },
+            {
+              "predecessor_rssd": 640611,
+              "successor_rssd": 852218,
+              "transformation_date": "1963-06-04"
+            }
+          ]
+        },
+        "meta": {
+          "rssd_id": 852218,
+          "parent_count": 1,
+          "subsidiary_count": 94,
+          "merger_count": 52,
+          "units": "USD thousands (asset fields)",
+          "source": "FFIEC NIC (relationships + transformations) + FDIC directory"
+        }
+      },
+      "raw_snippet": null
+    },
+    "holding_guess_1": {
+      "url": "https://api.bankregreports.com/api/v1/holding-companies/852218/",
+      "status": 404,
+      "ok": false,
+      "json": null,
+      "raw_snippet": "\n<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <meta name=\"robots\" content=\"noindex, follow\">\n        <title>Page Not Found - BankRegReports</title>\n        <link rel=\"icon\"\n              type=\"image/x-icon\"\n              href=\"/static/favicons/favicon.c8b3ac43c8f1.ico\">\n        <link href=\"/static/css/fonts.min.6a988e6f0959.css\" rel=\"stylesheet\">\n        \n\n    <script nonce=\"DPqsLnOqOi5O2oPncH09dg\">\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  // Consent Mode v2 defaults are set in base/consent.html (included BEFORE this),\n  // defaulting to DENIED and updating to granted only after the visitor accepts.\n  // GA honours that automatically: analytics_storage=denied sends cookieless pings\n  // until consent, so no cookie is set without permission.\n  gtag('js', new Date());\n  gtag('config', 'G-PQ594F0L1X', { cookie_flags: 'samesite=lax;secure' });\n  \n  function _brrLoadGA(){\n    var s = document.createElement('script');\n    s.async = true;\n    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PQ594F0L1X';\n    document.head.appendChild(s);\n  }\n  if (document.readyState === 'complete') {\n    ('requestIdleCallback' in window) ? requestIdleCallback(_brrLoadGA, { timeout: 4000 }) : setTimeout(_brrLoadGA, 1500);\n  } else {\n    window.addEventListener('load', function(){\n      ('requestIdleCallback' in window) ? request"
+    },
+    "holding_guess_2": {
+      "url": "https://api.bankregreports.com/api/v1/holding_companies/852218/",
+      "status": 404,
+      "ok": false,
+      "json": null,
+      "raw_snippet": "\n<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <meta name=\"robots\" content=\"noindex, follow\">\n        <title>Page Not Found - BankRegReports</title>\n        <link rel=\"icon\"\n              type=\"image/x-icon\"\n              href=\"/static/favicons/favicon.c8b3ac43c8f1.ico\">\n        <link href=\"/static/css/fonts.min.6a988e6f0959.css\" rel=\"stylesheet\">\n        \n\n    <script nonce=\"VLAqc6i0cIgQcugasJloVg\">\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  // Consent Mode v2 defaults are set in base/consent.html (included BEFORE this),\n  // defaulting to DENIED and updating to granted only after the visitor accepts.\n  // GA honours that automatically: analytics_storage=denied sends cookieless pings\n  // until consent, so no cookie is set without permission.\n  gtag('js', new Date());\n  gtag('config', 'G-PQ594F0L1X', { cookie_flags: 'samesite=lax;secure' });\n  \n  function _brrLoadGA(){\n    var s = document.createElement('script');\n    s.async = true;\n    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PQ594F0L1X';\n    document.head.appendChild(s);\n  }\n  if (document.readyState === 'complete') {\n    ('requestIdleCallback' in window) ? requestIdleCallback(_brrLoadGA, { timeout: 4000 }) : setTimeout(_brrLoadGA, 1500);\n  } else {\n    window.addEventListener('load', function(){\n      ('requestIdleCallback' in window) ? request"
+    },
+    "datasets_catalog": {
+      "url": "https://api.bankregreports.com/api/v1/datasets/",
+      "status": 200,
+      "ok": true,
+      "json": {
+        "data": [
+          {
+            "key": "institutions",
+            "title": "Banks",
+            "datasets": [
+              {
+                "key": "banks",
+                "title": "Bank Directory",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Directory of all FDIC-insured banks with identity + headline figures.",
+                "path": "/api/v1/banks/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "state",
+                    "description": "Two-letter state filter.",
+                    "required": false,
+                    "example": "GA"
+                  },
+                  {
+                    "name": "min_assets",
+                    "description": "Minimum total assets ($000s).",
+                    "required": false,
+                    "example": "1000000"
+                  },
+                  {
+                    "name": "limit",
+                    "description": "Max rows to return.",
+                    "required": false,
+                    "example": "1000"
+                  },
+                  {
+                    "name": "offset",
+                    "description": "Pagination offset.",
+                    "required": false,
+                    "example": "0"
+                  }
+                ],
+                "source": "FFIEC + FDIC",
+                "sdk_method": "banks()"
+              },
+              {
+                "key": "bank",
+                "title": "Bank Snapshot",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Latest filed-quarter snapshot for one bank: balance sheet, capital, ratios.",
+                "path": "/api/v1/banks/{rssd_id}/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FFIEC Call Report (Schedule RC/RI/RCR)",
+                "sdk_method": "bank(rssd_id)"
+              },
+              {
+                "key": "bank_trends",
+                "title": "Bank Trends",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Quarterly time series of key metrics for one bank.",
+                "path": "/api/v1/banks/{rssd_id}/trends/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  },
+                  {
+                    "name": "quarters",
+                    "description": "Number of quarters (1–100).",
+                    "required": false,
+                    "example": "20"
+                  }
+                ],
+                "source": "FFIEC Call Report",
+                "sdk_method": "bank_trends(rssd_id, quarters=)"
+              },
+              {
+                "key": "hmda",
+                "title": "HMDA Mortgage-Lending Book",
+                "category": "institutions",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Per-bank Home Mortgage Disclosure Act book - applications, originations, denials, and USD volumes by activity year and state.",
+                "path": "/api/v1/banks/{rssd_id}/hmda/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FFIEC HMDA LAR",
+                "sdk_method": "hmda(rssd_id)"
+              },
+              {
+                "key": "fdic_demographics",
+                "title": "FDIC Bank Demographics",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "FDIC institution demographics for one bank - CBSA/metro-micro classification, minority-status designation, head-office latitude/longitude, web URL, and office-count rollups, by as-of quarter.",
+                "path": "/api/v1/banks/{rssd_id}/fdic/demographics/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FDIC Institution Directory",
+                "sdk_method": "fdic_demographics(rssd_id)"
+              },
+              {
+                "key": "fdic_financials",
+                "title": "FDIC SDI Financials",
+                "category": "institutions",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "FDIC Statistics on Depository Institutions (SDI) canonical financial series for one bank - quarterly balance sheet, income, capital, asset-quality, and efficiency metrics, newest period first.",
+                "path": "/api/v1/banks/{rssd_id}/fdic/financials/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FDIC SDI (Statistics on Depository Institutions)",
+                "sdk_method": "fdic_financials(rssd_id)"
+              },
+              {
+                "key": "ubpr_ratios",
+                "title": "UBPR Ratios",
+                "category": "institutions",
+                "classification": "pro",
+                "badge": "Premium",
+                "summary": "Per-bank Uniform Bank Performance Report (UBPR) ratios - ~30 headline profitability, margin, efficiency, capital, asset-quality, and liquidity ratios per filed quarter (recent quarters only).",
+                "path": "/api/v1/banks/{rssd_id}/ubpr/ratios/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FFIEC UBPR",
+                "sdk_method": "ubpr_ratios(rssd_id)"
+              },
+              {
+                "key": "ubpr_ranks",
+                "title": "UBPR Peer-Percentile Ranks",
+                "category": "institutions",
+                "classification": "pro",
+                "badge": "Premium",
+                "summary": "Per-bank UBPR percentile ranks within the bank's peer group, by report quarter and MDRM metric code.",
+                "path": "/api/v1/banks/{rssd_id}/ubpr/ranks/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FFIEC UBPR (peer-percentile ranks)",
+                "sdk_method": "ubpr_ranks(rssd_id)"
+              },
+              {
+                "key": "scorecard",
+                "title": "Bank Scorecard",
+                "category": "institutions",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "CAMELS-style component scores (0–100) + overall letter grade.",
+                "path": "/api/v1/banks/{rssd_id}/scorecard/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "BankRegReports (derived)",
+                "sdk_method": "scorecard(rssd_id)"
+              },
+              {
+                "key": "ranks",
+                "title": "Peer Percentile Ranks",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Pre-computed percentile rank within the bank's asset-size cohort.",
+                "path": "/api/v1/banks/{rssd_id}/ranks/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "BankRegReports (derived)",
+                "sdk_method": "ranks(rssd_id)"
+              },
+              {
+                "key": "peers",
+                "title": "Peer Set",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "The peer set for one bank.",
+                "path": "/api/v1/banks/{rssd_id}/peers/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "",
+                "sdk_method": "peers(rssd_id)"
+              },
+              {
+                "key": "peer_comparison",
+                "title": "Peer Comparison",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "One bank versus its peer-group benchmarks (5-number summary).",
+                "path": "/api/v1/banks/{rssd_id}/peers/comparison/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "BankRegReports (derived)",
+                "sdk_method": "peer_comparison(rssd_id)"
+              },
+              {
+                "key": "branches",
+                "title": "Branch Network",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "FDIC Summary-of-Deposits branches + NIC org-structure branches.",
+                "path": "/api/v1/banks/{rssd_id}/branches/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FDIC SoD + Fed NIC",
+                "sdk_method": "branches(rssd_id)"
+              },
+              {
+                "key": "bank_deep_dive",
+                "title": "Bank Deep Dive",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Full Call Report / UBPR detail for one bank-quarter.",
+                "path": "/api/v1/banks/{rssd_id}/deep-dive/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FFIEC Call Report + UBPR",
+                "sdk_method": "bank_deep_dive(rssd_id)"
+              },
+              {
+                "key": "structure_full",
+                "title": "Bank Corporate Structure, Full Hierarchy",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Full ownership hierarchy for one bank: parent(s), subsidiaries, and NIC merger/transformation history.",
+                "path": "/api/v1/banks/{rssd_id}/structure/full/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FFIEC NIC + FDIC directory",
+                "sdk_method": "structure_full(rssd_id)"
+              },
+              {
+                "key": "loan_portfolio",
+                "title": "Bank Loan Portfolio",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Single-bank loan composition, CRE/C&D concentration vs capital, and an asset-quality trend.",
+                "path": "/api/v1/banks/{rssd_id}/loan-portfolio/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  },
+                  {
+                    "name": "quarters",
+                    "description": "Number of trend quarters (1-40, default 8).",
+                    "required": false,
+                    "example": "8"
+                  }
+                ],
+                "source": "FFIEC Call Report (Schedule RC-C)",
+                "sdk_method": "loan_portfolio(rssd_id, quarters=)"
+              },
+              {
+                "key": "scorecard_composite",
+                "title": "Bank Scorecard, Full Composite",
+                "category": "institutions",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "CAMELS category metrics with quartile letter grades, a composite grade, loan-concentration context, and ML risk tier.",
+                "path": "/api/v1/banks/{rssd_id}/scorecard/composite/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "BRR derived (CAMELS quartile grading over FFIEC Call Report)",
+                "sdk_method": "scorecard_composite(rssd_id)"
+              },
+              {
+                "key": "deposits",
+                "title": "Bank Deposit Composition",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Deposit composition snapshot: demand, time, brokered, insured/uninsured ratios.",
+                "path": "/api/v1/banks/{rssd_id}/deposits/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FFIEC Call Report (Schedule RC-E)",
+                "sdk_method": "deposits(rssd_id)"
+              },
+              {
+                "key": "deposits_trends",
+                "title": "Bank Deposit Trends",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Multi-quarter deposit / funding breakdown for one bank.",
+                "path": "/api/v1/banks/{rssd_id}/deposits/trends/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  },
+                  {
+                    "name": "quarters",
+                    "description": "Number of quarters (1-80, default 20).",
+                    "required": false,
+                    "example": "20"
+                  }
+                ],
+                "source": "FFIEC Call Report (Schedule RC-E)",
+                "sdk_method": "deposits_trends(rssd_id, quarters=)"
+              },
+              {
+                "key": "securities",
+                "title": "Bank Securities Portfolio",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "AFS / HTM holdings, unrealized gain/loss, sector breakdown.",
+                "path": "/api/v1/banks/{rssd_id}/securities/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FFIEC Call Report (Schedule RC-B)",
+                "sdk_method": "securities(rssd_id)"
+              },
+              {
+                "key": "securities_trends",
+                "title": "Bank Securities Trends",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Quarterly AFS/HTM portfolio with industry-wide overlay.",
+                "path": "/api/v1/banks/{rssd_id}/securities/trends/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  },
+                  {
+                    "name": "quarters",
+                    "description": "Number of bank quarters (1-80, default 20).",
+                    "required": false,
+                    "example": "20"
+                  }
+                ],
+                "source": "FFIEC Call Report (Schedule RC-B)",
+                "sdk_method": "securities_trends(rssd_id, quarters=)"
+              },
+              {
+                "key": "bank_branch_map",
+                "title": "Bank Branch Map",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Lean geocoded branch list for map rendering (latest SoD year).",
+                "path": "/api/v1/banks/{rssd_id}/branches/map/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FDIC SoD (geocoded)",
+                "sdk_method": "bank_branch_map(rssd_id)"
+              },
+              {
+                "key": "bank_branches_rollup",
+                "title": "Bank Branch Rollup",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Per-year branch count and total deposits rollup.",
+                "path": "/api/v1/banks/{rssd_id}/branches/rollup/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FDIC SoD",
+                "sdk_method": "bank_branches_rollup(rssd_id)"
+              },
+              {
+                "key": "bank_branches_nic",
+                "title": "Bank Branches, NIC",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Federal Reserve NIC structural branches for one bank.",
+                "path": "/api/v1/banks/{rssd_id}/branches/nic/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "Fed NIC",
+                "sdk_method": "bank_branches_nic(rssd_id)"
+              },
+              {
+                "key": "bank_branches_fdic",
+                "title": "Bank Branches, FDIC",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "FDIC institutional branch registry with service-type codes and CBSA designation.",
+                "path": "/api/v1/banks/{rssd_id}/branches/fdic/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FDIC Institution Directory",
+                "sdk_method": "bank_branches_fdic(rssd_id)"
+              },
+              {
+                "key": "bank_fry15",
+                "title": "FR Y-15 G-SIB Indicators",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Y-15 systemic-risk indicators for G-SIB designated banks.",
+                "path": "/api/v1/banks/{rssd_id}/fry15/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "Fed FR Y-15",
+                "sdk_method": "bank_fry15(rssd_id)"
+              },
+              {
+                "key": "bank_events",
+                "title": "Bank Structural Events",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Per-bank structural-event timeline: M&A, charters, and closures.",
+                "path": "/api/v1/banks/{rssd_id}/events/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "Federal Reserve NIC",
+                "sdk_method": "bank_events(rssd_id)"
+              },
+              {
+                "key": "bank_fdic_history",
+                "title": "Bank FDIC History",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "FDIC institutional-history change log (branch-level).",
+                "path": "/api/v1/banks/{rssd_id}/history/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FDIC",
+                "sdk_method": "bank_fdic_history(rssd_id)"
+              },
+              {
+                "key": "bank_profile",
+                "title": "Bank Profile Composite",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Above-the-fold composite: snapshot + scorecard + ranks + events + ML prediction.",
+                "path": "/api/v1/banks/{rssd_id}/profile/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "BRR composite (FFIEC + ML + NIC)",
+                "sdk_method": "bank_profile(rssd_id)"
+              },
+              {
+                "key": "bank_ranks",
+                "title": "Bank Peer Ranks",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Pre-computed percentile ranks within the bank's asset-size cohort (all metrics).",
+                "path": "/api/v1/banks/{rssd_id}/ranks/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "BankRegReports (derived)",
+                "sdk_method": "bank_ranks(rssd_id)"
+              },
+              {
+                "key": "bank_peer_ranking",
+                "title": "Bank Peer Ranking (Live)",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Live per-request percentile recompute across the full peer cohort.",
+                "path": "/api/v1/banks/{rssd_id}/peer-ranking/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FFIEC + FDIC",
+                "sdk_method": "bank_peer_ranking(rssd_id)"
+              },
+              {
+                "key": "bank_search_index",
+                "title": "Bank Search Index",
+                "category": "institutions",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Full lightweight bank universe list for client-side typeahead. Requires a free account/API key.",
+                "path": "/api/v1/banks/search-index/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "FFIEC + FDIC",
+                "sdk_method": "bank_search_index()"
+              },
+              {
+                "key": "structure",
+                "title": "Bank Corporate Structure",
+                "category": "institutions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Charter type, primary regulator, holding company chain, branches.",
+                "path": "/api/v1/banks/{rssd_id}/structure/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "FDIC Institution Directory + NIC",
+                "sdk_method": "structure(rssd_id)"
+              }
+            ]
+          },
+          {
+            "key": "screeners",
+            "title": "Screeners",
+            "datasets": [
+              {
+                "key": "screener",
+                "title": "Bank Screener",
+                "category": "screeners",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Every FDIC-insured bank with key ratios; filter, sort, paginate.",
+                "path": "/api/v1/screener/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "state",
+                    "description": "Two-letter state filter.",
+                    "required": false,
+                    "example": "GA"
+                  },
+                  {
+                    "name": "min_assets",
+                    "description": "Minimum total assets ($000s).",
+                    "required": false,
+                    "example": ""
+                  },
+                  {
+                    "name": "sort",
+                    "description": "Sort field.",
+                    "required": false,
+                    "example": "roa"
+                  },
+                  {
+                    "name": "limit",
+                    "description": "Max rows to return.",
+                    "required": false,
+                    "example": "1000"
+                  },
+                  {
+                    "name": "offset",
+                    "description": "Pagination offset.",
+                    "required": false,
+                    "example": "0"
+                  }
+                ],
+                "source": "FFIEC + FDIC",
+                "sdk_method": "screener(...)"
+              },
+              {
+                "key": "screener_dataset",
+                "title": "Screener Dataset (full working set)",
+                "category": "screeners",
+                "classification": "pro",
+                "badge": "Premium",
+                "summary": "The entire bank universe with screener columns in one response, for the paid client-side (in-browser) screener. Paid-tier only. This is the bulk dataset withheld from free callers by the anti-bulk guard.",
+                "path": "/api/v1/screener/dataset/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "FFIEC + FDIC",
+                "sdk_method": "screener_dataset()"
+              },
+              {
+                "key": "loan_concentration",
+                "title": "Loan-Concentration Screener",
+                "category": "screeners",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Screen banks by loan-portfolio concentration.",
+                "path": "/api/v1/screener/loan-concentration/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "loan_concentration(...)"
+              },
+              {
+                "key": "ma_screener",
+                "title": "M&A Target Screener",
+                "category": "screeners",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Banks scored as likely acquisition targets.",
+                "path": "/api/v1/screener/ma/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "BankRegReports (derived)",
+                "sdk_method": "ma_screener(...)"
+              },
+              {
+                "key": "custom_peer_groups",
+                "title": "Custom Peer Groups",
+                "category": "screeners",
+                "classification": "pro",
+                "badge": "Premium",
+                "summary": "List or save the caller's custom peer groups (Pro tier).",
+                "path": "/api/v1/peer-groups/custom/",
+                "methods": [
+                  "GET",
+                  "POST"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "custom_peer_groups()"
+              },
+              {
+                "key": "custom_peer_group_detail",
+                "title": "Custom Peer Group Detail",
+                "category": "screeners",
+                "classification": "pro",
+                "badge": "Premium",
+                "summary": "Detail + member snapshots for one custom peer group, or DELETE it (Pro tier).",
+                "path": "/api/v1/peer-groups/custom/{group_id}/",
+                "methods": [
+                  "GET",
+                  "DELETE"
+                ],
+                "params": [
+                  {
+                    "name": "group_id",
+                    "description": "CustomPeerGroup id.",
+                    "required": true,
+                    "example": "1"
+                  }
+                ],
+                "source": "",
+                "sdk_method": "custom_peer_group_detail(group_id)"
+              },
+              {
+                "key": "custom_peer_comparison",
+                "title": "Bank vs Custom Peer Group Comparison",
+                "category": "screeners",
+                "classification": "pro",
+                "badge": "Premium",
+                "summary": "Bank CAMELS metrics vs a user-defined peer set with percentile/quartile classification (Pro tier).",
+                "path": "/api/v1/banks/{rssd_id}/custom-peer-comparison/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  },
+                  {
+                    "name": "group_id",
+                    "description": "CustomPeerGroup id owned by the caller.",
+                    "required": true,
+                    "example": "1"
+                  }
+                ],
+                "source": "",
+                "sdk_method": "custom_peer_comparison(rssd_id, group_id=)"
+              },
+              {
+                "key": "growth",
+                "title": "Growth Leaderboard",
+                "category": "screeners",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Banks ranked by YoY growth in assets, loans, or deposits.",
+                "path": "/api/v1/screener/growth/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "sort",
+                    "description": "asset_growth | loan_growth | deposit_growth.",
+                    "required": false,
+                    "example": "asset_growth"
+                  },
+                  {
+                    "name": "tier",
+                    "description": "Asset-tier filter.",
+                    "required": false,
+                    "example": "5"
+                  },
+                  {
+                    "name": "limit",
+                    "description": "Max rows to return.",
+                    "required": false,
+                    "example": "1000"
+                  }
+                ],
+                "source": "FFIEC + FDIC",
+                "sdk_method": "growth(sort=, tier=, limit=)"
+              },
+              {
+                "key": "bank_compare",
+                "title": "Bank Compare",
+                "category": "screeners",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Side-by-side comparison of multiple banks.",
+                "path": "/api/v1/banks/compare/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_ids",
+                    "description": "Comma-separated RSSD IDs to compare.",
+                    "required": true,
+                    "example": "852218,480228"
+                  }
+                ],
+                "source": "FFIEC Call Report",
+                "sdk_method": "bank_compare(rssd_ids=)"
+              }
+            ]
+          },
+          {
+            "key": "risk",
+            "title": "Risk & Failures",
+            "datasets": [
+              {
+                "key": "high_risk_banks",
+                "title": "High-Risk Banks",
+                "category": "risk",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Banks flagged high-risk by the failure-prediction model.",
+                "path": "/api/v1/risk/high-risk-banks/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "ML model",
+                "sdk_method": "high_risk_banks(...)"
+              },
+              {
+                "key": "prediction",
+                "title": "Failure Prediction",
+                "category": "risk",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "ML 1-year failure probability + safety verdict for one bank.",
+                "path": "/api/v1/banks/{rssd_id}/prediction/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "ML model",
+                "sdk_method": "prediction(rssd_id)"
+              },
+              {
+                "key": "failures_recent",
+                "title": "Recent Failures",
+                "category": "risk",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Most recent bank failures (FDIC).",
+                "path": "/api/v1/failures/recent/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "FDIC",
+                "sdk_method": "failures()"
+              },
+              {
+                "key": "failures_by_year",
+                "title": "Failures by Year",
+                "category": "risk",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Bank failure counts and total assets by year.",
+                "path": "/api/v1/failures/by-year/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "year",
+                    "description": "Filter to one year.",
+                    "required": false,
+                    "example": "2023"
+                  }
+                ],
+                "source": "FDIC",
+                "sdk_method": "failures(year=)"
+              },
+              {
+                "key": "risk_overview",
+                "title": "Risk Tier Overview",
+                "category": "risk",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Counts of banks by failure-probability risk tier (Critical/High/Elevated/Moderate/Low).",
+                "path": "/api/v1/risk/overview/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "BRR ML model",
+                "sdk_method": "risk_overview()"
+              },
+              {
+                "key": "risk_dashboard",
+                "title": "Risk Dashboard",
+                "category": "risk",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Composite risk-intelligence overview: risk-tier counts with average score and score distribution.",
+                "path": "/api/v1/risk/dashboard/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "BRR ML model",
+                "sdk_method": "risk_dashboard()"
+              },
+              {
+                "key": "prediction_detail",
+                "title": "Bank Prediction Detail",
+                "category": "risk",
+                "classification": "pro",
+                "badge": "Premium",
+                "summary": "Full ML prediction for one bank: failure/distress/acquisition probabilities by horizon, ranks/percentiles, peer context, and top SHAP factors.",
+                "path": "/api/v1/banks/{rssd_id}/prediction/detail/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "BRR ML model",
+                "sdk_method": "prediction_detail(rssd_id)"
+              },
+              {
+                "key": "model_performance",
+                "title": "ML Model Performance",
+                "category": "risk",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Production model metadata plus backtest results: AUC, Brier score, and capture rates.",
+                "path": "/api/v1/risk/model/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "BRR ML model",
+                "sdk_method": "model_performance()"
+              },
+              {
+                "key": "failures_dashboard",
+                "title": "Failures Dashboard",
+                "category": "risk",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Composite failures-and-acquisitions dashboard: all-time totals, period KPIs, failures-by-year series, by-state and by-resolution rollups.",
+                "path": "/api/v1/failures/dashboard/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "FDIC Failed Bank List",
+                "sdk_method": "failures_dashboard()"
+              }
+            ]
+          },
+          {
+            "key": "events",
+            "title": "Events & Enforcement",
+            "datasets": [
+              {
+                "key": "events",
+                "title": "Structural Events",
+                "category": "events",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Industry-wide structural events: M&A, charters, closures.",
+                "path": "/api/v1/events/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "Federal Reserve NIC",
+                "sdk_method": "events(...)"
+              },
+              {
+                "key": "enforcement",
+                "title": "Enforcement Feed",
+                "category": "events",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Industry-wide regulatory enforcement-action feed.",
+                "path": "/api/v1/enforcement/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "Federal regulators",
+                "sdk_method": "enforcement(...)"
+              },
+              {
+                "key": "enforcement_actions",
+                "title": "Bank Enforcement Actions",
+                "category": "events",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Regulatory enforcement actions against one bank.",
+                "path": "/api/v1/banks/{rssd_id}/enforcement/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "",
+                "sdk_method": "enforcement_actions(rssd_id)"
+              },
+              {
+                "key": "complaints",
+                "title": "CFPB Complaints",
+                "category": "events",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "CFPB consumer complaints for one bank.",
+                "path": "/api/v1/banks/{rssd_id}/complaints/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "CFPB",
+                "sdk_method": "complaints(rssd_id)"
+              }
+            ]
+          },
+          {
+            "key": "industry",
+            "title": "Industry & Macro",
+            "datasets": [
+              {
+                "key": "industry",
+                "title": "Industry Snapshot",
+                "category": "industry",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Industry-wide aggregate snapshot.",
+                "path": "/api/v1/industry/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "industry()"
+              },
+              {
+                "key": "industry_trends",
+                "title": "Industry Trends",
+                "category": "industry",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Industry-wide metric trends over time.",
+                "path": "/api/v1/industry/trends/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "industry(trends=True)"
+              },
+              {
+                "key": "peer_groups",
+                "title": "Peer Groups",
+                "category": "industry",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Standard peer-group definitions and rollups.",
+                "path": "/api/v1/industry/peer-groups/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "peer_groups(...)"
+              },
+              {
+                "key": "industry_dashboard",
+                "title": "Industry Dashboard",
+                "category": "industry",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Composite industry terminal dashboard payload.",
+                "path": "/api/v1/industry/dashboard/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "cert",
+                    "description": "RSSD id of a bank for that bank's full terminal view, or empty / 'all' for the industry aggregate. UBPR peer ranks require Pro; ML risk fields require a free-or-above account (null otherwise).",
+                    "required": false,
+                    "example": "852218"
+                  },
+                  {
+                    "name": "peer",
+                    "description": "Render as a peer-group aggregate instead of one bank: 'tier:<1-6>' (asset tier) or 'state:<XX>'. Takes precedence over `cert`.",
+                    "required": false,
+                    "example": "tier:3"
+                  }
+                ],
+                "source": "FFIEC + FDIC + FRED",
+                "sdk_method": "industry_dashboard()"
+              },
+              {
+                "key": "rate_environment",
+                "title": "Industry Rate Environment",
+                "category": "industry",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Industry-wide yield curve metrics for the latest filed quarter.",
+                "path": "/api/v1/industry/rate-environment/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "FFIEC Call Report (Schedule RI)",
+                "sdk_method": "rate_environment()"
+              },
+              {
+                "key": "rate_environment_trends",
+                "title": "Industry Rate Environment, Trends",
+                "category": "industry",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Treasury yield-curve history plus the industry-wide NIM / yield / funding-cost trend.",
+                "path": "/api/v1/industry/rate-environment/trends/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "yield_curve_limit",
+                    "description": "Max yield-curve observations (1-2000, default 500).",
+                    "required": false,
+                    "example": "500"
+                  }
+                ],
+                "source": "FRED Treasury yield curve + FFIEC Call Report",
+                "sdk_method": "rate_environment_trends(yield_curve_limit=)"
+              },
+              {
+                "key": "industry_securities_trends",
+                "title": "Industry Securities Trends",
+                "category": "industry",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Industry-wide securities aggregate time series.",
+                "path": "/api/v1/industry/securities/trends/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "FFIEC Call Report (Schedule RC-B)",
+                "sdk_method": "industry_securities_trends()"
+              },
+              {
+                "key": "industry_macro",
+                "title": "Industry Macro Context",
+                "category": "industry",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Macro context series: rates, yield spreads, breakeven inflation, credit spreads, VIX.",
+                "path": "/api/v1/industry/macro/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "FRED + FFIEC",
+                "sdk_method": "industry_macro()"
+              },
+              {
+                "key": "industry_benchmarks",
+                "title": "Industry Peer Benchmarks",
+                "category": "industry",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Pre-computed peer-group benchmarks (mean + 5-number summary) by asset tier.",
+                "path": "/api/v1/industry/benchmarks/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "BankRegReports (derived)",
+                "sdk_method": "peer_benchmarks()"
+              }
+            ]
+          },
+          {
+            "key": "rates",
+            "title": "Rate Environment",
+            "datasets": [
+              {
+                "key": "rates_mortgage",
+                "title": "Mortgage Rates",
+                "category": "rates",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "National mortgage rate series.",
+                "path": "/api/v1/rates/mortgage/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "rates('mortgage')"
+              },
+              {
+                "key": "rates_deposit",
+                "title": "Deposit Rates",
+                "category": "rates",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "National deposit rate series.",
+                "path": "/api/v1/rates/deposit/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "rates('deposit')"
+              },
+              {
+                "key": "rates_treasury_bill",
+                "title": "Treasury-Bill Rates",
+                "category": "rates",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Treasury-bill rate series.",
+                "path": "/api/v1/rates/treasury-bill/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "rates('treasury_bill')"
+              },
+              {
+                "key": "yield_curve",
+                "title": "Treasury Yield Curve",
+                "category": "rates",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "US Treasury yield curve (long form). Pass ?latest=1 for the current curve.",
+                "path": "/api/v1/rates/yield-curve/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "latest",
+                    "description": "Return only the current curve.",
+                    "required": false,
+                    "example": "1"
+                  },
+                  {
+                    "name": "tenor_code",
+                    "description": "One tenor series.",
+                    "required": false,
+                    "example": "Y10"
+                  }
+                ],
+                "source": "US Treasury",
+                "sdk_method": "yield_curve(latest=)"
+              },
+              {
+                "key": "rates_consumer",
+                "title": "Consumer Rates",
+                "category": "rates",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "FRB G.19 consumer credit rates.",
+                "path": "/api/v1/rates/consumer/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "FRB G.19",
+                "sdk_method": "rates('consumer')"
+              },
+              {
+                "key": "rates_real_yield",
+                "title": "Real Yield Rates",
+                "category": "rates",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "US Treasury real yield (TIPS) series.",
+                "path": "/api/v1/rates/real-yield/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "US Treasury TIPS",
+                "sdk_method": "rates('real_yield')"
+              },
+              {
+                "key": "rates_national",
+                "title": "National Deposit Rates",
+                "category": "rates",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "FDIC national deposit rates and rate caps by product.",
+                "path": "/api/v1/rates/national-rates/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "FDIC National Rates and Rate Caps",
+                "sdk_method": "rates('national')"
+              }
+            ]
+          },
+          {
+            "key": "credit_unions",
+            "title": "Credit Unions",
+            "datasets": [
+              {
+                "key": "credit_unions",
+                "title": "Credit Union Directory",
+                "category": "credit_unions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Directory of NCUA-insured credit unions.",
+                "path": "/api/v1/cus/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "NCUA",
+                "sdk_method": "credit_unions(...)"
+              },
+              {
+                "key": "credit_union",
+                "title": "Credit Union Snapshot",
+                "category": "credit_unions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Latest snapshot for one credit union.",
+                "path": "/api/v1/cus/{cu_number}/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "cu_number",
+                    "description": "NCUA charter number.",
+                    "required": true,
+                    "example": "5536"
+                  }
+                ],
+                "source": "NCUA",
+                "sdk_method": "credit_union(cu_number)"
+              },
+              {
+                "key": "credit_union_trends",
+                "title": "Credit Union Trends",
+                "category": "credit_unions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Quarterly metric time series for one credit union.",
+                "path": "/api/v1/cus/{cu_number}/trends/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "cu_number",
+                    "description": "NCUA charter number.",
+                    "required": true,
+                    "example": "5536"
+                  }
+                ],
+                "source": "NCUA",
+                "sdk_method": "credit_union(cu_number, trends=True)"
+              },
+              {
+                "key": "cu_peer_benchmarks",
+                "title": "Credit Union Peer Benchmarks",
+                "category": "credit_unions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Pre-computed peer-group benchmarks for credit unions by asset tier.",
+                "path": "/api/v1/cus/peer-benchmarks/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "NCUA",
+                "sdk_method": "cu_peer_benchmarks()"
+              },
+              {
+                "key": "cu_branches",
+                "title": "Credit Union Branches",
+                "category": "credit_unions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Branch network for one credit union.",
+                "path": "/api/v1/cus/{cu_number}/branches/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "cu_number",
+                    "description": "NCUA charter number.",
+                    "required": true,
+                    "example": "5536"
+                  }
+                ],
+                "source": "NCUA",
+                "sdk_method": "cu_branches(cu_number)"
+              },
+              {
+                "key": "cu_atms",
+                "title": "Credit Union ATMs",
+                "category": "credit_unions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "ATM network for one credit union.",
+                "path": "/api/v1/cus/{cu_number}/atms/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "cu_number",
+                    "description": "NCUA charter number.",
+                    "required": true,
+                    "example": "5536"
+                  }
+                ],
+                "source": "NCUA",
+                "sdk_method": "cu_atms(cu_number)"
+              },
+              {
+                "key": "ncua_enforcement",
+                "title": "NCUA Enforcement Actions",
+                "category": "credit_unions",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Raw NCUA enforcement action feed.",
+                "path": "/api/v1/enforcement/ncua/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "NCUA",
+                "sdk_method": "ncua_enforcement()"
+              }
+            ]
+          },
+          {
+            "key": "holding_cos",
+            "title": "Holding Companies",
+            "datasets": [
+              {
+                "key": "holding_companies",
+                "title": "Holding Company Directory",
+                "category": "holding_cos",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Directory of bank holding companies.",
+                "path": "/api/v1/holding-cos/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "Fed FR Y-9C",
+                "sdk_method": "holding_companies(...)"
+              },
+              {
+                "key": "holding_company",
+                "title": "Holding Company Snapshot",
+                "category": "holding_cos",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Latest snapshot for one bank holding company.",
+                "path": "/api/v1/holding-cos/{rssd_id}/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "Fed FR Y-9C",
+                "sdk_method": "holding_company(rssd_id)"
+              },
+              {
+                "key": "holding_company_trends",
+                "title": "Holding Company Trends",
+                "category": "holding_cos",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Quarterly metric time series for one bank holding company.",
+                "path": "/api/v1/holding-cos/{rssd_id}/trends/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "Fed FR Y-9C",
+                "sdk_method": "holding_company_trends(rssd_id)"
+              }
+            ]
+          },
+          {
+            "key": "sec",
+            "title": "SEC Data",
+            "datasets": [
+              {
+                "key": "sec_filings",
+                "title": "SEC Filing Index",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "SEC EDGAR filing index for one bank's registrant.",
+                "path": "/api/v1/banks/{rssd_id}/sec/filings/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR",
+                "sdk_method": "sec_filings(rssd_id)"
+              },
+              {
+                "key": "sec_facts",
+                "title": "XBRL Financial Facts",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Most recently filed XBRL concept facts from the bank's 10-K/Q.",
+                "path": "/api/v1/banks/{rssd_id}/sec/facts/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR (XBRL)",
+                "sdk_method": "sec_facts(rssd_id)"
+              },
+              {
+                "key": "sec_insider_txns",
+                "title": "Insider Transactions",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Insider Form-4 transactions for one bank's registrant.",
+                "path": "/api/v1/banks/{rssd_id}/sec/insider-txns/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC Form 4",
+                "sdk_method": "sec_insider_txns(rssd_id)"
+              },
+              {
+                "key": "sec_8k_events",
+                "title": "8-K Material Events",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "8-K filings broken out by item number, the SEC material-event feed.",
+                "path": "/api/v1/banks/{rssd_id}/sec/8k/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR 8-K",
+                "sdk_method": "sec_8k_events(rssd_id)"
+              },
+              {
+                "key": "sec_ma_events",
+                "title": "M&A Events (SEC)",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Mergers & acquisitions where this bank is on either side (SEC filings).",
+                "path": "/api/v1/banks/{rssd_id}/sec/ma/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR 8-K / Schedule 13D",
+                "sdk_method": "sec_ma_events(rssd_id)"
+              },
+              {
+                "key": "sec_officers",
+                "title": "Bank Officers",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Named officers and roles from the BHC's most recent Form 3/4/5 filings.",
+                "path": "/api/v1/banks/{rssd_id}/sec/officers/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC Form 3/4/5",
+                "sdk_method": "sec_officers(rssd_id)"
+              },
+              {
+                "key": "executive_comp",
+                "title": "Executive Compensation",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Named-executive-officer compensation for one bank's registrant.",
+                "path": "/api/v1/banks/{rssd_id}/sec/executive-comp/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC DEF 14A",
+                "sdk_method": "executive_comp(rssd_id)"
+              },
+              {
+                "key": "filings_all",
+                "title": "SEC Accession Index (All Filings)",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Full SEC accession index per filer - every filing, all form types, newest first.",
+                "path": "/api/v1/banks/{rssd_id}/sec/filings/all/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR filing index",
+                "sdk_method": "filings_all(rssd_id)"
+              },
+              {
+                "key": "filing_narratives",
+                "title": "10-K/Q Filing Narratives",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Per-filing 10-K/Q narrative text blobs (MD&A / risk factors) for one bank's registrant. Large bodies are truncated server-side.",
+                "path": "/api/v1/banks/{rssd_id}/sec/narratives/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR 10-K / 10-Q",
+                "sdk_method": "filing_narratives(rssd_id)"
+              },
+              {
+                "key": "sec_peers",
+                "title": "SEC Peer Group",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "SEC-derived peer-group assignment for this bank's registrant(s) - SIC industry, asset tier, exchange listing, and latest reported total assets.",
+                "path": "/api/v1/banks/{rssd_id}/sec/peers/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR (company facts + SIC)",
+                "sdk_method": "sec_peers(rssd_id)"
+              },
+              {
+                "key": "officers_full",
+                "title": "Officer Filing History (Form 3/4/5)",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Full officer Form 3/4/5 filing history per filer - every reported owner/role row (director / officer / 10% holder / other) with issuer and period of report.",
+                "path": "/api/v1/banks/{rssd_id}/sec/officers-full/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC Form 3/4/5",
+                "sdk_method": "officers_full(rssd_id)"
+              },
+              {
+                "key": "sec_cusip",
+                "title": "CUSIP Cross-Reference",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "CUSIP cross-reference - the 13F-holdings rollup for one security by CUSIP: issuer-name variants, how many filers/RSSDs hold it, and aggregate value and share counts.",
+                "path": "/api/v1/sec/cusip/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "cusip",
+                    "description": "9-character CUSIP of the security.",
+                    "required": true,
+                    "example": "037833100"
+                  }
+                ],
+                "source": "SEC Form 13F (aggregated by CUSIP)",
+                "sdk_method": "sec_cusip(cusip=)"
+              },
+              {
+                "key": "abs_sponsors",
+                "title": "ABS Sponsor Relationships",
+                "category": "sec",
+                "classification": "pro",
+                "badge": "Premium",
+                "summary": "Asset-backed-securities sponsor relationships - each ABS issuing entity (trust/shelf, by SEC CIK) mapped to its sponsoring bank.",
+                "path": "/api/v1/banks/{rssd_id}/sec/abs-sponsors/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR (ABS-EE / Reg AB)",
+                "sdk_method": "abs_sponsors(rssd_id)"
+              },
+              {
+                "key": "restatements",
+                "title": "Financial Restatements (8-K Item 4.02)",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Non-reliance / financial-restatement events (8-K Item 4.02) filed by this bank's registrant.",
+                "path": "/api/v1/banks/{rssd_id}/sec/restatements/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR 8-K (Item 4.02)",
+                "sdk_method": "restatements(rssd_id)"
+              },
+              {
+                "key": "insider_summary",
+                "title": "Insider Activity Summary",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Rolled-up monthly insider buy/sell activity (net shares, dollar volume, transaction counts) for one bank's registrant.",
+                "path": "/api/v1/banks/{rssd_id}/sec/insider-summary/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC Form 4 (aggregated)",
+                "sdk_method": "insider_summary(rssd_id)"
+              },
+              {
+                "key": "filing_velocity",
+                "title": "SEC Filing Velocity",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "SEC filing cadence/velocity per filer, broken out by form type.",
+                "path": "/api/v1/banks/{rssd_id}/sec/velocity/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR",
+                "sdk_method": "filing_velocity(rssd_id)"
+              },
+              {
+                "key": "filer_history",
+                "title": "SEC Filer History",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "SEC registration / identity change log per filer - registrant CIKs, filing date span, and per-form counts.",
+                "path": "/api/v1/banks/{rssd_id}/sec/filer-history/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR filing index",
+                "sdk_method": "filer_history(rssd_id)"
+              },
+              {
+                "key": "filing_sections",
+                "title": "10-K/Q Item Sections",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Item-level 10-K/10-Q sections with parsed body text for one bank.",
+                "path": "/api/v1/banks/{rssd_id}/sec/sections/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC EDGAR 10-K / 10-Q",
+                "sdk_method": "filing_sections(rssd_id)"
+              },
+              {
+                "key": "sec_13dg",
+                "title": "Schedule 13D/G Beneficial Ownership",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Schedule 13D/G filings disclosing ≥5% beneficial ownership of a bank's stock.",
+                "path": "/api/v1/banks/{rssd_id}/sec/13dg/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC Schedule 13D/G",
+                "sdk_method": "sec_13dg(rssd_id)"
+              },
+              {
+                "key": "sec_form_13f",
+                "title": "Form 13F Institutional Holdings",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Bank's institutional-manager Form 13F holdings, top positions by USD value.",
+                "path": "/api/v1/banks/{rssd_id}/sec/13f/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "SEC Form 13F",
+                "sdk_method": "sec_form_13f(rssd_id)"
+              },
+              {
+                "key": "sec_8k_body",
+                "title": "8-K Narrative Body",
+                "category": "sec",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Item-by-item narrative bodies for one 8-K filing by accession number.",
+                "path": "/api/v1/sec/8k/{accession_number}/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "accession_number",
+                    "description": "SEC accession number (e.g. 0001193125-24-000001).",
+                    "required": true,
+                    "example": "0001193125-24-000001"
+                  }
+                ],
+                "source": "SEC EDGAR 8-K",
+                "sdk_method": "sec_8k_body(accession_number)"
+              }
+            ]
+          },
+          {
+            "key": "reference",
+            "title": "Reference & Catalog",
+            "datasets": [
+              {
+                "key": "watchlist",
+                "title": "Watchlist",
+                "category": "reference",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "The authenticated user's watchlist, list or add banks (GET/POST).",
+                "path": "/api/v1/watchlist/",
+                "methods": [
+                  "GET",
+                  "POST"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "watchlist()"
+              },
+              {
+                "key": "watchlist_remove",
+                "title": "Watchlist Remove",
+                "category": "reference",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Remove a bank from the authenticated user's watchlist.",
+                "path": "/api/v1/watchlist/{rssd_id}/",
+                "methods": [
+                  "DELETE"
+                ],
+                "params": [
+                  {
+                    "name": "rssd_id",
+                    "description": "Federal Reserve RSSD id.",
+                    "required": true,
+                    "example": "852218"
+                  }
+                ],
+                "source": "",
+                "sdk_method": "watchlist_remove(rssd_id)"
+              },
+              {
+                "key": "watchlist_alerts",
+                "title": "Watchlist Alerts",
+                "category": "reference",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Threshold metric alerts for banks the user is watching (GET/POST).",
+                "path": "/api/v1/watchlist/alerts/",
+                "methods": [
+                  "GET",
+                  "POST"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "watchlist_alerts()"
+              },
+              {
+                "key": "watchlist_alert_detail",
+                "title": "Watchlist Alert Detail",
+                "category": "reference",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Toggle or delete one watchlist alert (PATCH/DELETE).",
+                "path": "/api/v1/watchlist/alerts/{alert_id}/",
+                "methods": [
+                  "DELETE",
+                  "PATCH"
+                ],
+                "params": [
+                  {
+                    "name": "alert_id",
+                    "description": "Alert id.",
+                    "required": true,
+                    "example": "1"
+                  }
+                ],
+                "source": "",
+                "sdk_method": "watchlist_alert_detail(alert_id)"
+              },
+              {
+                "key": "graphs",
+                "title": "Saved Graphs",
+                "category": "reference",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "The authenticated user's saved graphs, list or create (GET/POST).",
+                "path": "/api/v1/graphs/",
+                "methods": [
+                  "GET",
+                  "POST"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "graphs()"
+              },
+              {
+                "key": "graph_detail",
+                "title": "Graph Detail",
+                "category": "reference",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Retrieve, update, or delete one saved graph (GET/PUT/DELETE).",
+                "path": "/api/v1/graphs/{graph_id}/",
+                "methods": [
+                  "GET",
+                  "PUT",
+                  "DELETE"
+                ],
+                "params": [
+                  {
+                    "name": "graph_id",
+                    "description": "Graph id.",
+                    "required": true,
+                    "example": "1"
+                  }
+                ],
+                "source": "",
+                "sdk_method": "graph_detail(graph_id)"
+              },
+              {
+                "key": "graph_fork",
+                "title": "Fork Graph",
+                "category": "reference",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Clone a public graph into the caller's account.",
+                "path": "/api/v1/graphs/{graph_id}/fork/",
+                "methods": [
+                  "POST"
+                ],
+                "params": [
+                  {
+                    "name": "graph_id",
+                    "description": "Source graph id.",
+                    "required": true,
+                    "example": "1"
+                  }
+                ],
+                "source": "",
+                "sdk_method": "graph_fork(graph_id)"
+              },
+              {
+                "key": "chart_resolve",
+                "title": "Chart Resolver",
+                "category": "reference",
+                "classification": "free",
+                "badge": "Free",
+                "summary": "Resolve a chart config to ECharts/D3-ready series data.",
+                "path": "/api/v1/charts/resolve/",
+                "methods": [
+                  "POST"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "chart_resolve(kind=, config=)"
+              },
+              {
+                "key": "reference_index",
+                "title": "Reference Index",
+                "category": "reference",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Available reference lookup-table slugs.",
+                "path": "/api/v1/reference/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "reference_index()"
+              },
+              {
+                "key": "reference_mdrm",
+                "title": "MDRM Tooltip",
+                "category": "reference",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Enriched MDRM field tooltip for one Call Report column code.",
+                "path": "/api/v1/reference/mdrm/{code}/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "code",
+                    "description": "MDRM column code.",
+                    "required": true,
+                    "example": "RCFD2170"
+                  }
+                ],
+                "source": "FFIEC MDRM",
+                "sdk_method": "reference_mdrm(code)"
+              },
+              {
+                "key": "dataset_catalog",
+                "title": "Dataset Catalog",
+                "category": "reference",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Machine-readable product catalog (drives the /api/ page + SDK registry).",
+                "path": "/api/v1/datasets/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "datasets()"
+              },
+              {
+                "key": "dataset_detail",
+                "title": "Dataset Detail",
+                "category": "reference",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "One dataset entry from the product catalog.",
+                "path": "/api/v1/datasets/{key}/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "key",
+                    "description": "Dataset key.",
+                    "required": true,
+                    "example": "bank"
+                  }
+                ],
+                "source": "",
+                "sdk_method": "dataset_detail(key)"
+              },
+              {
+                "key": "metrics",
+                "title": "Metric Catalog",
+                "category": "reference",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Every available metric with units and definition.",
+                "path": "/api/v1/metrics/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [],
+                "source": "",
+                "sdk_method": "metrics()"
+              },
+              {
+                "key": "reference",
+                "title": "Reference Tables",
+                "category": "reference",
+                "classification": "public",
+                "badge": "Public",
+                "summary": "Reference lookup tables (states, regulators, …).",
+                "path": "/api/v1/reference/{slug}/",
+                "methods": [
+                  "GET"
+                ],
+                "params": [
+                  {
+                    "name": "slug",
+                    "description": "Reference table slug.",
+                    "required": true,
+                    "example": "states"
+                  }
+                ],
+                "source": "",
+                "sdk_method": "reference(slug)"
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "count": 116,
+          "classifications": {
+            "public": "Public",
+            "free": "Free",
+            "pro": "Premium",
+            "enterprise": "Enterprise"
+          }
+        }
+      },
+      "raw_snippet": null
+    }
+  },
+  "cet1_field_hints": [
+    {
+      "endpoint": "bank_snapshot",
+      "field": "data.cet1_ratio",
+      "value": 16.084,
+      "vicino_a_headline_atteso_14_8": false
+    }
+  ],
+  "next_step": "Leggi 'results' a mano: se un endpoint guess ha status 200 e un JSON con RSSD diverso da 852218 e/o un campo capital vicino a 14.8, quello è l'endpoint holding. Se tutti i guess falliscono (404), la risposta è probabilmente dentro 'bank_structure': cerca lì la catena/RSSD della holding e ripeti la sonda su quel RSSD con l'endpoint /banks/{rssd}/."
+}
