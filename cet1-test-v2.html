@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="it"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>TrueValue · test connessione API (generico)</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}
+*{box-sizing:border-box;font-family:-apple-system,system-ui,sans-serif}
+body{margin:0;background:#0e1420;color:#e6edf3;padding:14px;line-height:1.45}
+h1{font-size:17px;margin:4px 0 2px}
+p.sub{font-size:12px;color:#8b98a8;margin:0 0 12px}
+.box{background:#161d2b;border:1px solid #232d40;border-radius:10px;padding:12px;margin:10px 0}
+.nm{font-weight:600;font-size:14px;margin-bottom:6px}
+.res{font-size:12px;white-space:pre-wrap;word-break:break-word}
+select,button{background:#1d4ed8;color:#fff;border:0;border-radius:8px;padding:12px;font-size:14px;font-weight:600;width:100%;margin:6px 0}
+select{background:#161d2b;border:1px solid #232d40;color:#e6edf3}
+.hit{color:#4ade80;font-weight:700}
+.miss{color:#f87171;font-weight:700}
+.mono{font-family:ui-monospace,monospace}
+.cand{padding:6px 8px;border-radius:6px;margin:3px 0;background:#0e1420;border:1px solid #232d40}
+.cand.top{border-color:#4ade80}
+</style></head>
+<body>
+<h1>Test connessione API · CET1 holding vs subsidiary</h1>
+<p class="sub">Generico su 13 banche USA del set di validazione. Per ognuna: (1) risolve il CIK SEC dal ticker via <span class="mono">company_tickers.json</span> — nessuna mappa a mano; (2) cerca la sussidiaria FDIC per nome e mostra TUTTI i candidati (non sceglie da sola — evita il falso match che ha rotto il test precedente); (3) confronta col CET1 headline atteso (ground truth a mano).</p>
+
+<label style="font-size:12px;color:#8b98a8">Ticker</label>
+<select id="tk">
+  <option value="JPM">JPM — JPMorgan Chase (atteso 14.8)</option>
+  <option value="C">C — Citigroup (atteso 13.2)</option>
+  <option value="BAC" selected>BAC — Bank of America (atteso 11.6)</option>
+  <option value="WFC">WFC — Wells Fargo (atteso 11.0)</option>
+  <option value="TFC">TFC — Truist Financial (atteso 11.0)</option>
+  <option value="USB">USB — U.S. Bancorp (atteso 10.9)</option>
+  <option value="PNC">PNC — PNC Financial (atteso 10.6)</option>
+  <option value="KEY">KEY — KeyCorp (atteso 11.8)</option>
+  <option value="RF">RF — Regions Financial (atteso 10.8)</option>
+  <option value="CFG">CFG — Citizens Financial (atteso 10.7)</option>
+  <option value="FITB">FITB — Fifth Third (atteso 10.54)</option>
+  <option value="HBAN">HBAN — Huntington Bancshares (atteso 10.6)</option>
+  <option value="MTB">MTB — M&T Bank (atteso 10.99)</option>
+</select>
+<button onclick="run()">Esegui test sul ticker selezionato</button>
+
+<div class="box"><div class="nm">1 · SEC EDGAR — ticker → CIK → XBRL (holding)</div><div class="res" id="sec">—</div></div>
+<div class="box"><div class="nm">2 · FDIC — candidati sussidiaria (scegli tu se il #1 non è quello giusto)</div><div class="res" id="fdic">—</div></div>
+<div class="box" id="fdicPickBox" style="display:none">
+  <div class="nm">3 · Financials sulla sussidiaria scelta</div>
+  <select id="fdicPick" onchange="fetchFinancials(this.value)"></select>
+  <div class="res" id="fdicFin">—</div>
+</div>
+
+<script>
+// ── Mappa ticker → nome legale sussidiaria FDIC ──────────────────────────
+// Nessuna API gratuita fa ticker→nome-sussidiaria-bancaria: è un dato
+// anagrafico che va curato a mano una volta. Il CIK invece è risolto
+// dinamicamente sotto (quello NON va più a mano).
+const FDIC_NAME = {
+  JPM:'JPMorgan Chase Bank', C:'Citibank', BAC:'Bank of America',
+  WFC:'Wells Fargo Bank', TFC:'Truist Bank', USB:'U.S. Bank',
+  PNC:'PNC Bank', KEY:'KeyBank', RF:'Regions Bank',
+  CFG:'Citizens Bank', FITB:'Fifth Third Bank', HBAN:'Huntington National Bank',
+  MTB:'M&T Bank'
+};
+const EXPECTED = {
+  JPM:14.8, C:13.2, BAC:11.6, WFC:11.0, TFC:11.0, USB:10.9, PNC:10.6,
+  KEY:11.8, RF:10.8, CFG:10.7, FITB:10.54, HBAN:10.6, MTB:10.99
+};
+
+let TICKER_MAP = null; // cache company_tickers.json in memoria, una fetch sola
+
+const set=(id,t)=>document.getElementById(id).innerHTML=t;
+
+async function resolveCik(ticker){
+  if(!TICKER_MAP){
+    const r = await fetch('https://www.sec.gov/files/company_tickers.json',{headers:{'Accept':'application/json'}});
+    if(!r.ok) throw new Error('company_tickers.json HTTP '+r.status);
+    const j = await r.json();
+    TICKER_MAP = {};
+    for(const k in j){ TICKER_MAP[j[k].ticker.toUpperCase()] = String(j[k].cik_str).padStart(10,'0'); }
+  }
+  return TICKER_MAP[ticker.toUpperCase()] || null;
+}
+
+async function sec(ticker){
+  set('sec','risolvo CIK da company_tickers.json...');
+  try{
+    const cik = await resolveCik(ticker);
+    if(!cik){ set('sec','<span class="miss">CIK non trovato per '+ticker+'</span> — company_tickers.json non contiene questo ticker (raro per large cap).'); return; }
+    set('sec','CIK risolto: '+cik+' — fetch companyfacts (file grande, attendi)...');
+    const r=await fetch('https://data.sec.gov/api/xbrl/companyfacts/CIK'+cik+'.json',{headers:{'Accept':'application/json'}});
+    if(!r.ok){ set('sec','CIK '+cik+'\nHTTP '+r.status+' — SEC non raggiungibile da qui (possibile blocco CORS o User-Agent, non risolvibile da browser).'); return; }
+    const j = await r.json();
+    const rx=/tier.?1|common.?equity.?tier|cet1|risk.?based.?capital.?to|capital.?ratio/i;
+    const found=[];
+    for(const tax in (j.facts||{})){
+      for(const con in j.facts[tax]){
+        const label=(j.facts[tax][con].label||'')+' '+con;
+        if(rx.test(label)){
+          const units=j.facts[tax][con].units||{};
+          let last=null;
+          for(const u in units){ const arr=units[u]; if(arr&&arr.length){ const v=arr[arr.length-1]; last={val:v.val,end:v.end,unit:u}; } }
+          found.push({tax,con,label:j.facts[tax][con].label||con,last});
+        }
+      }
+    }
+    let out='CIK '+cik+' ('+j.entityName+')\n\n';
+    if(!found.length){ out+='<b>Nessun concetto CET1/Tier1 in XBRL.</b>\nConferma studio precedente: SEC non espone il CET1 come dato strutturato per le holding bancarie → il CET1 headline va pre-costruito (FR Y-9C), non estratto da SEC.'; set('sec',out); return; }
+    out+='Concetti capitale trovati ('+found.length+'):\n\n';
+    const exp = EXPECTED[ticker];
+    found.slice(0,20).forEach(f=>{
+      const v=f.last?`${f.last.val} (${f.last.unit}, ${f.last.end})`:'—';
+      const hit=(f.last && exp && Math.abs(f.last.val-exp)<=1.5)?' <span class="hit">← vicino all\'atteso '+exp+'</span>':'';
+      out+=`• ${f.label}\n   [${f.tax}:${f.con}] = ${v}${hit}\n`;
+    });
+    set('sec',out);
+  }catch(e){ set('sec','ROSSO: '+e.message); }
+}
+
+let LAST_TICKER='';
+
+async function fdic(ticker){
+  LAST_TICKER=ticker;
+  const name = FDIC_NAME[ticker];
+  set('fdic','cerco candidati FDIC per "'+name+'"...');
+  document.getElementById('fdicPickBox').style.display='none';
+  try{
+    const q = encodeURIComponent(name);
+    const li=await fetch(`https://banks.data.fdic.gov/api/institutions?filters=NAME:%22${q}%22%20AND%20ACTIVE:1&fields=NAME,CERT,ASSET&sort_by=ASSET&sort_order=DESC&limit=8&format=json`,{headers:{'Accept':'application/json'}});
+    const lj=await li.json();
+    const rows=(lj.data||[]).map(d=>d.data);
+    if(!rows.length){ set('fdic','<span class="miss">nessuna istituzione trovata per "'+name+'"</span> — il nome legale potrebbe essere diverso, correggi FDIC_NAME nel codice.'); return; }
+    let out='Query: NAME="'+name+'" AND ACTIVE:1, ordinate per ASSET.\n\n';
+    const sel = document.getElementById('fdicPick');
+    sel.innerHTML='';
+    rows.forEach((row,i)=>{
+      out+=(i===0?'★ ':'  ')+row.NAME+' · CERT '+row.CERT+' · ASSET $'+Number(row.ASSET).toLocaleString()+'k'+(i===0?' (top per asset — NON assunto corretto, verifica sotto)':'')+'\n';
+      const opt=document.createElement('option');
+      opt.value=row.CERT; opt.textContent=row.NAME+' (CERT '+row.CERT+')';
+      sel.appendChild(opt);
+    });
+    out+='\nSe più candidati: il gruppo con più asset di solito è la banca principale del gruppo, ma NON è garantito (holding con più sussidiarie). Scegli manualmente sotto e verifica il CET1 risultante contro l\'atteso.';
+    set('fdic',out);
+    document.getElementById('fdicPickBox').style.display='block';
+    await fetchFinancials(rows[0].CERT);
+  }catch(e){ set('fdic','ROSSO: '+e.message); }
+}
+
+async function fetchFinancials(cert){
+  set('fdicFin','fetch financials CERT '+cert+'...');
+  try{
+    const f=await fetch(`https://banks.data.fdic.gov/api/financials?filters=CERT:${cert}&fields=REPDTE,RBCT1J,RBCRWAJ,RBC1RWAJ,RBCT2,EQ,ASSET,NCLNLSR,LNATRES&sort_by=REPDTE&sort_order=DESC&limit=1&format=json`,{headers:{'Accept':'application/json'}});
+    const fj=await f.json();
+    const rec=(fj.data&&fj.data[0]&&fj.data[0].data)||{};
+    let out='Ultimo trimestre '+ (rec.REPDTE||'?') +':\n';
+    for(const k in rec){ if(k!=='REPDTE') out+=`  ${k} = ${rec[k]}\n`; }
+    const exp = EXPECTED[LAST_TICKER];
+    const cet1sub = rec.RBC1RWAJ ?? rec.RBCRWAJ;
+    if(cet1sub!=null && exp!=null){
+      const gap = (cet1sub-exp).toFixed(2);
+      out+=`\nCET1 subsidiary (questo endpoint) = ${cet1sub} · headline atteso (holding, a mano) = ${exp} · gap = ${gap}pp\n`;
+      out+= Math.abs(gap)>0.3
+        ? '<span class="miss">Conferma la trappola: FDIC dà il subsidiary, non il headline. NON usare questo numero come CET1 nel motore.</span>'
+        : '<span class="hit">Gap trascurabile per questa banca — verifica comunque su tutte le 13 prima di fidarti.</span>';
+    }
+    out+='\n\nRBC1RWAJ/RBCRWAJ = tier1/CET1 ratio SUBSIDIARY. NCLNLSR = noncurrent loans · LNATRES = riserve → utile per NPL/coverage (quello sì, subsidiary va bene).';
+    set('fdicFin',out);
+  }catch(e){ set('fdicFin','ROSSO: '+e.message); }
+}
+
+async function run(){
+  const ticker = document.getElementById('tk').value;
+  await sec(ticker);
+  await fdic(ticker);
+}
+</script>
+</body></html>
