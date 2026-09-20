@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T02:49:18.272401+00:00",
+  "generated_at": "2026-09-20T02:55:37.365239+00:00",
   "scope": "probe fase 3 — endpoint holding trovato dal catalogo, non indovinato",
   "holding_rssd_found": 1039502,
   "results": {
@@ -177,6 +177,19 @@
         "meta": {
           "rssd_id": 1039502,
           "source": "BankRegReports standardized data"
+        }
+      },
+      "raw_snippet": null
+    },
+    "bank_snapshot_su_holding_rssd": {
+      "url": "https://api.bankregreports.com/api/v1/banks/1039502/",
+      "status": 404,
+      "ok": false,
+      "json": {
+        "error": {
+          "code": "bank_not_found",
+          "message": "No bank with RSSD ID 1039502 in current quarter.",
+          "request_id": "52297075b7214a92bc3170d6b0b9bcb1"
         }
       },
       "raw_snippet": null
