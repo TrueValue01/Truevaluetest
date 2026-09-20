@@ -1,0 +1,262 @@
+#!/usr/bin/env python3
+"""
+Sonda CET1 holding - fase 3.
+
+Fase 2 ha confermato: bank_snapshot per RSSD 852218 (JPM subsidiary) da
+cet1_ratio 16.084 (troppo alto, e' il subsidiary). structure/full ha dato
+l'RSSD della holding: 1039502 (JPMORGAN CHASE & CO.). Indovinare il path
+dell'endpoint holding (holding-companies/, holding_companies/) ha dato 404
+entrambe le volte.
+
+Fase 3: invece di indovinare un terzo path, leggo il catalogo /datasets/
+(che elenca ogni endpoint con il suo path REALE) e cerco da sola le voci
+che parlano di "holding" - poi le chiamo con l'RSSD trovato sopra. Non
+logghero' l'intero catalogo (e' enorme, ha troncato il file la volta
+scorsa): solo le voci holding trovate.
+"""
+import json
+import os
+import sys
+from datetime import datetime, timezone
+
+import requests
+
+API_KEY = os.environ.get("BRR_API_KEY", "").strip()
+BASE = "https://api.bankregreports.com/api/v1"
+
+JPM_RSSD = 852218
+JPM_EXPECTED_HOLDING_CET1 = 14.8
+
+CONFIRMED_ENDPOINTS = {
+    "bank_snapshot": f"/banks/{JPM_RSSD}/",
+    "bank_structure": f"/banks/{JPM_RSSD}/structure/",
+    "bank_structure_full": f"/banks/{JPM_RSSD}/structure/full/",
+}
+
+
+def call(path, timeout=20):
+    url = BASE + path
+    try:
+        r = requests.get(
+            url,
+            headers={"Authorization": f"Bearer {API_KEY}", "Accept": "application/json"},
+            timeout=timeout,
+        )
+        body_text = r.text
+        body_json = None
+        try:
+            body_json = r.json()
+        except Exception:
+            pass
+        return {
+            "url": url,
+            "status": r.status_code,
+            "ok": r.ok,
+            "json": body_json,
+            "raw_snippet": body_text[:800] if body_json is None else None,
+        }
+    except Exception as e:
+        return {"url": url, "status": None, "ok": False, "error": str(e)}
+
+
+def _find_holding_datasets(catalog_json):
+    """Cerca ricorsivamente, nel catalogo, le voci con 'holding' nel nome/titolo/categoria.
+    Ogni voce dataset ha almeno 'key' e 'path' — quelle sono le uniche che tengo."""
+    found = []
+
+    def walk(node):
+        if isinstance(node, dict):
+            key = str(node.get("key", "")).lower()
+            title = str(node.get("title", "")).lower()
+            category = str(node.get("category", "")).lower()
+            if "path" in node and ("holding" in key or "holding" in title or "holding" in category):
+                found.append({
+                    "key": node.get("key"),
+                    "title": node.get("title"),
+                    "path": node.get("path"),
+                    "params": node.get("params"),
+                })
+            for v in node.values():
+                walk(v)
+        elif isinstance(node, list):
+            for item in node:
+                walk(item)
+
+    walk(catalog_json)
+    return found
+
+
+def _flatten(d, prefix=""):
+    items = []
+    if isinstance(d, dict):
+        for k, v in d.items():
+            key = f"{prefix}.{k}" if prefix else k
+            if isinstance(v, (dict, list)):
+                items.extend(_flatten(v, key))
+            else:
+                items.append((key, v))
+    elif isinstance(d, list):
+        for i, v in enumerate(d):
+            items.extend(_flatten(v, f"{prefix}[{i}]"))
+    return items
+
+
+def _sec_probe(cik, expected=None):
+    """Interroga SEC companyfacts e cerca QUALSIASI concetto con 'cet1' o
+    'commonequitytier1' nel nome, in tutte le tassonomie (us-gaap + custom
+    della banca). SEC richiede uno User-Agent identificativo: da server-side
+    (GitHub Actions) possiamo impostarlo, a differenza del browser."""
+    url = f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
+    try:
+        r = requests.get(
+            url,
+            headers={
+                "User-Agent": "TrueValue research truevalue01@github.example",
+                "Accept": "application/json",
+            },
+            timeout=45,
+        )
+        if not r.ok:
+            return {"url": url, "status": r.status_code, "ok": False,
+                    "note": "SEC ha risposto ma non OK (403 = User-Agent rifiutato)."}
+        j = r.json()
+        facts = j.get("facts", {})
+        found = []
+        for taxonomy, concepts in facts.items():
+            for concept, payload in concepts.items():
+                c = concept.lower()
+                if "cet1" in c or "commonequitytier1" in c or ("commonequity" in c and "tier1" in c):
+                    units = payload.get("units", {})
+                    latest = None
+                    for unit, arr in units.items():
+                        if arr:
+                            v = arr[-1]
+                            latest = {"unit": unit, "val": v.get("val"), "end": v.get("end")}
+                    entry = {"taxonomy": taxonomy, "concept": concept,
+                             "label": payload.get("label"), "latest": latest}
+                    if expected is not None and latest and isinstance(latest.get("val"), (int, float)):
+                        val = latest["val"]
+                        # il valore puo' essere in % (14.8) o in frazione (0.148)
+                        entry["vicino_atteso"] = (abs(val - expected) <= 1.5) or (abs(val * 100 - expected) <= 1.5)
+                    found.append(entry)
+        return {
+            "url": url, "status": 200, "ok": True,
+            "entity_name": j.get("entityName"),
+            "cet1_concepts_found": found,
+            "note": ("NESSUN tag CET1 in XBRL — confermato: SEC non espone il "
+                     "CET1 come dato strutturato, solo come testo nel 10-Q."
+                     if not found else
+                     "TAG CET1 TROVATO in XBRL — strada SEC potenzialmente aperta."),
+        }
+    except Exception as e:
+        return {"url": url, "status": None, "ok": False, "error": str(e),
+                "note": "Se timeout/connessione: SEC lenta o User-Agent; se altro, vedi errore."}
+
+
+def main():
+    if not API_KEY:
+        print("ERRORE: secret BRR_API_KEY non impostato nel repo.", file=sys.stderr)
+        sys.exit(1)
+
+    results = {}
+    for name, path in CONFIRMED_ENDPOINTS.items():
+        print(f"chiamo {name}: {path}")
+        results[name] = call(path)
+
+    holding_rssd = None
+    struct_full = results.get("bank_structure_full", {}).get("json")
+    if isinstance(struct_full, dict):
+        parents = (struct_full.get("data") or {}).get("parents") or []
+        if parents:
+            holding_rssd = parents[0].get("rssd_id")
+            print(f"trovata holding RSSD: {holding_rssd} ({parents[0].get('name')})")
+
+    if isinstance(results.get("bank_structure_full", {}).get("json"), dict):
+        d = results["bank_structure_full"]["json"].get("data") or {}
+        results["bank_structure_full"]["json"] = {
+            "data": {
+                "rssd_id": d.get("rssd_id"),
+                "parents": d.get("parents"),
+                "n_subsidiaries": len(d.get("subsidiaries") or []),
+            }
+        }
+
+    print("chiamo datasets_catalog: /datasets/ (non loggato per intero, solo le voci holding)")
+    catalog_res = call("/datasets/")
+    holding_entries = _find_holding_datasets(catalog_res.get("json"))
+    results["datasets_catalog"] = {
+        "url": catalog_res.get("url"),
+        "status": catalog_res.get("status"),
+        "ok": catalog_res.get("ok"),
+        "holding_entries_found": holding_entries,
+    }
+    print(f"trovate {len(holding_entries)} voci holding nel catalogo: {[e.get('key') for e in holding_entries]}")
+
+    if holding_rssd and holding_entries:
+        # Solo lo snapshot holding, non trends/13F (non servono e appesantiscono
+        # la chiamata). Timeout piu' lungo (45s) + un retry: il tentativo
+        # precedente ha dato timeout a 20s, probabile endpoint che aggrega
+        # dati da piu' sussidiarie al volo, non un 404.
+        snapshot_entry = next((e for e in holding_entries if e.get("key") == "holding_company"), None)
+        if snapshot_entry:
+            tmpl = snapshot_entry.get("path") or ""
+            real_path = tmpl.replace("{rssd_id}", str(holding_rssd))
+            if real_path.startswith("/api/v1"):
+                real_path = real_path.replace("/api/v1", "", 1)
+            print(f"chiamo holding_company_snapshot: {real_path} (timeout 45s)")
+            res = call(real_path, timeout=45)
+            if not res.get("ok") and res.get("error"):
+                print(f"primo tentativo fallito ({res.get('error')}), riprovo una volta...")
+                res = call(real_path, timeout=45)
+            results["holding_company_snapshot"] = res
+    elif holding_rssd:
+        print("nessuna voce holding nel catalogo — provo comunque /banks/ con l'RSSD della holding")
+        results["banks_endpoint_on_holding_rssd"] = call(f"/banks/{holding_rssd}/", timeout=45)
+
+    if holding_rssd:
+        # Ultimo test mirato: l'endpoint "Bank Snapshot" (quello con cet1_ratio,
+        # provato finora solo sul subsidiary) applicato all'RSSD della HOLDING.
+        # Non ancora testato in questa combinazione esatta. Se anche qui manca
+        # cet1_ratio, bankregreports non espone il CET1 headline in nessun modo
+        # via API pubblica — verdetto definitivo, non un'altra supposizione.
+        print(f"chiamo bank_snapshot_su_holding_rssd: /banks/{holding_rssd}/ (timeout 45s)")
+        results["bank_snapshot_su_holding_rssd"] = call(f"/banks/{holding_rssd}/", timeout=45)
+
+    # SONDA SEC (un colpo solo): il 10-Q di JPM mostra "CET1 14.8" a schermo,
+    # ma companyfacts espone SOLO i dati taggati XBRL. Se il CET1 c'e' come
+    # tag interrogabile, strada SEC aperta; se no, e' il "no" verificato.
+    # CIK JPM holding = 0000019617.
+    print("chiamo sec_probe: companyfacts JPM CIK 0000019617")
+    results["sec_probe"] = _sec_probe("0000019617", expected=14.8)
+
+    hints = []
+    for name, res in results.items():
+        j = res.get("json") if isinstance(res, dict) else None
+        if isinstance(j, dict):
+            for k, v in _flatten(j):
+                if "cet1" in k.lower() and isinstance(v, (int, float)):
+                    close = abs(v - JPM_EXPECTED_HOLDING_CET1) <= 1.0
+                    hints.append({
+                        "endpoint": name,
+                        "field": k,
+                        "value": v,
+                        "vicino_a_headline_atteso_14_8": close,
+                    })
+
+    log = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "scope": "probe fase 3 — endpoint holding trovato dal catalogo, non indovinato",
+        "holding_rssd_found": holding_rssd,
+        "results": results,
+        "cet1_field_hints": hints,
+    }
+
+    out_path = os.path.join(os.path.dirname(__file__), "..", "cet1-probe-log.json")
+    with open(out_path, "w") as f:
+        json.dump(log, f, indent=2, ensure_ascii=False)
+    print(f"Scritto {out_path}")
+    print(json.dumps(hints, indent=2, ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()
