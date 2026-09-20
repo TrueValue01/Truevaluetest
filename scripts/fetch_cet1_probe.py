@@ -34,13 +34,13 @@ CONFIRMED_ENDPOINTS = {
 }
 
 
-def call(path):
+def call(path, timeout=20):
     url = BASE + path
     try:
         r = requests.get(
             url,
             headers={"Authorization": f"Bearer {API_KEY}", "Accept": "application/json"},
-            timeout=20,
+            timeout=timeout,
         )
         body_text = r.text
         body_json = None
@@ -141,17 +141,21 @@ def main():
     print(f"trovate {len(holding_entries)} voci holding nel catalogo: {[e.get('key') for e in holding_entries]}")
 
     if holding_rssd and holding_entries:
-        for entry in holding_entries:
-            tmpl = entry.get("path") or ""
-            if "{rssd_id}" in tmpl:
-                real_path = tmpl.replace("{rssd_id}", str(holding_rssd))
-                real_path = real_path.replace("/api/v1", "", 1) if real_path.startswith("/api/v1") else real_path
-                name = f"holding_real_{entry.get('key')}"
-                print(f"chiamo {name}: {real_path}")
-                results[name] = call(real_path)
+        snapshot_entry = next((e for e in holding_entries if e.get("key") == "holding_company"), None)
+        if snapshot_entry:
+            tmpl = snapshot_entry.get("path") or ""
+            real_path = tmpl.replace("{rssd_id}", str(holding_rssd))
+            if real_path.startswith("/api/v1"):
+                real_path = real_path.replace("/api/v1", "", 1)
+            print(f"chiamo holding_company_snapshot: {real_path} (timeout 45s)")
+            res = call(real_path, timeout=45)
+            if not res.get("ok") and res.get("error"):
+                print(f"primo tentativo fallito ({res.get('error')}), riprovo una volta...")
+                res = call(real_path, timeout=45)
+            results["holding_company_snapshot"] = res
     elif holding_rssd:
         print("nessuna voce holding nel catalogo — provo comunque /banks/ con l'RSSD della holding")
-        results["banks_endpoint_on_holding_rssd"] = call(f"/banks/{holding_rssd}/")
+        results["banks_endpoint_on_holding_rssd"] = call(f"/banks/{holding_rssd}/", timeout=45)
 
     hints = []
     for name, res in results.items():
