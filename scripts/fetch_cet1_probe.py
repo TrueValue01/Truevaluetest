@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Sonda CET1 holding - fase 3.
 
@@ -111,14 +110,15 @@ def _sec_probe(cik, expected=None):
         r = requests.get(
             url,
             headers={
-                "User-Agent": "TrueValue research truevalue01@github.example",
+                "User-Agent": "TrueValue Francesco truevalue01@gmail.com",
                 "Accept": "application/json",
             },
             timeout=45,
         )
         if not r.ok:
             return {"url": url, "status": r.status_code, "ok": False,
-                    "note": "SEC ha risposto ma non OK (403 = User-Agent rifiutato)."}
+                    "response_snippet": r.text[:500],
+                    "note": "SEC ha risposto ma non OK — vedi response_snippet per il motivo esatto."}
         j = r.json()
         facts = j.get("facts", {})
         found = []
@@ -260,3 +260,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+        
