@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T02:55:37.365239+00:00",
+  "generated_at": "2026-09-20T13:22:04.778774+00:00",
   "scope": "probe fase 3 — endpoint holding trovato dal catalogo, non indovinato",
   "holding_rssd_found": 1039502,
   "results": {
@@ -189,10 +189,16 @@
         "error": {
           "code": "bank_not_found",
           "message": "No bank with RSSD ID 1039502 in current quarter.",
-          "request_id": "52297075b7214a92bc3170d6b0b9bcb1"
+          "request_id": "e62bc7a0407748a3bf6807a339a241e5"
         }
       },
       "raw_snippet": null
+    },
+    "sec_probe": {
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000019617.json",
+      "status": 403,
+      "ok": false,
+      "note": "SEC ha risposto ma non OK (403 = User-Agent rifiutato)."
     }
   },
   "cet1_field_hints": [
