@@ -157,6 +157,10 @@ def main():
         print("nessuna voce holding nel catalogo — provo comunque /banks/ con l'RSSD della holding")
         results["banks_endpoint_on_holding_rssd"] = call(f"/banks/{holding_rssd}/", timeout=45)
 
+    if holding_rssd:
+        print(f"chiamo bank_snapshot_su_holding_rssd: /banks/{holding_rssd}/ (timeout 45s)")
+        results["bank_snapshot_su_holding_rssd"] = call(f"/banks/{holding_rssd}/", timeout=45)
+
     hints = []
     for name, res in results.items():
         j = res.get("json") if isinstance(res, dict) else None
