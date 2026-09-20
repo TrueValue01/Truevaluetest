@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T02:42:43.700448+00:00",
+  "generated_at": "2026-09-20T02:49:18.272401+00:00",
   "scope": "probe fase 3 — endpoint holding trovato dal catalogo, non indovinato",
   "holding_rssd_found": 1039502,
   "results": {
@@ -153,23 +153,33 @@
         }
       ]
     },
-    "holding_real_holding_company": {
+    "holding_company_snapshot": {
       "url": "https://api.bankregreports.com/api/v1/holding-cos/1039502/",
-      "status": null,
-      "ok": false,
-      "error": "HTTPSConnectionPool(host='api.bankregreports.com', port=443): Read timed out. (read timeout=20)"
-    },
-    "holding_real_holding_company_trends": {
-      "url": "https://api.bankregreports.com/api/v1/holding-cos/1039502/trends/",
-      "status": null,
-      "ok": false,
-      "error": "HTTPSConnectionPool(host='api.bankregreports.com', port=443): Read timed out. (read timeout=20)"
-    },
-    "holding_real_sec_form_13f": {
-      "url": "https://api.bankregreports.com/api/v1/banks/1039502/sec/13f/",
-      "status": null,
-      "ok": false,
-      "error": "HTTPSConnectionPool(host='api.bankregreports.com', port=443): Read timed out. (read timeout=20)"
+      "status": 200,
+      "ok": true,
+      "json": {
+        "data": {
+          "BRR_ID": "BRR-E-0049475",
+          "RSSD_ID": 1039502,
+          "REPORT_DATE": "2026-06-30",
+          "TOTAL_ASSETS": 5015069000.0,
+          "TOTAL_LOANS": 1624665000.0,
+          "FINANCIAL_ASSET_EQUITY_ADJ": -14380.37,
+          "MARK_TO_MARKET_EQUITY": 360217.63,
+          "ASSET_GROWTH_RATE": 9.353705508139518,
+          "LOAN_GROWTH_RATE": 14.35916662203417,
+          "LOANS_ASSETS": 32.39566594198405,
+          "FULL_TIME_EQV_EMPLOYEES": 315648.0,
+          "NET_INCOME": 21155000.0,
+          "ROA": 1.6989641177653985,
+          "ROE": 22.912503587694076
+        },
+        "meta": {
+          "rssd_id": 1039502,
+          "source": "BankRegReports standardized data"
+        }
+      },
+      "raw_snippet": null
     }
   },
   "cet1_field_hints": [
