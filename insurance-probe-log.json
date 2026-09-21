@@ -1,18 +1,16 @@
 {
-  "generated_at": "2026-09-21T01:36:55.905987+00:00",
+  "generated_at": "2026-09-21T01:43:26.210046+00:00",
   "scope": "sonda Combined Ratio via SEC XBRL - fase 1 (PGR/TRV/ALL/CB, gli stessi 4 gia' testati su FMP)",
   "results": {
     "PGR": {
-      "entity_name": "AT&T INC.",
-      "premiums_earned_top3": [],
-      "losses_incurred_top3": [],
-      "ga_expense_top3": [
+      "entity_name": "PROGRESSIVE CORP/OH/",
+      "premiums_earned_top3": [
         {
           "taxonomy": "us-gaap",
-          "concept": "SellingGeneralAndAdministrativeExpense",
-          "label": "Selling, General and Administrative Expense",
+          "concept": "PremiumsEarnedNet",
+          "label": "Premiums Earned, Net",
           "unit": "USD",
-          "val": 7221000000,
+          "val": 21573000000,
           "end": "2026-06-30",
           "form": "10-Q",
           "fy": 2026,
@@ -20,20 +18,63 @@
         },
         {
           "taxonomy": "us-gaap",
-          "concept": "OtherSellingGeneralAndAdministrativeExpense",
-          "label": "Other Selling, General and Administrative Expense",
+          "concept": "DirectPremiumsEarned",
+          "label": "Direct Premiums Earned",
           "unit": "USD",
-          "val": 68000000,
-          "end": "2019-12-31",
+          "val": 82847000000,
+          "end": "2025-12-31",
           "form": "10-K",
-          "fy": 2019,
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "CededPremiumsEarned",
+          "label": "Ceded Premiums Earned",
+          "unit": "USD",
+          "val": 1186000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
           "fp": "FY"
         }
       ],
-      "dac_amortization_top3": [],
+      "losses_incurred_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+          "label": "Policyholder Benefits and Claims Incurred, Net",
+          "unit": "USD",
+          "val": 14572000000,
+          "end": "2026-06-30",
+          "form": "10-Q",
+          "fy": 2026,
+          "fp": "Q2"
+        }
+      ],
+      "ga_expense_top3": [],
+      "dac_amortization_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "SupplementaryInsuranceInformationAmortizationOfDeferredPolicyAcquisitionCosts",
+          "label": "SEC Schedule, 12-16, Insurance Companies, Supplementary Insurance Information, Amortization of Deferred Policy Acquisition Cost",
+          "unit": "USD",
+          "val": 6096000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ],
       "computed": {
-        "combined_ratio_pct": null,
-        "nota": "nessun concetto 'premiums earned' trovato per questa compagnia"
+        "combined_ratio_pct": 67.55,
+        "period": "2026-06-30",
+        "numeratore_da": [
+          "PolicyholderBenefitsAndClaimsIncurredNet"
+        ],
+        "denominatore_da": "PremiumsEarnedNet",
+        "completo": false,
+        "nota": "parziale: nessun periodo con tutti e 4 i pezzi trovato, mostro il piu' recente disponibile (sottostima)"
       }
     },
     "TRV": {
@@ -131,7 +172,8 @@
           "SellingGeneralAndAdministrativeExpense"
         ],
         "denominatore_da": "PremiumsEarnedNet",
-        "nota": "G&A e/o ammortamento DAC assenti a questa data: rapporto calcolato solo su sinistri/premi, sottostima il vero Combined Ratio"
+        "completo": false,
+        "nota": "parziale: nessun periodo con tutti e 4 i pezzi trovato, mostro il piu' recente disponibile (sottostima)"
       }
     },
     "ALL": {
@@ -171,19 +213,7 @@
           "fp": "FY"
         }
       ],
-      "losses_incurred_top3": [
-        {
-          "taxonomy": "us-gaap",
-          "concept": "PaymentsForLossesAndLossAdjustmentExpense",
-          "label": "Liability for Unpaid Claims and Claims Adjustment Expense, Claims Paid",
-          "unit": "USD",
-          "val": 22224000000,
-          "end": "2020-12-31",
-          "form": "10-K",
-          "fy": 2020,
-          "fp": "FY"
-        }
-      ],
+      "losses_incurred_top3": [],
       "ga_expense_top3": [],
       "dac_amortization_top3": [
         {
@@ -262,28 +292,6 @@
           "form": "10-Q",
           "fy": 2026,
           "fp": "Q1"
-        },
-        {
-          "taxonomy": "us-gaap",
-          "concept": "PaymentsForLossesAndLossAdjustmentExpense",
-          "label": "Liability for Unpaid Claims and Claims Adjustment Expense, Claims Paid",
-          "unit": "USD",
-          "val": 5331000000,
-          "end": "2026-03-31",
-          "form": "10-Q",
-          "fy": 2026,
-          "fp": "Q1"
-        },
-        {
-          "taxonomy": "us-gaap",
-          "concept": "ReserveForLossesAndLossAdjustmentExpenses",
-          "label": "Reserve for Losses and Loss Adjustment Expenses (Deprecated 2013-01-31)",
-          "unit": "USD",
-          "val": 58000000,
-          "end": "2012-12-31",
-          "form": "10-K",
-          "fy": 2012,
-          "fp": "FY"
         }
       ],
       "ga_expense_top3": [
@@ -320,7 +328,8 @@
           "GeneralAndAdministrativeExpense"
         ],
         "denominatore_da": "PremiumsEarnedNet",
-        "nota": "G&A e/o ammortamento DAC assenti a questa data: rapporto calcolato solo su sinistri/premi, sottostima il vero Combined Ratio"
+        "completo": false,
+        "nota": "parziale: nessun periodo con tutti e 4 i pezzi trovato, mostro il piu' recente disponibile (sottostima)"
       }
     }
   }
