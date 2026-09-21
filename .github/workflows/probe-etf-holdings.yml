@@ -1,0 +1,37 @@
+name: Probe ETF Holdings
+
+# Trigger manuale — la lanci tu dal telefono (tab Actions su GitHub > questo
+# workflow > "Run workflow"). Non schedulata: e' una sonda esplorativa,
+# non un job ricorrente. Se il pattern SPDR/iShares/Vanguard si conferma
+# solido, si trasforma in schedulata come update-cet1.yml.
+on:
+  workflow_dispatch: {}
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installa dipendenze
+        run: pip install requests openpyxl
+
+      - name: Esegui la sonda
+        run: python3 scripts/fetch_etf_holdings_probe.py
+
+      - name: Mostra risultato in log
+        run: cat scripts/etf_holdings_probe_result.json
+
+      - name: Commit risultato nel repo
+        run: |
+          git config user.name "etf-holdings-probe-bot"
+          git config user.email "actions@github.com"
+          git add scripts/etf_holdings_probe_result.json
+          git diff --cached --quiet || git commit -m "Probe ETF holdings: aggiornato risultato"
+          git push
