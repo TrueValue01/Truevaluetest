@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T01:58:24.531143+00:00",
+  "generated_at": "2026-09-21T02:02:28.535099+00:00",
   "scope": "sonda Combined Ratio via SEC XBRL - fase 1 (PGR/TRV/ALL/CB, gli stessi 4 gia' testati su FMP)",
   "results": {
     "PGR": {
@@ -165,14 +165,14 @@
         }
       ],
       "computed": {
-        "combined_ratio_pct": 90.15,
+        "combined_ratio_pct": 92.47,
         "period": "2025-12-31",
         "numeratore_da": [
           "PolicyholderBenefitsAndClaimsIncurredNet",
           "SellingGeneralAndAdministrativeExpense",
           "SupplementaryInsuranceInformationAmortizationOfDeferredPolicyAcquisitionCosts"
         ],
-        "denominatore_da": "DirectPremiumsEarned",
+        "denominatore_da": "PremiumsEarnedNet",
         "completo": true
       }
     },
@@ -321,14 +321,14 @@
         }
       ],
       "computed": {
-        "combined_ratio_pct": 67.66,
+        "combined_ratio_pct": 75.17,
         "period": "2025-12-31",
         "numeratore_da": [
           "PolicyholderBenefitsAndClaimsIncurredNet",
           "GeneralAndAdministrativeExpense",
           "SupplementalInformationForPropertyCasualtyInsuranceUnderwritersAmortizationOfDeferredPolicyAcquisitionCosts"
         ],
-        "denominatore_da": "DirectPremiumsEarned",
+        "denominatore_da": "PremiumsEarnedNet",
         "completo": true
       }
     }
