@@ -1,0 +1,603 @@
+{
+  "generated_at": "2026-09-21T00:25:55.789213+00:00",
+  "scope": "sonda NPL/Allowance via SEC XBRL - fase 1 (JPM/BAC controllo, WFC/USB dove FDIC ha sbagliato)",
+  "results": {
+    "JPM": {
+      "entity_name": "JPMORGAN CHASE & CO",
+      "expected_npl_pct": 0.87,
+      "nonaccrual_concepts_found": [],
+      "allowance_concepts_found": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesAdjustmentsNet",
+          "label": "Allowance for Loan and Lease Losses, Adjustments, Other",
+          "latest": {
+            "unit": "USD",
+            "val": 1000000,
+            "end": "2012-06-30",
+            "form": "10-Q",
+            "fy": 2012,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesLoansAcquired",
+          "label": "Allowance for Loan and Lease Losses, Loans Acquired",
+          "latest": {
+            "unit": "USD",
+            "val": 0,
+            "end": "2010-12-31",
+            "form": "10-K",
+            "fy": 2010,
+            "fp": "FY"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesProvisionForLossNet",
+          "label": "Allowance for Loan and Lease Losses, Provision for Loss, Net (Deprecated 2013-01-31)",
+          "latest": {
+            "unit": "USD",
+            "val": -4665000000,
+            "end": "2012-06-30",
+            "form": "10-Q",
+            "fy": 2012,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesWriteOffs",
+          "label": "Allowance for Loan and Lease Losses, Write-offs",
+          "latest": {
+            "unit": "USD",
+            "val": 151000000,
+            "end": "2019-12-31",
+            "form": "10-K",
+            "fy": 2019,
+            "fp": "FY"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "CertainLoansAndDebtSecuritiesAcquiredInTransferAllowanceForCreditLossesDueToSubsequentImpairment",
+          "label": "Certain Loans and Debt Securities Acquired in Transfer, Allowance for Credit Losses Due to Subsequent Impairment",
+          "latest": {
+            "unit": "USD",
+            "val": 987000000,
+            "end": "2019-12-31",
+            "form": "10-K",
+            "fy": 2021,
+            "fp": "FY"
+          }
+        }
+      ],
+      "total_loans_concepts_found": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "LoansAndLeasesReceivableNetReportedAmount",
+          "label": "Loans and Leases Receivable, Net Amount",
+          "latest": {
+            "unit": "USD",
+            "val": 858577000000,
+            "end": "2016-06-30",
+            "form": "10-Q",
+            "fy": 2016,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "NotesReceivableNet",
+          "label": "Financing Receivable, after Allowance for Credit Loss",
+          "latest": {
+            "unit": "USD",
+            "val": 1021454000000,
+            "end": "2021-06-30",
+            "form": "10-Q",
+            "fy": 2021,
+            "fp": "Q2"
+          }
+        }
+      ],
+      "computed": {}
+    },
+    "BAC": {
+      "entity_name": "BofA Finance LLC",
+      "expected_npl_pct": 0.73,
+      "nonaccrual_concepts_found": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "FinancingReceivableNonaccrualPercentPastDue1",
+          "label": "Financing Receivable, Nonaccrual, Percent Past Due",
+          "latest": {
+            "unit": "pure",
+            "val": 0.0039,
+            "end": "2022-09-30",
+            "form": "10-Q",
+            "fy": 2022,
+            "fp": "Q3"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "FinancingReceivableRecordedInvestmentNonaccrualStatus",
+          "label": "Financing Receivable, Nonaccrual",
+          "latest": {
+            "unit": "USD",
+            "val": 3983000000,
+            "end": "2022-09-30",
+            "form": "10-Q",
+            "fy": 2022,
+            "fp": "Q3"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "LoansAndLeasesReceivableImpairedNonperformingNonaccrualOfInterest",
+          "label": "Loans and Leases Receivable, Nonperforming, Nonaccrual of Interest",
+          "latest": {
+            "unit": "USD",
+            "val": 27583000000,
+            "end": "2011-06-30",
+            "form": "10-Q",
+            "fy": 2011,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "FinancingReceivableExcludingAccruedInterestNonaccrual",
+          "label": null,
+          "latest": {
+            "unit": "USD",
+            "val": 5751000000,
+            "end": "2026-06-30",
+            "form": "10-Q",
+            "fy": 2026,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "FinancingReceivableExcludingAccruedInterestNonaccrualPercentPastDue",
+          "label": null,
+          "latest": {
+            "unit": "pure",
+            "val": 0.0047,
+            "end": "2026-06-30",
+            "form": "10-Q",
+            "fy": 2026,
+            "fp": "Q2"
+          }
+        }
+      ],
+      "allowance_concepts_found": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesAdjustmentsNet",
+          "label": "Allowance for Loan and Lease Losses, Adjustments, Other",
+          "latest": {
+            "unit": "USD",
+            "val": -111000000,
+            "end": "2019-12-31",
+            "form": "10-K",
+            "fy": 2019,
+            "fp": "FY"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesProvisionForLossGross",
+          "label": "Allowance for Loan and Lease Losses, Provision for Loss, Gross (Deprecated 2013-01-31)",
+          "latest": {
+            "unit": "USD",
+            "val": 1731000000,
+            "end": "2013-03-31",
+            "form": "10-Q",
+            "fy": 2013,
+            "fp": "Q1"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesProvisionForLossNet",
+          "label": "Allowance for Loan and Lease Losses, Provision for Loss, Net (Deprecated 2013-01-31)",
+          "latest": {
+            "unit": "USD",
+            "val": -5665000000,
+            "end": "2011-06-30",
+            "form": "10-Q",
+            "fy": 2011,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesRecoveriesOfBadDebts",
+          "label": "Allowance for Loan and Lease Losses, Recoveries of Bad Debts (Deprecated 2013-01-31)",
+          "latest": {
+            "unit": "USD",
+            "val": -545000000,
+            "end": "2013-03-31",
+            "form": "10-Q",
+            "fy": 2013,
+            "fp": "Q1"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesWriteOffs",
+          "label": "Allowance for Loan and Lease Losses, Write-offs",
+          "latest": {
+            "unit": "USD",
+            "val": 5646000000,
+            "end": "2019-12-31",
+            "form": "10-K",
+            "fy": 2019,
+            "fp": "FY"
+          }
+        }
+      ],
+      "total_loans_concepts_found": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "LoansAndLeasesReceivableNetReportedAmount",
+          "label": "Loans and Leases Receivable, Net Amount",
+          "latest": {
+            "unit": "USD",
+            "val": 979555000000,
+            "end": "2020-06-30",
+            "form": "10-Q",
+            "fy": 2020,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "NotesReceivableNet",
+          "label": "Financing Receivable, after Allowance for Credit Loss",
+          "latest": {
+            "unit": "USD",
+            "val": 1020164000000,
+            "end": "2022-09-30",
+            "form": "10-Q",
+            "fy": 2022,
+            "fp": "Q3"
+          }
+        }
+      ],
+      "computed": {}
+    },
+    "WFC": {
+      "entity_name": "WELLS        FARGO & COMPANY/MN",
+      "expected_npl_pct": 0.87,
+      "nonaccrual_concepts_found": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "DebtSecuritiesHeldToMaturityNonaccrual",
+          "label": "Debt Securities, Held-to-maturity, Nonaccrual",
+          "latest": {
+            "unit": "USD",
+            "val": 0,
+            "end": "2020-09-30",
+            "form": "10-Q",
+            "fy": 2020,
+            "fp": "Q3"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "FinancingReceivableNonaccrualInterestIncome",
+          "label": "Financing Receivable, Nonaccrual, Interest Income",
+          "latest": {
+            "unit": "USD",
+            "val": 112000000,
+            "end": "2026-06-30",
+            "form": "10-Q",
+            "fy": 2026,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "FinancingReceivableNonaccrualNoAllowance",
+          "label": "Financing Receivable, Nonaccrual, No Allowance",
+          "latest": {
+            "unit": "USD",
+            "val": 3141000000,
+            "end": "2022-06-30",
+            "form": "10-Q",
+            "fy": 2022,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "FinancingReceivableRecordedInvestmentNonaccrualStatus",
+          "label": "Financing Receivable, Nonaccrual",
+          "latest": {
+            "unit": "USD",
+            "val": 5993000000,
+            "end": "2022-06-30",
+            "form": "10-Q",
+            "fy": 2022,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "LoansAndLeasesReceivableImpairedNonperformingNonaccrualOfInterest",
+          "label": "Loans and Leases Receivable, Nonperforming, Nonaccrual of Interest",
+          "latest": {
+            "unit": "USD",
+            "val": 28300000000,
+            "end": "2010-09-30",
+            "form": "10-Q",
+            "fy": 2010,
+            "fp": "Q3"
+          }
+        }
+      ],
+      "allowance_concepts_found": [
+        {
+          "taxonomy": "srt",
+          "concept": "FinancingReceivableAllowanceForCreditLossToOutstandingPercent",
+          "label": null,
+          "latest": {
+            "unit": "pure",
+            "val": 0.0137,
+            "end": "2022-06-30",
+            "form": "10-Q",
+            "fy": 2022,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesAdjustmentsNet",
+          "label": "Allowance for Loan and Lease Losses, Adjustments, Other",
+          "latest": {
+            "unit": "USD",
+            "val": -4000000,
+            "end": "2022-06-30",
+            "form": "10-Q",
+            "fy": 2022,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesProvisionForLossNet",
+          "label": "Allowance for Loan and Lease Losses, Provision for Loss, Net (Deprecated 2013-01-31)",
+          "latest": {
+            "unit": "USD",
+            "val": -4095000000,
+            "end": "2010-09-30",
+            "form": "10-Q",
+            "fy": 2010,
+            "fp": "Q3"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesWriteOffs",
+          "label": "Allowance for Loan and Lease Losses, Write-offs",
+          "latest": {
+            "unit": "USD",
+            "val": 654000000,
+            "end": "2022-06-30",
+            "form": "10-Q",
+            "fy": 2022,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesWriteoffsNet",
+          "label": "Allowance for Loan and Lease Losses Write-offs, Net",
+          "latest": {
+            "unit": "USD",
+            "val": 344000000,
+            "end": "2022-06-30",
+            "form": "10-Q",
+            "fy": 2022,
+            "fp": "Q2"
+          }
+        }
+      ],
+      "total_loans_concepts_found": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "LoansAndLeasesReceivableNetReportedAmount",
+          "label": "Loans and Leases Receivable, Net Amount",
+          "latest": {
+            "unit": "USD",
+            "val": 931948000000,
+            "end": "2022-06-30",
+            "form": "10-Q",
+            "fy": 2022,
+            "fp": "Q2"
+          }
+        }
+      ],
+      "computed": {
+        "npl_pct": 0.0,
+        "npl_periods_match": false
+      }
+    },
+    "USB": {
+      "entity_name": "US BANCORP \\DE\\",
+      "expected_npl_pct": 0.39,
+      "nonaccrual_concepts_found": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "FairValueOptionLoansHeldAsAssetsAggregateAmountInNonaccrualStatus",
+          "label": "Fair Value, Option, Loans Held as Assets, Aggregate Amount in Nonaccrual Status",
+          "latest": {
+            "unit": "USD",
+            "val": 1000000,
+            "end": "2026-06-30",
+            "form": "10-Q",
+            "fy": 2026,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "FairValueOptionLoansHeldAsAssetsAggregateAmountInNonaccrualStatusAggregatedDifference",
+          "label": "Fair Value, Option, Loans Held as Assets, Aggregate Amount in Nonaccrual Status, Aggregated Difference",
+          "latest": {
+            "unit": "USD",
+            "val": 0,
+            "end": "2023-06-30",
+            "form": "10-Q",
+            "fy": 2023,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "FinancingReceivableRecordedInvestmentNonaccrualStatus",
+          "label": "Financing Receivable, Nonaccrual",
+          "latest": {
+            "unit": "USD",
+            "val": 972000000,
+            "end": "2022-12-31",
+            "form": "10-K",
+            "fy": 2022,
+            "fp": "FY"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "LoansAndLeasesReceivableImpairedInterestLostOnNonaccrualLoans",
+          "label": "Loans and Leases Receivable, Impaired, Interest Lost on Nonaccrual Loans",
+          "latest": {
+            "unit": "USD",
+            "val": 123000000,
+            "end": "2010-12-31",
+            "form": "10-K",
+            "fy": 2010,
+            "fp": "FY"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "LoansAndLeasesReceivableImpairedNonperformingNonaccrualOfInterest",
+          "label": "Loans and Leases Receivable, Nonperforming, Nonaccrual of Interest",
+          "latest": {
+            "unit": "USD",
+            "val": 2150000000,
+            "end": "2010-12-31",
+            "form": "10-K",
+            "fy": 2010,
+            "fp": "FY"
+          }
+        }
+      ],
+      "allowance_concepts_found": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesAdjustmentsNet",
+          "label": "Allowance for Loan and Lease Losses, Adjustments, Other",
+          "latest": {
+            "unit": "USD",
+            "val": -1000000,
+            "end": "2022-12-31",
+            "form": "10-K",
+            "fy": 2022,
+            "fp": "FY"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesProvisionForLossGross",
+          "label": "Allowance for Loan and Lease Losses, Provision for Loss, Gross (Deprecated 2013-01-31)",
+          "latest": {
+            "unit": "USD",
+            "val": 850000000,
+            "end": "2011-06-30",
+            "form": "10-Q",
+            "fy": 2011,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesProvisionForLossNet",
+          "label": "Allowance for Loan and Lease Losses, Provision for Loss, Net (Deprecated 2013-01-31)",
+          "latest": {
+            "unit": "USD",
+            "val": 747000000,
+            "end": "2011-06-30",
+            "form": "10-Q",
+            "fy": 2011,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesRecoveriesOfBadDebts",
+          "label": "Allowance for Loan and Lease Losses, Recoveries of Bad Debts (Deprecated 2013-01-31)",
+          "latest": {
+            "unit": "USD",
+            "val": -103000000,
+            "end": "2011-06-30",
+            "form": "10-Q",
+            "fy": 2011,
+            "fp": "Q2"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "AllowanceForLoanAndLeaseLossesWriteOffs",
+          "label": "Allowance for Loan and Lease Losses, Write-offs",
+          "latest": {
+            "unit": "USD",
+            "val": 1867000000,
+            "end": "2019-12-31",
+            "form": "10-K",
+            "fy": 2019,
+            "fp": "FY"
+          }
+        }
+      ],
+      "total_loans_concepts_found": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "LoansAndLeasesReceivableNetReportedAmount",
+          "label": "Loans and Leases Receivable, Net Amount",
+          "latest": {
+            "unit": "USD",
+            "val": 368016000000,
+            "end": "2023-09-30",
+            "form": "10-Q",
+            "fy": 2023,
+            "fp": "Q3"
+          }
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "LoansAndLeasesReceivableNetReportedAmountCoveredAndNotCovered",
+          "label": "Loans and Leases Receivable, Net Reported Amount, Covered and Not Covered",
+          "latest": {
+            "unit": "USD",
+            "val": 282837000000,
+            "end": "2018-12-31",
+            "form": "10-K",
+            "fy": 2018,
+            "fp": "FY"
+          }
+        }
+      ],
+      "computed": {
+        "npl_pct": 0.0,
+        "npl_periods_match": false,
+        "coverage_pct": -100.0,
+        "coverage_periods_match": false
+      }
+    }
+  }
+}
