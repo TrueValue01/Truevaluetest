@@ -1,5 +1,5 @@
 {
-  "generato_il_utc": "2026-09-21T12:45:31.085623+00:00",
+  "generato_il_utc": "2026-09-21T12:48:00.004827+00:00",
   "nota": "Sonda esplorativa. OK_HOLDINGS_ESTRATTI = dato reale utilizzabile. Qualsiasi altro esito = questa fonte NON va usata cosi' com'e', va indagata o scartata (mai forzata nel motore).",
   "risultati": [
     {
@@ -19,7 +19,8 @@
             "top1_weight_pct": 8.159,
             "top10_weight_pct": 38.63,
             "somma_pesi_totale_pct": 100.19
-          }
+          },
+          "anteprima_prime_righe": null
         },
         {
           "ticker": "SPY",
@@ -34,7 +35,8 @@
             "top1_weight_pct": 8.159,
             "top10_weight_pct": 38.63,
             "somma_pesi_totale_pct": 100.19
-          }
+          },
+          "anteprima_prime_righe": null
         }
       ]
     },
@@ -52,7 +54,34 @@
           "analisi": {
             "parsed": false,
             "reason": "nessuna riga con colonne peso+nome riconoscibili nei primi 60 record"
-          }
+          },
+          "anteprima_prime_righe": [
+            [
+              "<!doctype html>"
+            ],
+            [
+              "<html lang=\"en-GB\">"
+            ],
+            [
+              "  <head>"
+            ],
+            [
+              "    <meta charset=\"UTF-8\" />"
+            ],
+            [
+              "    <meta name=\"viewport\" content=\"width=device-width",
+              " initial-scale=1.0\" />"
+            ],
+            [
+              "    <link rel=\"icon\" href=\"/favicon.ico\" type=\"image/x-icon\" sizes=\"any\" />"
+            ],
+            [
+              "    <title>iShares Core MSCI World UCITS ETF | SWDA | iShares</title>"
+            ],
+            [
+              "<link rel=\"stylesheet\" href=\"/_astro/BasicText-BNm9z_nk-BNm9z_nk.css\" />"
+            ]
+          ]
         },
         {
           "ticker": "SWDA",
@@ -64,7 +93,34 @@
           "analisi": {
             "parsed": false,
             "reason": "nessuna riga con colonne peso+nome riconoscibili nei primi 60 record"
-          }
+          },
+          "anteprima_prime_righe": [
+            [
+              "<!doctype html>"
+            ],
+            [
+              "<html lang=\"en-GB\">"
+            ],
+            [
+              "  <head>"
+            ],
+            [
+              "    <meta charset=\"UTF-8\" />"
+            ],
+            [
+              "    <meta name=\"viewport\" content=\"width=device-width",
+              " initial-scale=1.0\" />"
+            ],
+            [
+              "    <link rel=\"icon\" href=\"/favicon.ico\" type=\"image/x-icon\" sizes=\"any\" />"
+            ],
+            [
+              "    <title>iShares Core MSCI World UCITS ETF | SWDA | iShares</title>"
+            ],
+            [
+              "<link rel=\"stylesheet\" href=\"/_astro/BasicText-BNm9z_nk-BNm9z_nk.css\" />"
+            ]
+          ]
         }
       ]
     },
@@ -82,7 +138,34 @@
           "analisi": {
             "parsed": false,
             "reason": "nessuna riga con colonne peso+nome riconoscibili nei primi 60 record"
-          }
+          },
+          "anteprima_prime_righe": [
+            [
+              "<!doctype html>"
+            ],
+            [
+              "<html lang=\"en-GB\">"
+            ],
+            [
+              "  <head>"
+            ],
+            [
+              "    <meta charset=\"UTF-8\" />"
+            ],
+            [
+              "    <meta name=\"viewport\" content=\"width=device-width",
+              " initial-scale=1.0\" />"
+            ],
+            [
+              "    <link rel=\"icon\" href=\"/favicon.ico\" type=\"image/x-icon\" sizes=\"any\" />"
+            ],
+            [
+              "    <title>iShares Core MSCI EM IMI UCITS ETF | EIMI | iShares</title>"
+            ],
+            [
+              "<link rel=\"stylesheet\" href=\"/_astro/BasicText-BNm9z_nk-BNm9z_nk.css\" />"
+            ]
+          ]
         },
         {
           "ticker": "EIMI",
@@ -94,7 +177,34 @@
           "analisi": {
             "parsed": false,
             "reason": "nessuna riga con colonne peso+nome riconoscibili nei primi 60 record"
-          }
+          },
+          "anteprima_prime_righe": [
+            [
+              "<!doctype html>"
+            ],
+            [
+              "<html lang=\"en-GB\">"
+            ],
+            [
+              "  <head>"
+            ],
+            [
+              "    <meta charset=\"UTF-8\" />"
+            ],
+            [
+              "    <meta name=\"viewport\" content=\"width=device-width",
+              " initial-scale=1.0\" />"
+            ],
+            [
+              "    <link rel=\"icon\" href=\"/favicon.ico\" type=\"image/x-icon\" sizes=\"any\" />"
+            ],
+            [
+              "    <title>iShares Core MSCI EM IMI UCITS ETF | EIMI | iShares</title>"
+            ],
+            [
+              "<link rel=\"stylesheet\" href=\"/_astro/BasicText-BNm9z_nk-BNm9z_nk.css\" />"
+            ]
+          ]
         }
       ]
     },
