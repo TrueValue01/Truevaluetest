@@ -1,0 +1,66 @@
+{
+  "generato_il_utc": "2026-09-21T12:31:17.445576+00:00",
+  "nota": "Sonda esplorativa. OK_HOLDINGS_ESTRATTI = dato reale utilizzabile. Qualsiasi altro esito = questa fonte NON va usata cosi' com'e', va indagata o scartata (mai forzata nel motore).",
+  "risultati": [
+    {
+      "ticker": "SPY",
+      "issuer": "SSGA/SPDR",
+      "tentativi": [
+        {
+          "ticker": "SPY",
+          "issuer": "SSGA/SPDR",
+          "url": "https://www.ssga.com/us/en/individual/etfs/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx",
+          "esito": "OK_HOLDINGS_ESTRATTI",
+          "formato_rilevato": "xlsx",
+          "righe_totali": 608,
+          "analisi": {
+            "parsed": true,
+            "holdings_count_estratto": 505,
+            "top1_weight_pct": 8.159,
+            "top10_weight_pct": 38.63,
+            "somma_pesi_totale_pct": 100.19
+          }
+        },
+        {
+          "ticker": "SPY",
+          "issuer": "SSGA/SPDR",
+          "url": "https://www.ssga.com/us/en/intermediary/etfs/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx",
+          "esito": "OK_HOLDINGS_ESTRATTI",
+          "formato_rilevato": "xlsx",
+          "righe_totali": 608,
+          "analisi": {
+            "parsed": true,
+            "holdings_count_estratto": 505,
+            "top1_weight_pct": 8.159,
+            "top10_weight_pct": 38.63,
+            "somma_pesi_totale_pct": 100.19
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "SWDA",
+      "issuer": "iShares (Core MSCI World)",
+      "esito": "SALTATO_NESSUN_CANDIDATO",
+      "dettaglio": "iShares richiede un productId numerico nell'URL (es. /us/products/{id}/{slug}/...ajax?fileType=csv). Non esiste un pattern solo-da-ticker. Da fare una tantum: aprire la pagina prodotto SWDA su ishares.com, sezione Holdings, tasto destro su 'Download Holdings' -> Copia link -> incollare qui in 'candidates'."
+    },
+    {
+      "ticker": "EIMI",
+      "issuer": "iShares (Core MSCI EM IMI)",
+      "esito": "SALTATO_NESSUN_CANDIDATO",
+      "dettaglio": "Stesso discorso di SWDA: serve il link reale copiato dalla pagina prodotto, non indovinabile."
+    },
+    {
+      "ticker": "IWVL",
+      "issuer": "iShares Edge MSCI World Value",
+      "esito": "SALTATO_NESSUN_CANDIDATO",
+      "dettaglio": "Idem."
+    },
+    {
+      "ticker": "VWCE",
+      "issuer": "Vanguard FTSE All-World",
+      "esito": "SALTATO_NESSUN_CANDIDATO",
+      "dettaglio": "Vanguard usa un fundId interno nelle sue API di portfolio holdings, non il ticker. Serve il link reale dalla pagina prodotto Vanguard (sezione 'Portfolio holdings', spesso un download CSV/XLSX)."
+    }
+  ]
+}
