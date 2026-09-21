@@ -125,11 +125,19 @@ def main():
         dac = rank_candidates(find_concepts(facts, KEYWORDS["dac_amortization"]))
 
         computed = {}
-        premiums_candidates = premiums[:6]  # non solo il piu' recente: l'ammortamento DAC
+        # PRIORITA' ESPLICITA al premio NETTO (dopo riassicurazione ceduta): sinistri
+        # e spese sono gia' al netto della riassicurazione, quindi il denominatore deve
+        # esserlo anche lui - altrimenti si mischiano lordo/netto e il rapporto viene
+        # sottostimato (visto sui dati reali: CB con "Direct" dava 67.66%, implausibile
+        # per un'azienda che storicamente sta 85-90%). "Net" va sempre prima di "Direct"
+        # quando entrambi esistono alla stessa data, non solo per valore piu' alto.
+        premiums_net = [p for p in premiums if p["concept"] == "PremiumsEarnedNet"]
+        premiums_other = [p for p in premiums if p["concept"] != "PremiumsEarnedNet"]
+        premiums_candidates = (premiums_net + premiums_other)[:8]  # non solo il piu' recente: l'ammortamento DAC
         # e' taggato solo ANNUALMENTE (Schedule 12-16/12-18) - un trimestre recente
         # spesso non ha tutti e 4 i pezzi. Cerco il primo periodo (partendo dal piu'
-        # recente) dove premi+sinistri+G&A+DAC coincidono TUTTI, prima di ripiegare
-        # su un calcolo parziale.
+        # recente, e dando priorita' al Netto) dove premi+sinistri+G&A+DAC coincidono
+        # TUTTI, prima di ripiegare su un calcolo parziale.
         complete_match = None
         for pe_candidate in premiums_candidates:
             target = pe_candidate["end"]
