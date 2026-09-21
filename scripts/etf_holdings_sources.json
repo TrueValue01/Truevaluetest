@@ -13,14 +13,20 @@
     {
       "ticker": "SWDA",
       "issuer": "iShares (Core MSCI World)",
-      "candidates": [],
-      "notes": "iShares richiede un productId numerico nell'URL (es. /us/products/{id}/{slug}/...ajax?fileType=csv). Non esiste un pattern solo-da-ticker. Da fare una tantum: aprire la pagina prodotto SWDA su ishares.com, sezione Holdings, tasto destro su 'Download Holdings' -> Copia link -> incollare qui in 'candidates'."
+      "candidates": [
+        "https://www.ishares.com/uk/individual/en/products/251882/ishares-core-msci-world-ucits-etf/latest-holdings.csv",
+        "https://www.ishares.com/uk/professionals/en/products/251882/ishares-core-msci-world-ucits-etf/latest-holdings.csv"
+      ],
+      "notes": "productId 251882 trovato via ricerca (pagina prodotto reale confermata). Pattern 'latest-holdings.csv' confermato funzionante SOLO su un fondo US diverso (iShares S&P 500 Value) — qui e' un'ipotesi da verificare, non una certezza come SPDR. Se entrambi i candidati falliscono, serve il link copiato a mano dalla pagina prodotto (vedi metodo telefono gia' spiegato)."
     },
     {
       "ticker": "EIMI",
       "issuer": "iShares (Core MSCI EM IMI)",
-      "candidates": [],
-      "notes": "Stesso discorso di SWDA: serve il link reale copiato dalla pagina prodotto, non indovinabile."
+      "candidates": [
+        "https://www.ishares.com/uk/individual/en/products/264659/ishares-msci-emerging-markets-imi-ucits-etf/latest-holdings.csv",
+        "https://www.ishares.com/uk/professionals/en/products/264659/ishares-msci-emerging-markets-imi-ucits-etf/latest-holdings.csv"
+      ],
+      "notes": "productId 264659 trovato via ricerca. Stessa cautela di SWDA: pattern ipotizzato, non confermato per fondi UCITS europei."
     },
     {
       "ticker": "IWVL",
