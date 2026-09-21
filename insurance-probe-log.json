@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T01:43:26.210046+00:00",
+  "generated_at": "2026-09-21T01:58:24.531143+00:00",
   "scope": "sonda Combined Ratio via SEC XBRL - fase 1 (PGR/TRV/ALL/CB, gli stessi 4 gia' testati su FMP)",
   "results": {
     "PGR": {
@@ -165,15 +165,15 @@
         }
       ],
       "computed": {
-        "combined_ratio_pct": 69.63,
-        "period": "2026-06-30",
+        "combined_ratio_pct": 90.15,
+        "period": "2025-12-31",
         "numeratore_da": [
           "PolicyholderBenefitsAndClaimsIncurredNet",
-          "SellingGeneralAndAdministrativeExpense"
+          "SellingGeneralAndAdministrativeExpense",
+          "SupplementaryInsuranceInformationAmortizationOfDeferredPolicyAcquisitionCosts"
         ],
-        "denominatore_da": "PremiumsEarnedNet",
-        "completo": false,
-        "nota": "parziale: nessun periodo con tutti e 4 i pezzi trovato, mostro il piu' recente disponibile (sottostima)"
+        "denominatore_da": "DirectPremiumsEarned",
+        "completo": true
       }
     },
     "ALL": {
@@ -321,15 +321,15 @@
         }
       ],
       "computed": {
-        "combined_ratio_pct": 54.1,
-        "period": "2026-03-31",
+        "combined_ratio_pct": 67.66,
+        "period": "2025-12-31",
         "numeratore_da": [
           "PolicyholderBenefitsAndClaimsIncurredNet",
-          "GeneralAndAdministrativeExpense"
+          "GeneralAndAdministrativeExpense",
+          "SupplementalInformationForPropertyCasualtyInsuranceUnderwritersAmortizationOfDeferredPolicyAcquisitionCosts"
         ],
-        "denominatore_da": "PremiumsEarnedNet",
-        "completo": false,
-        "nota": "parziale: nessun periodo con tutti e 4 i pezzi trovato, mostro il piu' recente disponibile (sottostima)"
+        "denominatore_da": "DirectPremiumsEarned",
+        "completo": true
       }
     }
   }
