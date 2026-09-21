@@ -1,0 +1,38 @@
+{
+  "_note": "Config per fetch_etf_holdings_probe.py. Ogni entry è UN candidato URL da testare, non una certezza. Per gli issuer senza pattern noto (iShares, Vanguard) il campo 'url' è vuoto: va compilato una tantum copiando manualmente il link 'Download Holdings' dalla pagina prodotto del fondo (di solito in fondo alla pagina, sezione 'Holdings' o 'Fund Data'). Una volta trovato il link vero, resta stabile nel tempo (cambia solo per fondi nuovi o redesign del sito issuer) — non è un lookup da ripetere ogni volta.",
+  "targets": [
+    {
+      "ticker": "SPY",
+      "issuer": "SSGA/SPDR",
+      "candidates": [
+        "https://www.ssga.com/us/en/individual/etfs/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx",
+        "https://www.ssga.com/us/en/intermediary/etfs/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+      ],
+      "notes": "Pattern SPDR presunto da fonti pubbliche, MAI verificato live da questo progetto. Prima cosa da testare: se risponde 200 con un vero XLSX, il pattern e' probabilmente replicabile per ticker SPDR (basta cambiare 'spy' -> ticker minuscolo)."
+    },
+    {
+      "ticker": "SWDA",
+      "issuer": "iShares (Core MSCI World)",
+      "candidates": [],
+      "notes": "iShares richiede un productId numerico nell'URL (es. /us/products/{id}/{slug}/...ajax?fileType=csv). Non esiste un pattern solo-da-ticker. Da fare una tantum: aprire la pagina prodotto SWDA su ishares.com, sezione Holdings, tasto destro su 'Download Holdings' -> Copia link -> incollare qui in 'candidates'."
+    },
+    {
+      "ticker": "EIMI",
+      "issuer": "iShares (Core MSCI EM IMI)",
+      "candidates": [],
+      "notes": "Stesso discorso di SWDA: serve il link reale copiato dalla pagina prodotto, non indovinabile."
+    },
+    {
+      "ticker": "IWVL",
+      "issuer": "iShares Edge MSCI World Value",
+      "candidates": [],
+      "notes": "Idem."
+    },
+    {
+      "ticker": "VWCE",
+      "issuer": "Vanguard FTSE All-World",
+      "candidates": [],
+      "notes": "Vanguard usa un fundId interno nelle sue API di portfolio holdings, non il ticker. Serve il link reale dalla pagina prodotto Vanguard (sezione 'Portfolio holdings', spesso un download CSV/XLSX)."
+    }
+  ]
+}
