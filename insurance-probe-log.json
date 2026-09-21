@@ -1,0 +1,327 @@
+{
+  "generated_at": "2026-09-21T01:36:55.905987+00:00",
+  "scope": "sonda Combined Ratio via SEC XBRL - fase 1 (PGR/TRV/ALL/CB, gli stessi 4 gia' testati su FMP)",
+  "results": {
+    "PGR": {
+      "entity_name": "AT&T INC.",
+      "premiums_earned_top3": [],
+      "losses_incurred_top3": [],
+      "ga_expense_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "SellingGeneralAndAdministrativeExpense",
+          "label": "Selling, General and Administrative Expense",
+          "unit": "USD",
+          "val": 7221000000,
+          "end": "2026-06-30",
+          "form": "10-Q",
+          "fy": 2026,
+          "fp": "Q2"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "OtherSellingGeneralAndAdministrativeExpense",
+          "label": "Other Selling, General and Administrative Expense",
+          "unit": "USD",
+          "val": 68000000,
+          "end": "2019-12-31",
+          "form": "10-K",
+          "fy": 2019,
+          "fp": "FY"
+        }
+      ],
+      "dac_amortization_top3": [],
+      "computed": {
+        "combined_ratio_pct": null,
+        "nota": "nessun concetto 'premiums earned' trovato per questa compagnia"
+      }
+    },
+    "TRV": {
+      "entity_name": "TRAVELERS COMPANIES, INC.",
+      "premiums_earned_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "PremiumsEarnedNet",
+          "label": "Premiums Earned, Net",
+          "unit": "USD",
+          "val": 10753000000,
+          "end": "2026-06-30",
+          "form": "10-Q",
+          "fy": 2026,
+          "fp": "Q2"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "DirectPremiumsEarned",
+          "label": "Direct Premiums Earned",
+          "unit": "USD",
+          "val": 45042000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "CededPremiumsEarned",
+          "label": "Ceded Premiums Earned",
+          "unit": "USD",
+          "val": 3238000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ],
+      "losses_incurred_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+          "label": "Policyholder Benefits and Claims Incurred, Net",
+          "unit": "USD",
+          "val": 5922000000,
+          "end": "2026-06-30",
+          "form": "10-Q",
+          "fy": 2026,
+          "fp": "Q2"
+        }
+      ],
+      "ga_expense_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "SellingGeneralAndAdministrativeExpense",
+          "label": "Selling, General and Administrative Expense",
+          "unit": "USD",
+          "val": 1565000000,
+          "end": "2026-06-30",
+          "form": "10-Q",
+          "fy": 2026,
+          "fp": "Q2"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "GeneralAndAdministrativeExpense",
+          "label": "General and Administrative Expense",
+          "unit": "USD",
+          "val": 1024000000,
+          "end": "2015-09-30",
+          "form": "10-Q",
+          "fy": 2015,
+          "fp": "Q3"
+        }
+      ],
+      "dac_amortization_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "SupplementaryInsuranceInformationAmortizationOfDeferredPolicyAcquisitionCosts",
+          "label": "SEC Schedule, 12-16, Insurance Companies, Supplementary Insurance Information, Amortization of Deferred Policy Acquisition Cost",
+          "unit": "USD",
+          "val": 7266000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ],
+      "computed": {
+        "combined_ratio_pct": 69.63,
+        "period": "2026-06-30",
+        "numeratore_da": [
+          "PolicyholderBenefitsAndClaimsIncurredNet",
+          "SellingGeneralAndAdministrativeExpense"
+        ],
+        "denominatore_da": "PremiumsEarnedNet",
+        "nota": "G&A e/o ammortamento DAC assenti a questa data: rapporto calcolato solo su sinistri/premi, sottostima il vero Combined Ratio"
+      }
+    },
+    "ALL": {
+      "entity_name": "ALLSTATE CORP",
+      "premiums_earned_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "DirectPremiumsEarned",
+          "label": "Direct Premiums Earned",
+          "unit": "USD",
+          "val": 63699000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "PremiumsEarnedNet",
+          "label": "Premiums Earned, Net",
+          "unit": "USD",
+          "val": 61449000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "CededPremiumsEarned",
+          "label": "Ceded Premiums Earned",
+          "unit": "USD",
+          "val": 2681000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ],
+      "losses_incurred_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "PaymentsForLossesAndLossAdjustmentExpense",
+          "label": "Liability for Unpaid Claims and Claims Adjustment Expense, Claims Paid",
+          "unit": "USD",
+          "val": 22224000000,
+          "end": "2020-12-31",
+          "form": "10-K",
+          "fy": 2020,
+          "fp": "FY"
+        }
+      ],
+      "ga_expense_top3": [],
+      "dac_amortization_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "SupplementaryInsuranceInformationAmortizationOfDeferredPolicyAcquisitionCosts",
+          "label": "SEC Schedule, 12-16, Insurance Companies, Supplementary Insurance Information, Amortization of Deferred Policy Acquisition Cost",
+          "unit": "USD",
+          "val": 8389000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "SupplementalInformationForPropertyCasualtyInsuranceUnderwritersAmortizationOfDeferredPolicyAcquisitionCosts",
+          "label": "SEC Schedule, 12-18, Supplemental Information, Property-Casualty Insurance Underwriters, Amortization of Deferred Policy Acquisition Cost",
+          "unit": "USD",
+          "val": 4267000000,
+          "end": "2016-12-31",
+          "form": "10-K",
+          "fy": 2016,
+          "fp": "FY"
+        }
+      ],
+      "computed": {
+        "combined_ratio_pct": null,
+        "nota": "sinistri incorsi assenti al 2025-12-31 (premi trovati, sinistri no)"
+      }
+    },
+    "CB": {
+      "entity_name": "CHUBB LIMITED",
+      "premiums_earned_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "PremiumsEarnedNet",
+          "label": "Premiums Earned, Net",
+          "unit": "USD",
+          "val": 13457000000,
+          "end": "2026-03-31",
+          "form": "10-Q",
+          "fy": 2026,
+          "fp": "Q1"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "DirectPremiumsEarned",
+          "label": "Direct Premiums Earned",
+          "unit": "USD",
+          "val": 58905000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "CededPremiumsEarned",
+          "label": "Ceded Premiums Earned",
+          "unit": "USD",
+          "val": 10827000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ],
+      "losses_incurred_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+          "label": "Policyholder Benefits and Claims Incurred, Net",
+          "unit": "USD",
+          "val": 6131000000,
+          "end": "2026-03-31",
+          "form": "10-Q",
+          "fy": 2026,
+          "fp": "Q1"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "PaymentsForLossesAndLossAdjustmentExpense",
+          "label": "Liability for Unpaid Claims and Claims Adjustment Expense, Claims Paid",
+          "unit": "USD",
+          "val": 5331000000,
+          "end": "2026-03-31",
+          "form": "10-Q",
+          "fy": 2026,
+          "fp": "Q1"
+        },
+        {
+          "taxonomy": "us-gaap",
+          "concept": "ReserveForLossesAndLossAdjustmentExpenses",
+          "label": "Reserve for Losses and Loss Adjustment Expenses (Deprecated 2013-01-31)",
+          "unit": "USD",
+          "val": 58000000,
+          "end": "2012-12-31",
+          "form": "10-K",
+          "fy": 2012,
+          "fp": "FY"
+        }
+      ],
+      "ga_expense_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "GeneralAndAdministrativeExpense",
+          "label": "General and Administrative Expense",
+          "unit": "USD",
+          "val": 1149000000,
+          "end": "2026-03-31",
+          "form": "10-Q",
+          "fy": 2026,
+          "fp": "Q1"
+        }
+      ],
+      "dac_amortization_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "SupplementalInformationForPropertyCasualtyInsuranceUnderwritersAmortizationOfDeferredPolicyAcquisitionCosts",
+          "label": "SEC Schedule, 12-18, Supplemental Information, Property-Casualty Insurance Underwriters, Amortization of Deferred Policy Acquisition Cost",
+          "unit": "USD",
+          "val": 8649000000,
+          "end": "2025-12-31",
+          "form": "10-K",
+          "fy": 2025,
+          "fp": "FY"
+        }
+      ],
+      "computed": {
+        "combined_ratio_pct": 54.1,
+        "period": "2026-03-31",
+        "numeratore_da": [
+          "PolicyholderBenefitsAndClaimsIncurredNet",
+          "GeneralAndAdministrativeExpense"
+        ],
+        "denominatore_da": "PremiumsEarnedNet",
+        "nota": "G&A e/o ammortamento DAC assenti a questa data: rapporto calcolato solo su sinistri/premi, sottostima il vero Combined Ratio"
+      }
+    }
+  }
+}
