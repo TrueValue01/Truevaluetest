@@ -212,6 +212,16 @@ def probe_one(ticker, issuer, url):
     analysis = analyze_holdings(rows)
     esito = "OK_HOLDINGS_ESTRATTI" if analysis.get("parsed") else "200_PARSATO_MA_STRUTTURA_INATTESA"
 
+    # Se non ho trovato holdings veri, salvo le prime righe cosi' si capisce
+    # SUBITO se e' una pagina di errore/consenso/redirect invece di rilanciare
+    # la sonda una seconda volta per scoprirlo.
+    anteprima_righe = None
+    if not analysis.get("parsed"):
+        anteprima_righe = [
+            [str(c) if c is not None else "" for c in row][:8]  # max 8 colonne per riga, per leggibilita'
+            for row in rows[:8]
+        ]
+
     return {
         "ticker": ticker,
         "issuer": issuer,
@@ -220,6 +230,7 @@ def probe_one(ticker, issuer, url):
         "formato_rilevato": parsed_as,
         "righe_totali": len(rows),
         "analisi": analysis,
+        "anteprima_prime_righe": anteprima_righe,
     }
 
 
@@ -278,3 +289,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+                                    
