@@ -1,24 +1,12 @@
 {
-  "generated_at": "2026-09-21T01:06:03.166206+00:00",
-  "scope": "sonda NPL/Allowance via SEC XBRL - fase 2 (classifica per pertinenza+recency, non piu' il primo trovato)",
+  "generated_at": "2026-09-21T01:10:57.123459+00:00",
+  "scope": "sonda NPL/Allowance via SEC XBRL - fase 3 (Before/After separati, accantonamento derivato per differenza, match esatto di data su tutta la lista non solo il primo)",
   "results": {
     "JPM": {
       "entity_name": "JPMORGAN CHASE & CO",
       "expected_npl_pct": 0.87,
-      "nonaccrual_ratio_candidates_gia_pronti": [],
-      "nonaccrual_usd_top3": [],
-      "allowance_usd_top3": [
-        {
-          "taxonomy": "us-gaap",
-          "concept": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
-          "label": null,
-          "unit": "USD",
-          "val": 1516310000000,
-          "end": "2026-06-30",
-          "form": "10-Q",
-          "fy": 2026,
-          "fp": "Q2"
-        },
+      "nonaccrual_top3": [],
+      "gross_loans_top3": [
         {
           "taxonomy": "us-gaap",
           "concept": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -32,17 +20,30 @@
         },
         {
           "taxonomy": "us-gaap",
-          "concept": "DebtSecuritiesAvailableForSaleAmortizedCostExcludingAccruedInterestAfterAllowanceForCreditLoss",
-          "label": null,
+          "concept": "FinancingReceivableAccruedInterestBeforeAllowanceForCreditLoss",
+          "label": "Financing Receivable, Accrued Interest, before Allowance for Credit Loss",
           "unit": "USD",
-          "val": 538689000000,
+          "val": 7000000000,
           "end": "2026-06-30",
           "form": "10-Q",
           "fy": 2026,
           "fp": "Q2"
         }
       ],
-      "total_loans_usd_top3": [
+      "net_loans_top3": [
+        {
+          "taxonomy": "us-gaap",
+          "concept": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
+          "label": null,
+          "unit": "USD",
+          "val": 1516310000000,
+          "end": "2026-06-30",
+          "form": "10-Q",
+          "fy": 2026,
+          "fp": "Q2"
+        }
+      ],
+      "legacy_total_loans_top2": [
         {
           "taxonomy": "us-gaap",
           "concept": "NotesReceivableNet",
@@ -68,39 +69,13 @@
       ],
       "computed": {
         "npl_pct": null,
-        "npl_note": "periodi non allineati: nonaccrual=assente vs prestiti totali=2021-06-30",
-        "coverage_pct": null,
-        "coverage_note": "periodi non allineati: nonaccrual=assente vs allowance=2026-06-30"
+        "npl_note": "nessun concetto 'nonaccrual' in dollari trovato per questa banca"
       }
     },
     "BAC": {
       "entity_name": "BofA Finance LLC",
       "expected_npl_pct": 0.73,
-      "nonaccrual_ratio_candidates_gia_pronti": [
-        {
-          "taxonomy": "us-gaap",
-          "concept": "FinancingReceivableExcludingAccruedInterestNonaccrualPercentPastDue",
-          "label": null,
-          "unit": "pure",
-          "val": 0.0047,
-          "end": "2026-06-30",
-          "form": "10-Q",
-          "fy": 2026,
-          "fp": "Q2"
-        },
-        {
-          "taxonomy": "us-gaap",
-          "concept": "FinancingReceivableNonaccrualPercentPastDue1",
-          "label": "Financing Receivable, Nonaccrual, Percent Past Due",
-          "unit": "pure",
-          "val": 0.0039,
-          "end": "2022-09-30",
-          "form": "10-Q",
-          "fy": 2022,
-          "fp": "Q3"
-        }
-      ],
-      "nonaccrual_usd_top3": [
+      "nonaccrual_top3": [
         {
           "taxonomy": "us-gaap",
           "concept": "FinancingReceivableExcludingAccruedInterestNonaccrual",
@@ -135,7 +110,7 @@
           "fp": "Q2"
         }
       ],
-      "allowance_usd_top3": [
+      "gross_loans_top3": [
         {
           "taxonomy": "us-gaap",
           "concept": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -146,7 +121,9 @@
           "form": "10-Q",
           "fy": 2026,
           "fp": "Q2"
-        },
+        }
+      ],
+      "net_loans_top3": [
         {
           "taxonomy": "us-gaap",
           "concept": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -160,17 +137,17 @@
         },
         {
           "taxonomy": "us-gaap",
-          "concept": "DebtSecuritiesAvailableForSaleAmortizedCostExcludingAccruedInterestBeforeAllowanceForCreditLoss",
-          "label": null,
+          "concept": "FinancingReceivableAccruedInterestAfterAllowanceForCreditLoss",
+          "label": "Financing Receivable, Accrued Interest, after Allowance for Credit Loss",
           "unit": "USD",
-          "val": 350914000000,
+          "val": 4200000000,
           "end": "2026-06-30",
           "form": "10-Q",
           "fy": 2026,
           "fp": "Q2"
         }
       ],
-      "total_loans_usd_top3": [
+      "legacy_total_loans_top2": [
         {
           "taxonomy": "us-gaap",
           "concept": "NotesReceivableNet",
@@ -195,34 +172,24 @@
         }
       ],
       "computed": {
-        "npl_pct": null,
-        "npl_note": "periodi non allineati: nonaccrual=2026-06-30 vs prestiti totali=2022-09-30",
-        "coverage_pct": 21172.3,
+        "npl_pct": 0.472,
+        "npl_period": "2026-06-30",
+        "npl_denominator_used": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
+        "allowance_derivato_lordo_meno_netto": 13114000000,
+        "coverage_pct": 228.03,
         "coverage_period": "2026-06-30"
       }
     },
     "WFC": {
       "entity_name": "WELLS        FARGO & COMPANY/MN",
       "expected_npl_pct": 0.87,
-      "nonaccrual_ratio_candidates_gia_pronti": [],
-      "nonaccrual_usd_top3": [
+      "nonaccrual_top3": [
         {
           "taxonomy": "us-gaap",
           "concept": "FinancingReceivableRecordedInvestmentNonaccrualStatus",
           "label": "Financing Receivable, Nonaccrual",
           "unit": "USD",
           "val": 5993000000,
-          "end": "2022-06-30",
-          "form": "10-Q",
-          "fy": 2022,
-          "fp": "Q2"
-        },
-        {
-          "taxonomy": "us-gaap",
-          "concept": "FinancingReceivableNonaccrualNoAllowance",
-          "label": "Financing Receivable, Nonaccrual, No Allowance",
-          "unit": "USD",
-          "val": 3141000000,
           "end": "2022-06-30",
           "form": "10-Q",
           "fy": 2022,
@@ -240,42 +207,21 @@
           "fp": "Q3"
         }
       ],
-      "allowance_usd_top3": [
+      "gross_loans_top3": [],
+      "net_loans_top3": [
         {
           "taxonomy": "us-gaap",
-          "concept": "DebtSecuritiesAvailableForSaleAmortizedCostAllowanceForCreditLossExcludingAccruedInterest",
-          "label": null,
+          "concept": "FinancingReceivableAccruedInterestAfterAllowanceForCreditLoss",
+          "label": "Financing Receivable, Accrued Interest, after Allowance for Credit Loss",
           "unit": "USD",
-          "val": 0,
-          "end": "2026-06-30",
+          "val": 3074000000,
+          "end": "2020-09-30",
           "form": "10-Q",
-          "fy": 2026,
-          "fp": "Q2"
-        },
-        {
-          "taxonomy": "us-gaap",
-          "concept": "DebtSecuritiesAvailableForSaleAmortizedCostExcludingAccruedInterestAfterAllowanceForCreditLoss",
-          "label": null,
-          "unit": "USD",
-          "val": 121725000000,
-          "end": "2022-12-31",
-          "form": "10-K",
-          "fy": 2023,
-          "fp": "FY"
-        },
-        {
-          "taxonomy": "us-gaap",
-          "concept": "FinancingReceivablesBeforeAllowanceForCreditLossAverageAmountOutstanding",
-          "label": null,
-          "unit": "USD",
-          "val": 926567000000,
-          "end": "2022-06-30",
-          "form": "10-Q",
-          "fy": 2022,
-          "fp": "Q2"
+          "fy": 2020,
+          "fp": "Q3"
         }
       ],
-      "total_loans_usd_top3": [
+      "legacy_total_loans_top2": [
         {
           "taxonomy": "us-gaap",
           "concept": "LoansAndLeasesReceivableNetReportedAmount",
@@ -291,15 +237,15 @@
       "computed": {
         "npl_pct": 0.643,
         "npl_period": "2022-06-30",
+        "npl_denominator_used": "LoansAndLeasesReceivableNetReportedAmount",
         "coverage_pct": null,
-        "coverage_note": "periodi non allineati: nonaccrual=2022-06-30 vs allowance=2026-06-30"
+        "coverage_note": "servono Before E After allo stesso 2022-06-30 per derivare l'accantonamento"
       }
     },
     "USB": {
       "entity_name": "US BANCORP \\DE\\",
       "expected_npl_pct": 0.39,
-      "nonaccrual_ratio_candidates_gia_pronti": [],
-      "nonaccrual_usd_top3": [
+      "nonaccrual_top3": [
         {
           "taxonomy": "us-gaap",
           "concept": "FinancingReceivableExcludingAccruedInterestNonaccrual",
@@ -334,7 +280,7 @@
           "fp": "FY"
         }
       ],
-      "allowance_usd_top3": [
+      "gross_loans_top3": [
         {
           "taxonomy": "us-gaap",
           "concept": "FinancingReceivableExcludingAccruedInterestBeforeAllowanceForCreditLoss",
@@ -345,7 +291,9 @@
           "form": "10-Q",
           "fy": 2026,
           "fp": "Q2"
-        },
+        }
+      ],
+      "net_loans_top3": [
         {
           "taxonomy": "us-gaap",
           "concept": "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss",
@@ -356,20 +304,9 @@
           "form": "10-Q",
           "fy": 2026,
           "fp": "Q2"
-        },
-        {
-          "taxonomy": "us-gaap",
-          "concept": "DebtSecuritiesAvailableForSaleAmortizedCostExcludingAccruedInterestAfterAllowanceForCreditLoss",
-          "label": null,
-          "unit": "USD",
-          "val": 93529000000,
-          "end": "2026-06-30",
-          "form": "10-Q",
-          "fy": 2026,
-          "fp": "Q2"
         }
       ],
-      "total_loans_usd_top3": [
+      "legacy_total_loans_top2": [
         {
           "taxonomy": "us-gaap",
           "concept": "LoansAndLeasesReceivableNetReportedAmount",
@@ -384,9 +321,9 @@
       ],
       "computed": {
         "npl_pct": null,
-        "npl_note": "periodi non allineati: nonaccrual=2025-12-31 vs prestiti totali=2023-09-30",
+        "npl_note": "nessun prestiti-totali trovato al 2025-12-31 (ne' Before ne' legacy)",
         "coverage_pct": null,
-        "coverage_note": "periodi non allineati: nonaccrual=2025-12-31 vs allowance=2026-06-30"
+        "coverage_note": "servono Before E After allo stesso 2025-12-31 per derivare l'accantonamento"
       }
     }
   }
