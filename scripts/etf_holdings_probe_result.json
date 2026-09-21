@@ -1,5 +1,5 @@
 {
-  "generato_il_utc": "2026-09-21T12:33:11.557403+00:00",
+  "generato_il_utc": "2026-09-21T12:45:31.085623+00:00",
   "nota": "Sonda esplorativa. OK_HOLDINGS_ESTRATTI = dato reale utilizzabile. Qualsiasi altro esito = questa fonte NON va usata cosi' com'e', va indagata o scartata (mai forzata nel motore).",
   "risultati": [
     {
@@ -41,14 +41,62 @@
     {
       "ticker": "SWDA",
       "issuer": "iShares (Core MSCI World)",
-      "esito": "SALTATO_NESSUN_CANDIDATO",
-      "dettaglio": "iShares richiede un productId numerico nell'URL (es. /us/products/{id}/{slug}/...ajax?fileType=csv). Non esiste un pattern solo-da-ticker. Da fare una tantum: aprire la pagina prodotto SWDA su ishares.com, sezione Holdings, tasto destro su 'Download Holdings' -> Copia link -> incollare qui in 'candidates'."
+      "tentativi": [
+        {
+          "ticker": "SWDA",
+          "issuer": "iShares (Core MSCI World)",
+          "url": "https://www.ishares.com/uk/individual/en/products/251882/ishares-core-msci-world-ucits-etf/latest-holdings.csv",
+          "esito": "200_PARSATO_MA_STRUTTURA_INATTESA",
+          "formato_rilevato": "csv",
+          "righe_totali": 239,
+          "analisi": {
+            "parsed": false,
+            "reason": "nessuna riga con colonne peso+nome riconoscibili nei primi 60 record"
+          }
+        },
+        {
+          "ticker": "SWDA",
+          "issuer": "iShares (Core MSCI World)",
+          "url": "https://www.ishares.com/uk/professionals/en/products/251882/ishares-core-msci-world-ucits-etf/latest-holdings.csv",
+          "esito": "200_PARSATO_MA_STRUTTURA_INATTESA",
+          "formato_rilevato": "csv",
+          "righe_totali": 239,
+          "analisi": {
+            "parsed": false,
+            "reason": "nessuna riga con colonne peso+nome riconoscibili nei primi 60 record"
+          }
+        }
+      ]
     },
     {
       "ticker": "EIMI",
       "issuer": "iShares (Core MSCI EM IMI)",
-      "esito": "SALTATO_NESSUN_CANDIDATO",
-      "dettaglio": "Stesso discorso di SWDA: serve il link reale copiato dalla pagina prodotto, non indovinabile."
+      "tentativi": [
+        {
+          "ticker": "EIMI",
+          "issuer": "iShares (Core MSCI EM IMI)",
+          "url": "https://www.ishares.com/uk/individual/en/products/264659/ishares-msci-emerging-markets-imi-ucits-etf/latest-holdings.csv",
+          "esito": "200_PARSATO_MA_STRUTTURA_INATTESA",
+          "formato_rilevato": "csv",
+          "righe_totali": 239,
+          "analisi": {
+            "parsed": false,
+            "reason": "nessuna riga con colonne peso+nome riconoscibili nei primi 60 record"
+          }
+        },
+        {
+          "ticker": "EIMI",
+          "issuer": "iShares (Core MSCI EM IMI)",
+          "url": "https://www.ishares.com/uk/professionals/en/products/264659/ishares-msci-emerging-markets-imi-ucits-etf/latest-holdings.csv",
+          "esito": "200_PARSATO_MA_STRUTTURA_INATTESA",
+          "formato_rilevato": "csv",
+          "righe_totali": 239,
+          "analisi": {
+            "parsed": false,
+            "reason": "nessuna riga con colonne peso+nome riconoscibili nei primi 60 record"
+          }
+        }
+      ]
     },
     {
       "ticker": "IWVL",
