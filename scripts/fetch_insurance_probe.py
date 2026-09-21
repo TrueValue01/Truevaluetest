@@ -49,6 +49,13 @@ def fetch_companyfacts(cik):
 
 
 def find_concepts(facts, keyword_list):
+    """Cerca in TUTTE le tassonomie qualunque concetto che contenga una delle
+    parole chiave. IMPORTANTE: tiene un valore per OGNI data di fine distinta,
+    non solo l'ultimo in assoluto - altrimenti un concetto con storia sia
+    trimestrale che annuale perde le date annuali (dove serve allinearsi col
+    DAC, taggato solo una volta l'anno). Questo era il bug reale della fase 1:
+    sembrava che i dati mancassero, in realta' li scartavo io in fase di lettura.
+    """
     found = []
     for taxonomy, concepts in facts.items():
         for concept, payload in concepts.items():
@@ -58,13 +65,33 @@ def find_concepts(facts, keyword_list):
                 for unit, arr in units.items():
                     if not arr:
                         continue
-                    v = sorted(arr, key=lambda x: x.get("end", ""))[-1]
-                    found.append({
-                        "taxonomy": taxonomy, "concept": concept, "label": payload.get("label"),
-                        "unit": unit, "val": v.get("val"), "end": v.get("end"),
-                        "form": v.get("form"), "fy": v.get("fy"), "fp": v.get("fp"),
-                    })
+                    by_end = {}
+                    for v in arr:
+                        end = v.get("end")
+                        if end:
+                            by_end[end] = v  # l'ultimo depositato per quella data vince (rettifiche)
+                    for end, v in by_end.items():
+                        found.append({
+                            "taxonomy": taxonomy, "concept": concept, "label": payload.get("label"),
+                            "unit": unit, "val": v.get("val"), "end": end,
+                            "form": v.get("form"), "fy": v.get("fy"), "fp": v.get("fp"),
+                        })
     return found
+
+
+def dedupe_for_display(ranked_list, n=3):
+    """Solo per il JSON di log: un concetto per riga, non lo stesso concetto
+    ripetuto a 10 date diverse. find_at_date lavora sulla lista COMPLETA,
+    non su questa versione ridotta per la leggibilita'."""
+    seen = set()
+    out = []
+    for c in ranked_list:
+        if c["concept"] not in seen:
+            seen.add(c["concept"])
+            out.append(c)
+        if len(out) >= n:
+            break
+    return out
 
 
 def rank_candidates(candidates, unit_filter="USD"):
@@ -151,10 +178,10 @@ def main():
 
         results[ticker] = {
             "entity_name": entity_name,
-            "premiums_earned_top3": premiums[:3],
-            "losses_incurred_top3": losses[:3],
-            "ga_expense_top3": ga[:3],
-            "dac_amortization_top3": dac[:3],
+            "premiums_earned_top3": dedupe_for_display(premiums),
+            "losses_incurred_top3": dedupe_for_display(losses),
+            "ga_expense_top3": dedupe_for_display(ga),
+            "dac_amortization_top3": dedupe_for_display(dac),
             "computed": computed,
         }
         print(f"  Combined Ratio: {computed.get('combined_ratio_pct')}")
@@ -172,3 +199,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+            
