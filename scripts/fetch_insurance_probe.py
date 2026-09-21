@@ -23,7 +23,7 @@ UA = {"User-Agent": "TrueValue Francesco truevalue01@gmail.com", "Accept": "appl
 
 # CIK presi dal test FMP di oggi (gia' confermati, stesso ticker)
 INSURERS = {
-    "PGR": {"cik": "0000732717"},
+    "PGR": {"cik": "0000080661"},   # FMP dava 0000732717 (AT&T!) nel campo cik della risposta - verificato da 4+ fonti indipendenti che il vero e' 80661
     "TRV": {"cik": "0000086312"},
     "ALL": {"cik": "0000899051"},
     "CB":  {"cik": "0000896159"},
@@ -37,7 +37,7 @@ KEYWORDS = {
     "dac_amortization": ["deferredpolicyacquisitioncostsamortizationexpense", "amortizationofdeferredpolicyacquisitioncosts"],
 }
 
-NOISE_PATTERNS = ["priorperiod", "cumulative", "discontinued"]
+NOISE_PATTERNS = ["priorperiod", "cumulative", "discontinued", "paymentsfor", "reservefor"]
 
 
 def fetch_companyfacts(cik):
@@ -98,8 +98,37 @@ def main():
         dac = rank_candidates(find_concepts(facts, KEYWORDS["dac_amortization"]))
 
         computed = {}
-        pe = premiums[0] if premiums else None
-        if pe:
+        premiums_candidates = premiums[:6]  # non solo il piu' recente: l'ammortamento DAC
+        # e' taggato solo ANNUALMENTE (Schedule 12-16/12-18) - un trimestre recente
+        # spesso non ha tutti e 4 i pezzi. Cerco il primo periodo (partendo dal piu'
+        # recente) dove premi+sinistri+G&A+DAC coincidono TUTTI, prima di ripiegare
+        # su un calcolo parziale.
+        complete_match = None
+        for pe_candidate in premiums_candidates:
+            target = pe_candidate["end"]
+            l_m, ga_m, dac_m = find_at_date(losses, target), find_at_date(ga, target), find_at_date(dac, target)
+            if l_m and ga_m and dac_m:
+                complete_match = (pe_candidate, l_m, ga_m, dac_m)
+                break
+        if complete_match:
+            pe, l_match, ga_match, dac_match = complete_match
+            numerator = l_match["val"] + ga_match["val"] + dac_match["val"]
+            cr = round(numerator / pe["val"] * 100, 2)
+            computed["combined_ratio_pct"] = cr
+            computed["period"] = pe["end"]
+            computed["numeratore_da"] = [l_match["concept"], ga_match["concept"], dac_match["concept"]]
+            computed["denominatore_da"] = pe["concept"]
+            computed["completo"] = True
+            # Un P&C sano sta storicamente 85-105%, anche un anno pessimo raramente
+            # supera 115-120%. Fuori da 40-130% e' quasi certamente un problema di
+            # metodo (es. G&A e ammortamento DAC che si sovrappongono, non si sommano)
+            # - meglio dirlo chiaro che spacciare il numero per pulito.
+            if not (40 <= cr <= 130):
+                computed["sospetto_metodo"] = ("Fuori dal range plausibile 40-130% — probabile "
+                    "che G&A e ammortamento DAC si sovrappongano parzialmente invece di sommarsi "
+                    "puliti. NON usare questo numero finche' non si verifica il metodo.")
+        elif premiums_candidates:
+            pe = premiums_candidates[0]
             target = pe["end"]
             l_match = find_at_date(losses, target)
             ga_match = find_at_date(ga, target)
@@ -111,9 +140,8 @@ def main():
                 computed["period"] = target
                 computed["numeratore_da"] = [p["concept"] for p in parts_found]
                 computed["denominatore_da"] = pe["concept"]
-                computed["nota"] = ("G&A e/o ammortamento DAC assenti a questa data: rapporto"
-                                     " calcolato solo su sinistri/premi, sottostima il vero Combined Ratio"
-                                     if not (ga_match and dac_match) else None)
+                computed["completo"] = False
+                computed["nota"] = "parziale: nessun periodo con tutti e 4 i pezzi trovato, mostro il piu' recente disponibile (sottostima)"
             else:
                 computed["combined_ratio_pct"] = None
                 computed["nota"] = f"sinistri incorsi assenti al {target} (premi trovati, sinistri no)"
