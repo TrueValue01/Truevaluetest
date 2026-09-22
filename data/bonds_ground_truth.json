@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "scopo": "Ground-truth per obbligazioni, riempito da scripts/fill_borsa_italiana_ground_truth.py tramite le pagine scheda pubbliche di Borsa Italiana (MOT).",
+    "fonte": "https://www.borsaitaliana.it/borsa/obbligazioni/mot/btp/scheda/{ISIN}.html",
+    "cadenza_aggiornamento": "Prezzo/rendimento/duration cambiano ogni giorno — questi campi ha senso richiederli live quando fai un'analisi, non tenerli in cache qui. Cedola/scadenza/emittente/ammontare emesso sono statici: quelli sì che vale la pena tenerli qui, si aggiornano da soli solo se emesso un nuovo bond.",
+    "come_aggiungere_un_bond": "Aggiungi una entry con l'ISIN come chiave e mercato='MOT_BTP' (per i BTP) o 'MOT_OBBLIGAZIONE' (per corporate/altri titoli di stato MOT) — poi lancia il workflow."
+  },
+  "bonds": {
+    "IT0003934657": {
+      "mercato": "MOT_BTP",
+      "denominazione": "Btp-1fb37 4%",
+      "emittente": "REPUBLIC OF ITALY",
+      "scadenza": "01/02/37",
+      "tasso_cedola_periodale_pct": 2.0,
+      "periodicita_cedola": "Semestrale",
+      "ammontare_emesso": 30140758000,
+      "lotto_minimo": 1000,
+      "ultimo_prezzo_ufficiale": null,
+      "rendimento_lordo_pct": null,
+      "rendimento_netto_pct": null,
+      "duration_modificata": null,
+      "last_updated": null,
+      "note": "ESEMPIO reale verificato in sessione (21/09/2026) — non e' un tuo bond, e' qui solo a dimostrazione dello schema. Sostituisci o rimuovi quando aggiungi i tuoi ISIN veri."
+    }
+  }
+}
