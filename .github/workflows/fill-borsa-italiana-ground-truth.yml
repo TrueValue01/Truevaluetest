@@ -1,0 +1,44 @@
+name: Fill Bonds and Certificates Ground Truth
+
+# Trigger manuale — Run workflow dal tab Actions. Scarica le pagine scheda
+# pubbliche di Borsa Italiana per ogni ISIN elencato in data/bonds_ground_truth.json
+# e data/certs_ground_truth.json, riempie solo i campi statici (mai i prezzi
+# di mercato, quelli restano da chiedere live). Non inventa mai un dato.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  fill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installa dipendenze
+        run: pip install requests beautifulsoup4
+
+      - name: Riempi bond e certificati
+        run: python3 scripts/fill_borsa_italiana_ground_truth.py
+
+      - name: Mostra risultato in log
+        run: |
+          echo "=== BONDS ==="
+          cat data/bonds_ground_truth.json
+          echo "=== CERTIFICATI ==="
+          cat data/certs_ground_truth.json
+
+      - name: Commit risultato nel repo
+        run: |
+          git config user.name "borsa-italiana-filler-bot"
+          git config user.email "actions@github.com"
+          git add data/bonds_ground_truth.json data/certs_ground_truth.json
+          git diff --cached --quiet || git commit -m "Fill bonds/certs ground truth da Borsa Italiana"
+          git push
