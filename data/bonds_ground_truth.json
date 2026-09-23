@@ -8,99 +8,195 @@
   "bonds": {
     "IT0003934657": {
       "mercato": "MOT_BTP",
-      "denominazione": null,
-      "emittente": null,
-      "scadenza": null,
-      "tasso_cedola_periodale_pct": null,
-      "periodicita_cedola": null,
-      "ammontare_emesso": null,
-      "lotto_minimo": null,
+      "denominazione": "Btp-1fb37         4%",
+      "emittente": "REPUBLIC OF ITALY",
+      "scadenza": "01/02/37",
+      "tasso_cedola_periodale_pct": 2.0,
+      "periodicita_cedola": "Semestrale",
+      "ammontare_emesso": 30140758000.0,
+      "lotto_minimo": 1000.0,
       "ultimo_prezzo_ufficiale": null,
       "rendimento_lordo_pct": null,
       "rendimento_netto_pct": null,
       "duration_modificata": null,
-      "last_updated": null,
-      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btp-1fb37 4%. Tutti i campi statici sono null apposta: li riempie lo script."
+      "last_updated": "2026-09-23T00:17:30.160984+00:00",
+      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btp-1fb37 4%. Tutti i campi statici sono null apposta: li riempie lo script.",
+      "_fill_log": [
+        {
+          "timestamp": "2026-09-23T00:17:30.160992+00:00",
+          "source": "borsa_italiana_scheda",
+          "campi_riempiti": [
+            "denominazione",
+            "emittente",
+            "scadenza",
+            "periodicita_cedola",
+            "tasso_cedola_periodale_pct",
+            "ammontare_emesso",
+            "lotto_minimo"
+          ],
+          "url": "https://www.borsaitaliana.it/borsa/obbligazioni/mot/btp/scheda/IT0003934657.html"
+        }
+      ]
     },
     "IT0004532559": {
       "mercato": "MOT_BTP",
-      "denominazione": null,
-      "emittente": null,
-      "scadenza": null,
-      "tasso_cedola_periodale_pct": null,
-      "periodicita_cedola": null,
-      "ammontare_emesso": null,
-      "lotto_minimo": null,
+      "denominazione": "Btp-1st40 5%",
+      "emittente": "REPUBLIC OF ITALY",
+      "scadenza": "01/09/40",
+      "tasso_cedola_periodale_pct": 2.5,
+      "periodicita_cedola": "Semestrale",
+      "ammontare_emesso": 23352355000.0,
+      "lotto_minimo": 1000.0,
       "ultimo_prezzo_ufficiale": null,
       "rendimento_lordo_pct": null,
       "rendimento_netto_pct": null,
       "duration_modificata": null,
-      "last_updated": null,
-      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btp-1st40 5%. Tutti i campi statici sono null apposta: li riempie lo script."
+      "last_updated": "2026-09-23T00:17:30.998960+00:00",
+      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btp-1st40 5%. Tutti i campi statici sono null apposta: li riempie lo script.",
+      "_fill_log": [
+        {
+          "timestamp": "2026-09-23T00:17:30.998967+00:00",
+          "source": "borsa_italiana_scheda",
+          "campi_riempiti": [
+            "denominazione",
+            "emittente",
+            "scadenza",
+            "periodicita_cedola",
+            "tasso_cedola_periodale_pct",
+            "ammontare_emesso",
+            "lotto_minimo"
+          ],
+          "url": "https://www.borsaitaliana.it/borsa/obbligazioni/mot/btp/scheda/IT0004532559.html"
+        }
+      ]
     },
     "IT0005402117": {
       "mercato": "MOT_BTP",
-      "denominazione": null,
-      "emittente": null,
-      "scadenza": null,
-      "tasso_cedola_periodale_pct": null,
-      "periodicita_cedola": null,
-      "ammontare_emesso": null,
-      "lotto_minimo": null,
+      "denominazione": "Btp Tf 1,45% Mz36 Eur",
+      "emittente": "REPUBLIC OF ITALY",
+      "scadenza": "01/03/36",
+      "tasso_cedola_periodale_pct": 0.725,
+      "periodicita_cedola": "Semestrale",
+      "ammontare_emesso": 15400000000.0,
+      "lotto_minimo": 1000.0,
       "ultimo_prezzo_ufficiale": null,
       "rendimento_lordo_pct": null,
       "rendimento_netto_pct": null,
       "duration_modificata": null,
-      "last_updated": null,
-      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btp Tf 1,45% Mz36 Eur. Tutti i campi statici sono null apposta: li riempie lo script."
+      "last_updated": "2026-09-23T00:17:32.200382+00:00",
+      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btp Tf 1,45% Mz36 Eur. Tutti i campi statici sono null apposta: li riempie lo script.",
+      "_fill_log": [
+        {
+          "timestamp": "2026-09-23T00:17:32.200388+00:00",
+          "source": "borsa_italiana_scheda",
+          "campi_riempiti": [
+            "denominazione",
+            "emittente",
+            "scadenza",
+            "periodicita_cedola",
+            "tasso_cedola_periodale_pct",
+            "ammontare_emesso",
+            "lotto_minimo"
+          ],
+          "url": "https://www.borsaitaliana.it/borsa/obbligazioni/mot/btp/scheda/IT0005402117.html"
+        }
+      ]
     },
     "IT0005436701": {
       "mercato": "MOT_BTP",
-      "denominazione": null,
-      "emittente": null,
-      "scadenza": null,
-      "tasso_cedola_periodale_pct": null,
-      "periodicita_cedola": null,
-      "ammontare_emesso": null,
-      "lotto_minimo": null,
+      "denominazione": "Btpi Tf 0,15% Mg51 Eur",
+      "emittente": "REPUBLIC OF ITALY",
+      "scadenza": "15/05/51",
+      "tasso_cedola_periodale_pct": 0.075,
+      "periodicita_cedola": "Semestrale",
+      "ammontare_emesso": 6803220000.0,
+      "lotto_minimo": 1000.0,
       "ultimo_prezzo_ufficiale": null,
       "rendimento_lordo_pct": null,
       "rendimento_netto_pct": null,
       "duration_modificata": null,
-      "last_updated": null,
-      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btpi Tf 0,15% Mg51 Eur. Tutti i campi statici sono null apposta: li riempie lo script."
+      "last_updated": "2026-09-23T00:17:32.922063+00:00",
+      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btpi Tf 0,15% Mg51 Eur. Tutti i campi statici sono null apposta: li riempie lo script.",
+      "_fill_log": [
+        {
+          "timestamp": "2026-09-23T00:17:32.922071+00:00",
+          "source": "borsa_italiana_scheda",
+          "campi_riempiti": [
+            "denominazione",
+            "emittente",
+            "scadenza",
+            "periodicita_cedola",
+            "tasso_cedola_periodale_pct",
+            "ammontare_emesso",
+            "lotto_minimo"
+          ],
+          "url": "https://www.borsaitaliana.it/borsa/obbligazioni/mot/btp/scheda/IT0005436701.html"
+        }
+      ]
     },
     "IT0005543803": {
       "mercato": "MOT_BTP",
-      "denominazione": null,
-      "emittente": null,
-      "scadenza": null,
-      "tasso_cedola_periodale_pct": null,
-      "periodicita_cedola": null,
-      "ammontare_emesso": null,
-      "lotto_minimo": null,
+      "denominazione": "Btpi Tf 1.5% Mg29 Eur",
+      "emittente": "REPUBLIC OF ITALY",
+      "scadenza": "15/05/29",
+      "tasso_cedola_periodale_pct": 0.75,
+      "periodicita_cedola": "Semestrale",
+      "ammontare_emesso": 18074787000.0,
+      "lotto_minimo": 1000.0,
       "ultimo_prezzo_ufficiale": null,
       "rendimento_lordo_pct": null,
       "rendimento_netto_pct": null,
       "duration_modificata": null,
-      "last_updated": null,
-      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btpi Tf 1.5% Mg29 Eur. Tutti i campi statici sono null apposta: li riempie lo script."
+      "last_updated": "2026-09-23T00:17:34.115805+00:00",
+      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btpi Tf 1.5% Mg29 Eur. Tutti i campi statici sono null apposta: li riempie lo script.",
+      "_fill_log": [
+        {
+          "timestamp": "2026-09-23T00:17:34.115812+00:00",
+          "source": "borsa_italiana_scheda",
+          "campi_riempiti": [
+            "denominazione",
+            "emittente",
+            "scadenza",
+            "periodicita_cedola",
+            "tasso_cedola_periodale_pct",
+            "ammontare_emesso",
+            "lotto_minimo"
+          ],
+          "url": "https://www.borsaitaliana.it/borsa/obbligazioni/mot/btp/scheda/IT0005543803.html"
+        }
+      ]
     },
     "IT0005246134": {
       "mercato": "MOT_BTP",
-      "denominazione": null,
-      "emittente": null,
-      "scadenza": null,
-      "tasso_cedola_periodale_pct": null,
-      "periodicita_cedola": null,
-      "ammontare_emesso": null,
-      "lotto_minimo": null,
+      "denominazione": "Btpi Tf 1,30% Mg28 Eur",
+      "emittente": "REPUBLIC OF ITALY",
+      "scadenza": "15/05/28",
+      "tasso_cedola_periodale_pct": 0.65,
+      "periodicita_cedola": "Semestrale",
+      "ammontare_emesso": 15872531000.0,
+      "lotto_minimo": 1000.0,
       "ultimo_prezzo_ufficiale": null,
       "rendimento_lordo_pct": null,
       "rendimento_netto_pct": null,
       "duration_modificata": null,
-      "last_updated": null,
-      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btpi Tf 1,30% Mg28 Eur. Tutti i campi statici sono null apposta: li riempie lo script."
+      "last_updated": "2026-09-23T00:17:35.084066+00:00",
+      "note": "ISIN verificato reale (ricerca 22/09/2026) — Btpi Tf 1,30% Mg28 Eur. Tutti i campi statici sono null apposta: li riempie lo script.",
+      "_fill_log": [
+        {
+          "timestamp": "2026-09-23T00:17:35.084073+00:00",
+          "source": "borsa_italiana_scheda",
+          "campi_riempiti": [
+            "denominazione",
+            "emittente",
+            "scadenza",
+            "periodicita_cedola",
+            "tasso_cedola_periodale_pct",
+            "ammontare_emesso",
+            "lotto_minimo"
+          ],
+          "url": "https://www.borsaitaliana.it/borsa/obbligazioni/mot/btp/scheda/IT0005246134.html"
+        }
+      ]
     }
   }
 }

@@ -8,34 +8,69 @@
   },
   "certificati": {
     "XS2675108570": {
-      "nome_commerciale": null,
-      "categoria": null,
-      "emittente": null,
-      "sottostante": null,
-      "barriera_capitale_pct": null,
-      "strike": null,
-      "scadenza": null,
-      "lotto_minimo": null,
-      "kid_url": null,
+      "nome_commerciale": "BONUS CAP",
+      "categoria": "Bonus Cap",
+      "emittente": "Intesa Sanpaolo S.p.A.",
+      "sottostante": "SIEMENS AG",
+      "barriera_capitale_pct": 55.0,
+      "strike": 134.596,
+      "scadenza": "29/09/27",
+      "lotto_minimo": 1.0,
+      "kid_url": "Visualizza su sito emittente",
       "ultimo_prezzo_riferimento": null,
       "valore_sottostante_ultimo": null,
-      "last_updated": null,
-      "note": "Bonus Cap Intesa Sanpaolo su Siemens — gia' verificato funzionante in sessione, azzerato per ri-testare il fill da zero."
+      "last_updated": "2026-09-23T00:17:36.190467+00:00",
+      "note": "Bonus Cap Intesa Sanpaolo su Siemens — gia' verificato funzionante in sessione, azzerato per ri-testare il fill da zero.",
+      "_fill_log": [
+        {
+          "timestamp": "2026-09-23T00:17:36.190473+00:00",
+          "source": "borsa_italiana_scheda",
+          "campi_riempiti": [
+            "nome_commerciale",
+            "categoria",
+            "emittente",
+            "sottostante",
+            "scadenza",
+            "barriera_capitale_pct",
+            "strike",
+            "lotto_minimo",
+            "kid_url"
+          ],
+          "url": "https://www.borsaitaliana.it/borsa/cw-e-certificates/scheda/XS2675108570-SEDX.html"
+        }
+      ]
     },
     "DE000UQ3XQ66": {
-      "nome_commerciale": null,
-      "categoria": null,
-      "emittente": null,
-      "sottostante": null,
-      "barriera_capitale_pct": null,
+      "nome_commerciale": "WORST-OF EXPRESS CERTIFICATE WITH MEMORY COUPON MAXI COUPON",
+      "categoria": "Express",
+      "emittente": "UBS AG",
+      "sottostante": "BMPS/LDO/ENI/STMM",
+      "barriera_capitale_pct": 50.0,
       "strike": null,
-      "scadenza": null,
-      "lotto_minimo": null,
-      "kid_url": null,
+      "scadenza": "16/10/28",
+      "lotto_minimo": 1.0,
+      "kid_url": "Visualizza su sito emittente",
       "ultimo_prezzo_riferimento": null,
       "valore_sottostante_ultimo": null,
-      "last_updated": null,
-      "note": "ISIN verificato reale (ricerca 22/09/2026) — UBS Express Certificate su Banca MPS/Eni/Leonardo/STM, scadenza 09/10/28. Non ancora testato live sul pattern SEDX di Borsa Italiana."
+      "last_updated": "2026-09-23T00:17:36.819663+00:00",
+      "note": "ISIN verificato reale (ricerca 22/09/2026) — UBS Express Certificate su Banca MPS/Eni/Leonardo/STM, scadenza 09/10/28. Non ancora testato live sul pattern SEDX di Borsa Italiana.",
+      "_fill_log": [
+        {
+          "timestamp": "2026-09-23T00:17:36.819669+00:00",
+          "source": "borsa_italiana_scheda",
+          "campi_riempiti": [
+            "nome_commerciale",
+            "categoria",
+            "emittente",
+            "sottostante",
+            "scadenza",
+            "barriera_capitale_pct",
+            "lotto_minimo",
+            "kid_url"
+          ],
+          "url": "https://www.borsaitaliana.it/borsa/cw-e-certificates/scheda/DE000UQ3XQ66-SEDX.html"
+        }
+      ]
     }
   }
 }
