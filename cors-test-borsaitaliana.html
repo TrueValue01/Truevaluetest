@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test CORS — Borsa Italiana</title>
+<style>
+  body { font-family: -apple-system, sans-serif; padding: 16px; background: #0f172a; color: #e2e8f0; }
+  button { background: #f97316; color: white; border: none; padding: 14px 20px; border-radius: 8px; font-size: 16px; width: 100%; margin: 8px 0; }
+  pre { background: #1e293b; padding: 12px; border-radius: 8px; overflow-x: auto; white-space: pre-wrap; word-break: break-word; font-size: 13px; }
+  .ok { color: #4ade80; font-weight: bold; }
+  .fail { color: #f87171; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h2>Test CORS — Borsa Italiana</h2>
+<p>Prova se il browser può chiamare direttamente le pagine "scheda" di Borsa Italiana (stesso meccanismo che userebbe il motore). Deve girare da GitHub Pages (https), non da file locale.</p>
+
+<button onclick="testUrl('bond')">Test 1: pagina BOND (MOT)</button>
+<button onclick="testUrl('cert')">Test 2: pagina CERTIFICATO (SeDeX)</button>
+
+<pre id="output">Premi un bottone per iniziare.</pre>
+
+<script>
+const urls = {
+  bond: "https://www.borsaitaliana.it/borsa/obbligazioni/mot/btp/scheda/IT0003934657.html",
+  cert: "https://www.borsaitaliana.it/borsa/cw-e-certificates/scheda/XS2675108570-SEDX.html"
+};
+
+async function testUrl(tipo) {
+  const out = document.getElementById("output");
+  out.textContent = "Chiamata in corso verso:\n" + urls[tipo] + "\n\n...";
+
+  try {
+    const resp = await fetch(urls[tipo]);
+    const text = await resp.text();
+    out.innerHTML =
+      '<span class="ok">✅ CORS APERTO — la chiamata diretta funziona</span>\n\n' +
+      "HTTP status: " + resp.status + "\n" +
+      "Lunghezza risposta: " + text.length + " caratteri\n\n" +
+      "Contiene 'Codice Isin'? " + (text.includes("Codice Isin") ? "SI'" : "NO") + "\n\n" +
+      "Primi 300 caratteri:\n" + text.substring(0, 300);
+  } catch (err) {
+    out.innerHTML =
+      '<span class="fail">❌ BLOCCATO — probabile CORS</span>\n\n' +
+      "Errore: " + err.message + "\n\n" +
+      "Questo è l'esito atteso se Borsa Italiana blocca le chiamate dirette dal browser. " +
+      "Significa che serve un Worker/proxy intermedio per bond e certificati.";
+  }
+}
+</script>
+
+</body>
+</html>
