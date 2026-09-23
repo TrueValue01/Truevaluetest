@@ -62,6 +62,12 @@ def extract_label_value_pairs(html):
             value = cells[1].get_text(strip=True)
             if label and value:
                 pairs[label] = value
+                # Se la cella valore contiene un link (es. "KID"), salvo
+                # anche l'URL vero sotto '<Etichetta>_href' — il testo
+                # visibile ("Visualizza su sito emittente") non e' usabile.
+                link = cells[1].find("a", href=True)
+                if link:
+                    pairs[f"{label}_href"] = link["href"]
 
     return pairs
 
@@ -116,4 +122,3 @@ def parse_numero_italiano(testo):
         return float(pulito)
     except ValueError:
         return None
-      
