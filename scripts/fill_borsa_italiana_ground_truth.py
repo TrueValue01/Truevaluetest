@@ -96,9 +96,14 @@ def fill_entry(isin, entry, mercato, field_map, numeric_field_map):
                 entry[json_key] = val
                 filled.append(json_key)
 
-    # Bonus scoperto per i certificati: link KID diretto, se presente
-    if "kid_url" in entry and entry.get("kid_url") is None:
-        kid_link = dati.get("KID")
+    # Bonus scoperto per i certificati: link KID diretto, se presente.
+    # Riempio se vuoto, OPPURE se contiene ancora il testo del link (bug
+    # di una versione precedente dello script) invece dell'URL vero —
+    # cosi' chi ha gia' girato il fill prima di questo fix si autocorregge
+    # al prossimo run, senza dover intervenire a mano sul JSON.
+    valore_placeholder_bug_precedente = "Visualizza su sito emittente"
+    if "kid_url" in entry and entry.get("kid_url") in (None, valore_placeholder_bug_precedente):
+        kid_link = dati.get("KID_href")
         if kid_link:
             entry["kid_url"] = kid_link  # nota: qui arriva solo il testo del link, non l'href reale
             filled.append("kid_url")
@@ -138,3 +143,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
