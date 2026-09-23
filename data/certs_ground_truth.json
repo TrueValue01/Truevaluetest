@@ -2,25 +2,40 @@
   "_meta": {
     "scopo": "Ground-truth per certificati, riempito da scripts/fill_borsa_italiana_ground_truth.py tramite le pagine scheda pubbliche di Borsa Italiana (SeDeX).",
     "fonte": "https://www.borsaitaliana.it/borsa/cw-e-certificates/scheda/{ISIN}-SEDX.html",
-    "bonus_scoperto_in_sessione": "La pagina certificato ha anche un link diretto al KID sul sito dell'emittente (campo 'kid_url') — utile per leggere le condizioni contrattuali complete senza cercarle a mano.",
+    "bonus_scoperto_in_sessione": "La pagina certificato ha anche un link diretto al KID sul sito dell'emittente (campo 'kid_url').",
     "cadenza_aggiornamento": "Prezzo e valore/distanza dalla barriera cambiano ogni giorno — meglio richiederli live. Barriera, scadenza, sottostante, strike, emittente sono fissati all'emissione: quelli sì restano qui stabili.",
     "come_aggiungere_un_certificato": "Aggiungi una entry con l'ISIN come chiave, poi lancia il workflow."
   },
   "certificati": {
     "XS2675108570": {
-      "nome_commerciale": "BONUS CAP",
-      "categoria": "Bonus Cap",
-      "emittente": "Intesa Sanpaolo S.p.A.",
-      "sottostante": "SIEMENS AG",
-      "barriera_capitale_pct": 55.0,
-      "strike": 134.596,
-      "scadenza": "29/09/27",
-      "lotto_minimo": 1.0,
-      "kid_url": "https://www.intesasanpaolo.prodottiequotazioni.com/Prodotti-e-Quotazioni/Pagina-di-dettaglio/XS2675108570",
+      "nome_commerciale": null,
+      "categoria": null,
+      "emittente": null,
+      "sottostante": null,
+      "barriera_capitale_pct": null,
+      "strike": null,
+      "scadenza": null,
+      "lotto_minimo": null,
+      "kid_url": null,
       "ultimo_prezzo_riferimento": null,
       "valore_sottostante_ultimo": null,
       "last_updated": null,
-      "note": "ESEMPIO reale verificato in sessione (21/09/2026) — non e' un tuo certificato, e' qui solo a dimostrazione dello schema. Sostituisci o rimuovi quando aggiungi i tuoi ISIN veri."
+      "note": "Bonus Cap Intesa Sanpaolo su Siemens — gia' verificato funzionante in sessione, azzerato per ri-testare il fill da zero."
+    },
+    "DE000UQ3XQ66": {
+      "nome_commerciale": null,
+      "categoria": null,
+      "emittente": null,
+      "sottostante": null,
+      "barriera_capitale_pct": null,
+      "strike": null,
+      "scadenza": null,
+      "lotto_minimo": null,
+      "kid_url": null,
+      "ultimo_prezzo_riferimento": null,
+      "valore_sottostante_ultimo": null,
+      "last_updated": null,
+      "note": "ISIN verificato reale (ricerca 22/09/2026) — UBS Express Certificate su Banca MPS/Eni/Leonardo/STM, scadenza 09/10/28. Non ancora testato live sul pattern SEDX di Borsa Italiana."
     }
   }
 }
