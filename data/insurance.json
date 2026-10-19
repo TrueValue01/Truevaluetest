@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-10-19T08:17:04.431248+00:00",
+  "note": "Combined Ratio calcolato da SEC XBRL (premi netti/sinistri/G&A/DAC allineati per data). combined_ratio_pct resta null se il calcolo non e' completo o fuori range plausibile — mai un numero parziale o sospetto scritto come buono.",
+  "insurance": {
+    "PGR": {
+      "ticker": "PGR",
+      "entity_name": "PROGRESSIVE CORP/OH/",
+      "combined_ratio_pct": null,
+      "period": "2026-06-30",
+      "completo": false,
+      "plausibile": null,
+      "nota": "parziale: nessun periodo con tutti e 4 i pezzi — non scritto, serve verifica manuale"
+    },
+    "TRV": {
+      "ticker": "TRV",
+      "entity_name": "Travelers Companies, Inc.",
+      "combined_ratio_pct": 92.47,
+      "period": "2025-12-31",
+      "completo": true,
+      "plausibile": true,
+      "nota": null
+    },
+    "ALL": {
+      "ticker": "ALL",
+      "entity_name": "ALLSTATE CORP",
+      "combined_ratio_pct": null,
+      "completo": false,
+      "nota": "sinistri incorsi assenti al 2025-12-31"
+    },
+    "CB": {
+      "ticker": "CB",
+      "entity_name": "CHUBB LIMITED",
+      "combined_ratio_pct": 75.17,
+      "period": "2025-12-31",
+      "completo": true,
+      "plausibile": true,
+      "nota": null
+    },
+    "AIG": {
+      "ticker": "AIG",
+      "entity_name": "AMERICAN INTERNATIONAL GROUP, INC.",
+      "combined_ratio_pct": 95.09,
+      "period": "2025-12-31",
+      "completo": true,
+      "plausibile": true,
+      "nota": null
+    }
+  }
+}
