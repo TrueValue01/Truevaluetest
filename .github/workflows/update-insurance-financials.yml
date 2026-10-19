@@ -1,0 +1,38 @@
+name: Aggiorna dati assicurazioni (SEC XBRL)
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Mensile, giorno 20 — la trimestrale di un'assicurazione tracciata
+    # puo' uscire in momenti diversi (non tutte riportano lo stesso
+    # giorno), un fetch mensile intercetta l'aggiornamento nuovo entro
+    # poche settimane dalla pubblicazione senza doverne seguire 5 calendari
+    # separati. Idempotente: se il dato XBRL non e' cambiato, nessun commit.
+    - cron: '0 8 20 * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installa dipendenze
+        run: pip install requests
+
+      - name: Esegui il fetch
+        run: python3 scripts/fetch_insurance_financials.py
+
+      - name: Commit del dato (solo se cambiato)
+        run: |
+          git config user.name "insurance-update-bot"
+          git config user.email "actions@github.com"
+          git add data/insurance.json
+          git diff --staged --quiet || git commit -m "Aggiornamento automatico Combined Ratio assicurazioni"
+          git push

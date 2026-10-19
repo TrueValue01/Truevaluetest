@@ -1,0 +1,40 @@
+name: Aggiorna dati banche (BankRegReports)
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Stessa cadenza gia' scelta per update-cet1.yml (15 di gen/apr/lug/ott,
+    # ~2 settimane dopo fine trimestre) — non ho elementi per dire che un
+    # altro offset sia piu' corretto, mantengo quella gia' in uso. Questo
+    # workflow sostituisce update-cet1.yml come fonte per l'app (vedi nota
+    # in fondo al file).
+    - cron: '0 8 15 1,4,7,10 *'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installa dipendenze
+        run: pip install requests
+
+      - name: Esegui il fetch
+        env:
+          BRR_API_KEY: ${{ secrets.BRR_API_KEY }}
+        run: python3 scripts/fetch_bank_financials.py
+
+      - name: Commit del dato (solo se cambiato)
+        run: |
+          git config user.name "banks-update-bot"
+          git config user.email "actions@github.com"
+          git add data/banks.json
+          git diff --staged --quiet || git commit -m "Aggiornamento automatico dati banche"
+          git push
