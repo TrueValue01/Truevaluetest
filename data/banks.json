@@ -1,0 +1,231 @@
+{
+  "generated_at": "2026-10-19T08:20:28.798318+00:00",
+  "note": "CET1 a livello di banca sussidiaria (FFIEC Call Report), non holding company quotata — puo' differire leggermente dal dato 'headline' nei comunicati stampa. Crescita prestiti (lgr) a livello holding, unico dove disponibile nell'API.",
+  "banks": {
+    "JPM": {
+      "ticker": "JPM",
+      "rssd": 852218,
+      "cet1": 15.0271,
+      "npl": 0.7792763,
+      "texas": 3.7240973,
+      "ci": 53.89455,
+      "cov": 213.181,
+      "lgr": 14.359166,
+      "report_date": "2026-06-30",
+      "holding_rssd": 1039502,
+      "fdic_cert_check": 628,
+      "legal_name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+      "errors": []
+    },
+    "BAC": {
+      "ticker": "BAC",
+      "rssd": 480228,
+      "cet1": 12.0967,
+      "npl": 0.6482122,
+      "texas": 3.9555478,
+      "ci": 53.64935,
+      "cov": 166.8025,
+      "lgr": null,
+      "report_date": "2026-06-30",
+      "holding_rssd": 1379552,
+      "fdic_cert_check": 3510,
+      "legal_name": "BANK OF AMERICA, NATIONAL ASSOCIATION",
+      "errors": [
+        {
+          "step": "holding_snapshot",
+          "status": 404,
+          "error": null
+        }
+      ]
+    },
+    "C": {
+      "ticker": "C",
+      "rssd": 476810,
+      "cet1": 13.7904,
+      "npl": 0.657853,
+      "texas": 2.7652864,
+      "ci": 51.76149,
+      "cov": 354.6075,
+      "lgr": null,
+      "report_date": "2026-06-30",
+      "holding_rssd": 3375370,
+      "fdic_cert_check": 7213,
+      "legal_name": "CITIBANK, N.A.",
+      "errors": [
+        {
+          "step": "holding_snapshot",
+          "status": 404,
+          "error": null
+        }
+      ]
+    },
+    "WFC": {
+      "ticker": "WFC",
+      "rssd": 451965,
+      "cet1": 12.0625,
+      "npl": 1.0422033,
+      "texas": 5.659497,
+      "ci": 52.72597,
+      "cov": 133.7629,
+      "lgr": null,
+      "report_date": "2026-06-30",
+      "holding_rssd": 2741679,
+      "fdic_cert_check": 3511,
+      "legal_name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+      "errors": [
+        {
+          "step": "holding_snapshot",
+          "status": 404,
+          "error": null
+        }
+      ]
+    },
+    "USB": {
+      "ticker": "USB",
+      "rssd": 504713,
+      "cet1": 12.9063,
+      "npl": 1.4475244,
+      "texas": 3.198353,
+      "ci": 53.622467,
+      "cov": 127.7798,
+      "lgr": 10.542208,
+      "report_date": "2026-06-30",
+      "holding_rssd": 1119794,
+      "fdic_cert_check": 6548,
+      "legal_name": "U.S. BANK NATIONAL ASSOCIATION",
+      "errors": []
+    },
+    "PNC": {
+      "ticker": "PNC",
+      "rssd": 817824,
+      "cet1": 11.195,
+      "npl": 0.74326044,
+      "texas": 4.7212467,
+      "ci": 60.777832,
+      "cov": 169.3849,
+      "lgr": null,
+      "report_date": "2026-06-30",
+      "holding_rssd": 1469314,
+      "fdic_cert_check": 6384,
+      "legal_name": "PNC BANK, NATIONAL ASSOCIATION",
+      "errors": [
+        {
+          "step": "holding_snapshot",
+          "status": 404,
+          "error": null
+        }
+      ]
+    },
+    "TFC": {
+      "ticker": "TFC",
+      "rssd": 852320,
+      "cet1": 12.1074,
+      "npl": 0.7198425,
+      "texas": 3.6530685,
+      "ci": 53.712025,
+      "cov": 208.3647,
+      "lgr": 1.0391899,
+      "report_date": "2026-06-30",
+      "holding_rssd": 1074156,
+      "fdic_cert_check": 9846,
+      "legal_name": "TRUIST BANK",
+      "errors": []
+    },
+    "FITB": {
+      "ticker": "FITB",
+      "rssd": 723112,
+      "cet1": 11.7004,
+      "npl": 0.8400504,
+      "texas": 4.179966,
+      "ci": 59.60402,
+      "cov": 193.6297,
+      "lgr": null,
+      "report_date": "2026-06-30",
+      "holding_rssd": 2990244,
+      "fdic_cert_check": 6672,
+      "legal_name": "FIFTH THIRD BANK, NATIONAL ASSOCIATION",
+      "errors": [
+        {
+          "step": "holding_snapshot",
+          "status": 404,
+          "error": null
+        }
+      ]
+    },
+    "HBAN": {
+      "ticker": "HBAN",
+      "rssd": 12311,
+      "cet1": 11.8181,
+      "npl": 1.0600107,
+      "texas": 5.161246,
+      "ci": 57.78959,
+      "cov": 160.2973,
+      "lgr": 2.9840662,
+      "report_date": "2026-06-30",
+      "holding_rssd": 1068191,
+      "fdic_cert_check": 6560,
+      "legal_name": "HUNTINGTON NATIONAL BANK, THE",
+      "errors": []
+    },
+    "CFG": {
+      "ticker": "CFG",
+      "rssd": 3303298,
+      "cet1": 11.9179,
+      "npl": 1.3575159,
+      "texas": 7.1121,
+      "ci": 59.245434,
+      "cov": 97.1864,
+      "lgr": 10.231814,
+      "report_date": "2026-06-30",
+      "holding_rssd": 1132449,
+      "fdic_cert_check": 57957,
+      "legal_name": "CITIZENS BANK, NATIONAL ASSOCIATION",
+      "errors": []
+    },
+    "MTB": {
+      "ticker": "MTB",
+      "rssd": 501105,
+      "cet1": 11.8115,
+      "npl": 1.351059,
+      "texas": 5.3239255,
+      "ci": 50.647503,
+      "cov": 112.345,
+      "lgr": 9.345434,
+      "report_date": "2026-06-30",
+      "holding_rssd": 1037003,
+      "fdic_cert_check": 588,
+      "legal_name": "MANUFACTURERS AND TRADERS TRUST COMPANY",
+      "errors": []
+    },
+    "KEY": {
+      "ticker": "KEY",
+      "rssd": 280110,
+      "cet1": 12.2702,
+      "npl": 0.85656434,
+      "texas": 5.087809,
+      "ci": 54.732914,
+      "cov": 151.88,
+      "lgr": 5.620497,
+      "report_date": "2026-06-30",
+      "holding_rssd": 1068025,
+      "fdic_cert_check": 17534,
+      "legal_name": "KEYBANK NATIONAL ASSOCIATION",
+      "errors": []
+    },
+    "RF": {
+      "ticker": "RF",
+      "rssd": 233031,
+      "cet1": 11.5802,
+      "npl": 0.9289415,
+      "texas": 5.582576,
+      "ci": 55.77083,
+      "cov": 160.6257,
+      "lgr": 5.72869,
+      "report_date": "2026-06-30",
+      "holding_rssd": 3242838,
+      "fdic_cert_check": 12368,
+      "legal_name": "REGIONS BANK",
+      "errors": []
+    }
+  }
+}
