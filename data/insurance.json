@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T08:17:04.431248+00:00",
+  "generated_at": "2026-10-20T13:30:32.760884+00:00",
   "note": "Combined Ratio calcolato da SEC XBRL (premi netti/sinistri/G&A/DAC allineati per data). combined_ratio_pct resta null se il calcolo non e' completo o fuori range plausibile — mai un numero parziale o sospetto scritto come buono.",
   "insurance": {
     "PGR": {
